@@ -1,0 +1,37 @@
+Please integrate the SignSuiteIQ app-switcher widget into our app. It adds a Google-style grid icon (top-right corner) that lets a signed-in user jump to any other SignSuite product they have access to, without re-logging in.
+
+Step 1 — Get a widget token from SignSuiteIQ during our existing SSO callback.
+We already call POST https://signsuiteiq.ai/api/sso/exchange with the SSO code to log the user in. That response now includes two extra fields:
+
+{
+  "user": { ... },
+  "widgetToken": "eyJ...",
+  "widgetTokenExpiresIn": 86400
+}
+
+Capture widgetToken and pass it down to the page (e.g. embed it in the rendered HTML, expose it on the authenticated user object, or stash it in a secure cookie / session — whatever matches our auth pattern). The token is valid for 24 hours; refresh it by calling /api/sso/exchange again on the next login (or sooner if you want).
+
+Step 2 — Drop this script tag into the authenticated layout (base template, app shell, dashboard layout — wherever the signed-in chrome lives). Render it only when the user is logged in, and inject the token from Step 1:
+
+<script
+  src="https://signsuiteiq.ai/widget/app-switcher.js"
+  data-api-base="https://signsuiteiq.ai"
+  data-token="WIDGET_TOKEN_FROM_SSO_EXCHANGE"
+  data-position="top-right"
+  defer
+></script>
+
+Replace WIDGET_TOKEN_FROM_SSO_EXCHANGE with the actual widgetToken value from Step 1.
+
+Optional attributes:
+
+data-position — top-right (default), top-left, bottom-right, bottom-left
+data-portal-url — link shown in the widget's footer (defaults to the SignSuiteIQ portal)
+Notes:
+
+The widget is fully style-isolated (Shadow DOM) — it won't conflict with our CSS.
+It calls SignSuiteIQ APIs directly using the token; we don't need to proxy anything.
+If the token expires, the widget will show a "session expired" message — just re-issue a fresh token on the next page load.
+You can test it without wiring up SSO by visiting https://signsuiteiq.ai/widget/demo.html and pasting a token.
+Full developer docs: https://signsuiteiq.ai/docs/app-switcher
+Please confirm once it's live so we can verify cross-app launches from SignSuiteIQ.

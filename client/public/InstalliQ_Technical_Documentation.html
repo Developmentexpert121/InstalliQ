@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InstalliQ.ai - Technical Documentation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #f8f9fc; line-height: 1.7; }
+  .doc-container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+  .cover { text-align: center; padding: 60px 20px 50px; margin-bottom: 40px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; color: #fff; }
+  .cover h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .cover .subtitle { font-size: 1.1rem; color: #94a3b8; margin-bottom: 20px; }
+  .cover .meta { font-size: 0.85rem; color: #64748b; }
+  .cover .badge { display: inline-block; background: #f97316; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.5px; }
+  h2 { font-size: 1.5rem; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; color: #0f172a; }
+  h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 10px; color: #1e293b; }
+  h4 { font-size: 0.95rem; font-weight: 600; margin: 20px 0 8px; color: #334155; }
+  p, li { font-size: 0.92rem; color: #334155; }
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 20px; }
+  li { margin-bottom: 6px; }
+  code { font-family: 'Fira Code', monospace; background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.82rem; color: #7c3aed; }
+  .code-block { background: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 10px; margin: 12px 0 20px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 0.8rem; line-height: 1.6; }
+  .section-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px; margin: 16px 0; }
+  .tag { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; margin: 2px 3px; }
+  .tag.green { background: #dcfce7; color: #16a34a; }
+  .tag.orange { background: #fff7ed; color: #ea580c; }
+  .tag.purple { background: #f3e8ff; color: #7c3aed; }
+  .tag.red { background: #fee2e2; color: #dc2626; }
+  .tag.gray { background: #f1f5f9; color: #475569; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 10px 14px; border: 1px solid #e2e8f0; }
+  th { background: #f1f5f9; font-weight: 600; color: #1e293b; }
+  td { color: #334155; }
+  .toc { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; }
+  .toc h3 { margin-top: 0; }
+  .toc ol { margin-left: 16px; }
+  .toc li { margin-bottom: 4px; }
+  .toc a { color: #2563eb; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .print-btn { position: fixed; bottom: 24px; right: 24px; background: #0f172a; color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 0.9rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; }
+  .print-btn:hover { background: #1e293b; }
+  @media print {
+    .print-btn { display: none; }
+    body { background: #fff; }
+    .cover { break-after: page; }
+    h2 { break-before: page; }
+    .section-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Download as PDF</button>
+
+<div class="doc-container">
+
+<div class="cover">
+  <div class="badge">TECHNICAL DOCUMENTATION</div>
+  <h1>InstalliQ.ai</h1>
+  <p class="subtitle">AI-Powered Field Proof &amp; Installation Management Platform</p>
+  <p class="meta">Built for FASTSIGNS of Waltham</p>
+  <p class="meta" style="margin-top:8px;">Document Version: 1.0 &mdash; February 2026</p>
+</div>
+
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#overview">Project Overview</a></li>
+    <li><a href="#scope">Project Scope</a></li>
+    <li><a href="#stack">Technology Stack</a></li>
+    <li><a href="#architecture">System Architecture</a></li>
+    <li><a href="#database">Database Schema</a></li>
+    <li><a href="#auth">Authentication &amp; Security</a></li>
+    <li><a href="#roles">Role-Based Access Control</a></li>
+    <li><a href="#features">Core Features &amp; Solutions</a></li>
+    <li><a href="#ai">AI Integration</a></li>
+    <li><a href="#api">API Reference</a></li>
+    <li><a href="#pages">Frontend Pages</a></li>
+    <li><a href="#integrations">External Integrations</a></li>
+    <li><a href="#deployment">Deployment &amp; Infrastructure</a></li>
+  </ol>
+</div>
+
+<!-- 1. PROJECT OVERVIEW -->
+<h2 id="overview">1. Project Overview</h2>
+<div class="section-card">
+  <p><strong>InstalliQ.ai</strong> (formerly Field Proof) is a full-stack, mobile-responsive web application designed exclusively for <strong>FASTSIGNS of Waltham</strong>. It serves as a comprehensive signage installation project management platform that enables field installers and administrators to:</p>
+  <ul>
+    <li>Upload and manage installation photos with AI-powered auto-tagging</li>
+    <li>Schedule and track installation jobs via an interactive calendar</li>
+    <li>Process work order PDFs using AI (GPT-4o Vision) for automated data extraction</li>
+    <li>Send customer email notifications for booking confirmations and updates</li>
+    <li>Generate PDF reports and export project data</li>
+    <li>Manage users with a three-tier role hierarchy and complete data isolation</li>
+    <li>Track job timers and installation progress in real time</li>
+  </ul>
+  <p>The platform streamlines operations, improves project tracking, and enhances communication within the FASTSIGNS organization.</p>
+</div>
+
+<!-- 2. PROJECT SCOPE -->
+<h2 id="scope">2. Project Scope</h2>
+
+<h3>2.1 Business Problem</h3>
+<p>FASTSIGNS of Waltham needed a centralized system to manage signage installation projects, track field operations, schedule installations, and communicate with customers &mdash; replacing fragmented manual processes with an intelligent, AI-assisted platform.</p>
+
+<h3>2.2 Scope of Work</h3>
+<div class="section-card">
+  <h4>User Management</h4>
+  <ul>
+    <li>Three-tier role hierarchy: Super Admin, Admin (franchise locations), and User (field installers)</li>
+    <li>Admins isolated to see only users they created; Super Admin has global oversight</li>
+    <li>Soft-delete with archive/restore functionality</li>
+    <li>Password management: temporary passwords, reset flows, and enforced complexity rules</li>
+  </ul>
+
+  <h4>Authentication &amp; Security</h4>
+  <ul>
+    <li>Email/phone-based login with bcrypt password hashing</li>
+    <li>Optional Face Recognition login via face-api.js (TensorFlow.js)</li>
+    <li>Two-Factor Authentication (2FA) via Google Authenticator (TOTP)</li>
+    <li>Session-based auth with secure cookies</li>
+  </ul>
+
+  <h4>Project Management</h4>
+  <ul>
+    <li>Photo upload, viewing, and inline editing from the project detail page</li>
+    <li>AI-powered image analysis for automatic signage tagging</li>
+    <li>Issue reporting and tracking per project</li>
+    <li>PDF report generation and email sharing</li>
+    <li>Bulk export of project images as ZIP files</li>
+  </ul>
+
+  <h4>Installation Calendar</h4>
+  <ul>
+    <li>Day, week, and month views with drag-based navigation</li>
+    <li>AI-powered auto-fill from uploaded work order PDFs/images</li>
+    <li>Multi-user assignment per event</li>
+    <li>Status workflow: Scheduled, Confirmed, Reschedule, Issue, Completed</li>
+    <li>Customer email notifications with confirmation/reschedule links</li>
+    <li>Weather forecasting integration per job location</li>
+    <li>Export bookings as CSV filtered by status categories</li>
+  </ul>
+
+  <h4>AI Integration</h4>
+  <ul>
+    <li>Per-admin personalized OpenAI Assistants with customizable instructions</li>
+    <li>Knowledge file uploads (pricing sheets, catalogs) via vector stores</li>
+    <li>AI-driven install time estimation and scheduling suggestions</li>
+    <li>Work order PDF data extraction using GPT-4o Vision</li>
+  </ul>
+
+  <h4>Onboarding</h4>
+  <ul>
+    <li>Multi-step onboarding form (5 sections) required before app access</li>
+    <li>Captures business info, team details, capabilities, product lists, and install standards</li>
+    <li>Auto-creates personalized AI Assistant on completion</li>
+  </ul>
+</div>
+
+<!-- 3. TECHNOLOGY STACK -->
+<h2 id="stack">3. Technology Stack</h2>
+
+<h3>3.1 Frontend</h3>
+<div class="section-card">
+  <table>
+    <tr><th>Technology</th><th>Purpose</th></tr>
+    <tr><td><span class="tag">React 18</span></td><td>UI library with TypeScript</td></tr>
+    <tr><td><span class="tag">Vite</span></td><td>Build tool and dev server</td></tr>
+    <tr><td><span class="tag">Wouter</span></td><td>Lightweight client-side routing</td></tr>
+    <tr><td><span class="tag">TanStack React Query v5</span></td><td>Server state management, caching, and mutations</td></tr>
+    <tr><td><span class="tag">Shadcn/ui + Radix UI</span></td><td>Accessible component primitives (Dialogs, Popovers, Selects, etc.)</td></tr>
+    <tr><td><span class="tag">Tailwind CSS</span></td><td>Utility-first styling with light/dark mode theming</td></tr>
+    <tr><td><span class="tag">Lucide React</span></td><td>Icon library</td></tr>
+    <tr><td><span class="tag">Recharts</span></td><td>Data visualization and charts</td></tr>
+    <tr><td><span class="tag">date-fns / date-fns-tz</span></td><td>Date formatting and timezone handling (US Eastern)</td></tr>
+    <tr><td><span class="tag">face-api.js</span></td><td>Browser-based face recognition (TensorFlow.js)</td></tr>
+  </table>
+</div>
+
+<h3>3.2 Backend</h3>
+<div class="section-card">
+  <table>
+    <tr><th>Technology</th><th>Purpose</th></tr>
+    <tr><td><span class="tag green">Express.js</span></td><td>HTTP server and RESTful API framework</td></tr>
+    <tr><td><span class="tag green">TypeScript</span></td><td>Type-safe server code</td></tr>
+    <tr><td><span class="tag green">Drizzle ORM</span></td><td>Type-safe database queries and schema management</td></tr>
+    <tr><td><span class="tag green">drizzle-zod</span></td><td>Schema validation via Zod integration</td></tr>
+    <tr><td><span class="tag green">express-session</span></td><td>Session management with PostgreSQL store</td></tr>
+    <tr><td><span class="tag green">Multer</span></td><td>File upload handling (images, PDFs)</td></tr>
+    <tr><td><span class="tag green">bcrypt</span></td><td>Password hashing</td></tr>
+    <tr><td><span class="tag green">Nodemailer</span></td><td>Email sending (SMTP)</td></tr>
+    <tr><td><span class="tag green">PDFKit</span></td><td>Server-side PDF report generation</td></tr>
+    <tr><td><span class="tag green">Archiver</span></td><td>ZIP file creation for bulk exports</td></tr>
+    <tr><td><span class="tag green">OpenAI SDK</span></td><td>GPT-4o for image analysis, PDF extraction, and Assistants API</td></tr>
+    <tr><td><span class="tag green">otpauth + qrcode</span></td><td>TOTP-based 2FA generation and QR codes</td></tr>
+  </table>
+</div>
+
+<h3>3.3 Database &amp; Storage</h3>
+<div class="section-card">
+  <table>
+    <tr><th>Technology</th><th>Purpose</th></tr>
+    <tr><td><span class="tag purple">PostgreSQL (Neon)</span></td><td>Primary relational database</td></tr>
+    <tr><td><span class="tag purple">connect-pg-simple</span></td><td>PostgreSQL-backed session store</td></tr>
+    <tr><td><span class="tag purple">Replit Object Storage</span></td><td>Cloud file storage for images, PDFs, and attachments</td></tr>
+    <tr><td><span class="tag purple">Drizzle Kit</span></td><td>Database schema migrations</td></tr>
+  </table>
+</div>
+
+<!-- 4. SYSTEM ARCHITECTURE -->
+<h2 id="architecture">4. System Architecture</h2>
+<div class="section-card">
+  <h4>Architecture Pattern</h4>
+  <p>The application follows a <strong>monorepo full-stack architecture</strong> with shared types between frontend and backend:</p>
+  <div class="code-block">
+project-root/
+├── client/                   # Frontend (React + Vite)
+│   ├── src/
+│   │   ├── pages/            # Route-level page components
+│   │   ├── components/       # Reusable UI components
+│   │   │   └── ui/           # Shadcn/ui primitives
+│   │   ├── hooks/            # Custom React hooks
+│   │   └── lib/              # Utilities (auth, query client)
+│   └── public/               # Static assets, face models
+├── server/                   # Backend (Express)
+│   ├── index.ts              # Server entry point
+│   ├── routes.ts             # All API route handlers
+│   ├── storage.ts            # Database access layer (IStorage)
+│   ├── vite.ts               # Vite dev/prod server integration
+│   └── replit_integrations/  # Object storage service
+├── shared/                   # Shared code
+│   └── schema.ts             # Drizzle ORM schema + Zod types
+└── package.json
+  </div>
+
+  <h4>Request Flow</h4>
+  <p>1. Client sends HTTP request to Express server<br>
+  2. Express middleware checks authentication (session cookie) and authorization (role check)<br>
+  3. Route handler validates input using Zod schemas from <code>shared/schema.ts</code><br>
+  4. Storage layer executes Drizzle ORM queries against PostgreSQL<br>
+  5. Response returned as JSON (or file stream for exports/downloads)<br>
+  6. React Query caches response and updates the UI</p>
+
+  <h4>Timezone Handling</h4>
+  <p>All booking times are stored as UTC in PostgreSQL and converted to <strong>US Eastern Time (America/New_York)</strong> for display. Frontend uses <code>toEST()</code>, <code>formatEST()</code>, and <code>fromEST()</code> helper functions. Backend uses <code>formatInTimeZone()</code> from date-fns-tz.</p>
+</div>
+
+<!-- 5. DATABASE SCHEMA -->
+<h2 id="database">5. Database Schema</h2>
+<div class="section-card">
+  <p>All tables are defined in <code>shared/schema.ts</code> using Drizzle ORM with PostgreSQL. Below is every table in the system:</p>
+
+  <h4>users</h4>
+  <p>Core user accounts with authentication credentials, role, and feature flags.</p>
+  <table>
+    <tr><th>Column</th><th>Type</th><th>Purpose</th></tr>
+    <tr><td>id</td><td>serial PK</td><td>Auto-increment primary key</td></tr>
+    <tr><td>username</td><td>text (unique)</td><td>Login identifier</td></tr>
+    <tr><td>password</td><td>text</td><td>Bcrypt-hashed password</td></tr>
+    <tr><td>name</td><td>text</td><td>Display name</td></tr>
+    <tr><td>email / phone</td><td>text</td><td>Contact info for login and notifications</td></tr>
+    <tr><td>role</td><td>text</td><td>user | admin | super_admin</td></tr>
+    <tr><td>location</td><td>text</td><td>Franchise location (admins only)</td></tr>
+    <tr><td>createdBy</td><td>integer FK</td><td>The admin who created this user (data isolation)</td></tr>
+    <tr><td>faceDescriptor / faceEnabled</td><td>text / boolean</td><td>128-d face embedding for face login</td></tr>
+    <tr><td>twoFactorSecret / twoFactorEnabled</td><td>text / boolean</td><td>Encrypted TOTP secret for 2FA</td></tr>
+    <tr><td>onboardingCompleted</td><td>boolean</td><td>Whether the onboarding form is done</td></tr>
+    <tr><td>openaiAssistantId</td><td>text</td><td>Per-admin personalized OpenAI Assistant ID</td></tr>
+    <tr><td>deletedAt</td><td>timestamp</td><td>Soft-delete timestamp (null = active)</td></tr>
+  </table>
+
+  <h4>projects</h4>
+  <p>Installation project records with photos, tags, and location data.</p>
+  <table>
+    <tr><th>Column</th><th>Type</th><th>Purpose</th></tr>
+    <tr><td>id</td><td>serial PK</td><td>Primary key</td></tr>
+    <tr><td>userId</td><td>integer FK</td><td>Owner (user who created the project)</td></tr>
+    <tr><td>imageUrls</td><td>text[]</td><td>Array of cloud storage image paths</td></tr>
+    <tr><td>description / jobLabel</td><td>text</td><td>Project details and work order label</td></tr>
+    <tr><td>tags / aiSuggestedTags</td><td>text[]</td><td>Manual and AI-generated signage type tags</td></tr>
+    <tr><td>hasIssue / issueDescription</td><td>boolean / text</td><td>Issue tracking</td></tr>
+    <tr><td>address, city, state, latitude, longitude</td><td>text</td><td>Geocoded location fields</td></tr>
+    <tr><td>customerName / customerPhone / customerEmail</td><td>text</td><td>Customer contact info</td></tr>
+  </table>
+
+  <h4>calendar_events</h4>
+  <p>Installation scheduling with status tracking and weather data.</p>
+  <table>
+    <tr><th>Column</th><th>Type</th><th>Purpose</th></tr>
+    <tr><td>id</td><td>serial PK</td><td>Primary key</td></tr>
+    <tr><td>title / description / jobDescription</td><td>text</td><td>Event details</td></tr>
+    <tr><td>date / startTime / endTime</td><td>timestamp</td><td>Scheduling (stored as UTC)</td></tr>
+    <tr><td>status</td><td>text</td><td>SCHEDULED | CONFIRMED | NEEDS_RESCHEDULE | ISSUE | COMPLETED</td></tr>
+    <tr><td>address</td><td>text</td><td>Installation location</td></tr>
+    <tr><td>workJobNumber</td><td>text</td><td>Reference to work order number</td></tr>
+    <tr><td>createdBy</td><td>integer FK</td><td>Admin who created (data isolation)</td></tr>
+    <tr><td>confirmationToken</td><td>text</td><td>Unique token for customer confirmation links</td></tr>
+    <tr><td>weatherTemp, weatherCondition, etc.</td><td>various</td><td>Cached weather snapshot at booking time</td></tr>
+  </table>
+
+  <h4>Additional Tables</h4>
+  <table>
+    <tr><th>Table</th><th>Purpose</th></tr>
+    <tr><td><code>jobs</code></td><td>Work order details: WO#, invoice#, customer, salesperson, address, geocoded coordinates</td></tr>
+    <tr><td><code>install_events</code></td><td>Links jobs to calendar events with GPT time estimates and installer assignments</td></tr>
+    <tr><td><code>attachments</code></td><td>File attachments (work orders, proofs) linked to jobs</td></tr>
+    <tr><td><code>event_assignments</code></td><td>Many-to-many: calendar events to users (multiple installers per job)</td></tr>
+    <tr><td><code>notification_logs</code></td><td>Email notification history with status tracking</td></tr>
+    <tr><td><code>reschedule_requests</code></td><td>Customer-initiated reschedule requests with reason and status</td></tr>
+    <tr><td><code>weather_cache</code></td><td>Cached weather API responses to minimize API calls</td></tr>
+    <tr><td><code>password_reset_tokens</code></td><td>Secure tokens for password reset flow</td></tr>
+    <tr><td><code>calendar_filter_colors</code></td><td>Customizable hex colors for calendar status filters</td></tr>
+    <tr><td><code>job_timers</code></td><td>Start/stop timers for tracking actual installation time</td></tr>
+    <tr><td><code>onboarding_forms</code></td><td>Multi-step business questionnaire data (30+ fields)</td></tr>
+    <tr><td><code>assistant_files</code></td><td>OpenAI knowledge files uploaded per admin assistant</td></tr>
+  </table>
+</div>
+
+<!-- 6. AUTHENTICATION -->
+<h2 id="auth">6. Authentication &amp; Security</h2>
+<div class="section-card">
+  <h4>Primary Login</h4>
+  <p>Users authenticate with email or phone number plus password. Passwords are hashed with <code>bcrypt</code> (cost factor 10). Sessions are managed via <code>express-session</code> stored in PostgreSQL using <code>connect-pg-simple</code>.</p>
+
+  <h4>Face Recognition Login</h4>
+  <p>Optional standalone login using <code>face-api.js</code> (TensorFlow.js). Users register their face via webcam in Account Settings. On login, the browser captures a face, extracts a 128-dimensional embedding, and sends it to the backend. The server compares against all face-enabled users using euclidean distance (threshold: 0.6). Face model files are served from <code>client/public/models/</code>.</p>
+
+  <h4>Two-Factor Authentication (2FA)</h4>
+  <p>Optional TOTP-based 2FA using Google Authenticator. Implementation:</p>
+  <ul>
+    <li><strong>Setup</strong>: <code>POST /api/auth/2fa/setup</code> &mdash; generates TOTP secret, returns QR code + manual key</li>
+    <li><strong>Verify</strong>: <code>POST /api/auth/2fa/verify</code> &mdash; validates code and enables 2FA</li>
+    <li><strong>Login Flow</strong>: After password check, if 2FA is enabled, returns <code>requires2FA: true</code>. Client shows code input, validates via <code>POST /api/auth/2fa/validate-login</code></li>
+    <li><strong>Disable</strong>: <code>POST /api/auth/2fa/disable</code> &mdash; requires password confirmation</li>
+    <li><strong>Libraries</strong>: <code>otpauth</code> for TOTP generation/validation, <code>qrcode</code> for QR code generation</li>
+  </ul>
+
+  <h4>Password Security</h4>
+  <ul>
+    <li>Enforced minimum length, uppercase, number, and special character</li>
+    <li>Password reset via email with time-limited tokens</li>
+    <li>Admin can reset user passwords (generates temp password)</li>
+  </ul>
+</div>
+
+<!-- 7. ROLE-BASED ACCESS CONTROL -->
+<h2 id="roles">7. Role-Based Access Control</h2>
+<div class="section-card">
+  <table>
+    <tr><th>Role</th><th>Can Create</th><th>Visibility</th><th>Capabilities</th></tr>
+    <tr>
+      <td><span class="tag red">Super Admin</span></td>
+      <td>Admin accounts (with location)</td>
+      <td>All admins + all users globally</td>
+      <td>Global oversight, manage AI assistant settings for any admin, configure calendar filter colors, view-only on bookings, cannot create/delete bookings</td>
+    </tr>
+    <tr>
+      <td><span class="tag orange">Admin</span></td>
+      <td>User accounts only</td>
+      <td>Only users they created (isolated by <code>createdBy</code>)</td>
+      <td>Full calendar management, create/edit/delete bookings, send customer notifications, export data, manage own AI assistant</td>
+    </tr>
+    <tr>
+      <td><span class="tag gray">User (Installer)</span></td>
+      <td>None</td>
+      <td>Assigned events only</td>
+      <td>View calendar, view project details, upload completion photos, report issues, start/stop job timers</td>
+    </tr>
+  </table>
+
+  <h4>Data Isolation</h4>
+  <p>Achieved through the <code>createdBy</code> field on users and calendar events. Each admin only sees and manages resources they created. The Super Admin bypasses this isolation for oversight. Middleware functions <code>requireAuth</code> and <code>requireAdmin</code> enforce access at the API level.</p>
+</div>
+
+<!-- 8. CORE FEATURES -->
+<h2 id="features">8. Core Features &amp; Solutions</h2>
+
+<h3>8.1 Dashboard &amp; Project Management</h3>
+<div class="section-card">
+  <p><strong>Problem:</strong> Field installers need a quick way to document completed installations with photos and track issues.</p>
+  <p><strong>Solution:</strong></p>
+  <ul>
+    <li><strong>Photo Upload</strong>: Multi-image upload via <code>Multer</code>, stored in Replit Object Storage. Images accessible via <code>/objects/*</code> route with fallback to legacy local paths.</li>
+    <li><strong>AI Auto-Tagging</strong>: Uploaded images are analyzed by GPT-4o to suggest signage type tags (Channel Letters, Vehicle Graphics, etc.) from a predefined list of 16 categories.</li>
+    <li><strong>Grid/List Views</strong>: Toggle between card grid and compact list view for project browsing.</li>
+    <li><strong>Issue Reporting</strong>: Users can flag projects with issues and provide descriptions. Filtered via status buttons (All, Issues, No Issues).</li>
+    <li><strong>Inline Editing</strong>: Project details (description, job label, tags, customer info) editable directly from the detail page without navigating away.</li>
+    <li><strong>Image Management</strong>: Add/delete images from existing projects. Reorder not required.</li>
+    <li><strong>PDF Reports</strong>: Generate detailed PDF reports via <code>PDFKit</code> with project images, tags, and metadata. Can be emailed to recipients.</li>
+    <li><strong>Bulk Export</strong>: Select individual projects or export all. Images downloaded as a ZIP file organized by job label using the <code>Archiver</code> library.</li>
+  </ul>
+  <p><strong>Key Functions:</strong></p>
+  <ul>
+    <li><code>POST /api/projects</code> &mdash; Create project with images</li>
+    <li><code>POST /api/analyze-image</code> &mdash; AI tag suggestion</li>
+    <li><code>POST /api/projects/export</code> &mdash; Bulk ZIP export</li>
+    <li><code>GET /api/projects/:id/pdf</code> &mdash; PDF report generation</li>
+    <li><code>POST /api/projects/:id/email</code> &mdash; Email report</li>
+  </ul>
+</div>
+
+<h3>8.2 Installation Calendar</h3>
+<div class="section-card">
+  <p><strong>Problem:</strong> Scheduling installations across multiple installers with varying job complexity needed intelligent automation.</p>
+  <p><strong>Solution:</strong></p>
+  <ul>
+    <li><strong>Calendar Views</strong>: Day, Week, and Month views with color-coded status indicators. Calendar renders events with inline time blocks for scheduled events and all-day markers for unscheduled ones.</li>
+    <li><strong>Status Workflow</strong>: Events progress through Scheduled &rarr; Confirmed &rarr; Completed, with Reschedule and Issue states. Each status has a customizable color (Super Admin configurable).</li>
+    <li><strong>Multi-User Assignment</strong>: Events can be assigned to multiple installers via the <code>event_assignments</code> table. User filter dropdown in toolbar.</li>
+    <li><strong>AI Auto-Fill</strong>: Upload a work order PDF or image, GPT-4o Vision extracts title, customer name, address, sign types, and dimensions to pre-populate the event creation form.</li>
+    <li><strong>Weather Integration</strong>: Calendar header shows current weather + multi-day forecast for Waltham, MA. Individual bookings auto-fetch weather snapshots when an address is provided. Powered by OpenWeather API with caching in <code>weather_cache</code> table.</li>
+    <li><strong>Customer Notifications</strong>: Admin manually triggers email notifications via <code>POST /api/notifications/send-schedule-confirmation</code>. Emails include confirmation links with unique tokens. Customers can confirm or request reschedule via public-facing pages.</li>
+    <li><strong>Reschedule Requests</strong>: Customers submit reschedule reasons via a public form. Admins review pending requests on the Reschedule Requests page.</li>
+    <li><strong>Job Timers</strong>: Installers can start/stop timers on assigned jobs to track actual installation duration.</li>
+    <li><strong>CSV Export</strong>: Export bookings filtered by status categories (Scheduled, Confirmed, Reschedule, Issues, Completed) or export all. Downloaded as CSV with columns for title, status, dates, address, assigned users, and more.</li>
+  </ul>
+  <p><strong>Key Functions:</strong></p>
+  <ul>
+    <li><code>POST /api/calendar-events/with-attachments</code> &mdash; Create event with file attachments</li>
+    <li><code>POST /api/calendar-events/extract-file-data</code> &mdash; AI work order extraction</li>
+    <li><code>POST /api/calendar-events/:id/assignments</code> &mdash; Assign users to event</li>
+    <li><code>POST /api/calendar-events/:id/send-assignment-emails</code> &mdash; Send notification emails</li>
+    <li><code>POST /api/calendar-events/export</code> &mdash; CSV export by status</li>
+    <li><code>POST /api/job-timers/:calendarEventId/start</code> &mdash; Start job timer</li>
+    <li><code>POST /api/job-timers/:calendarEventId/stop</code> &mdash; Stop job timer</li>
+  </ul>
+</div>
+
+<h3>8.3 User Management</h3>
+<div class="section-card">
+  <p><strong>Problem:</strong> Multi-location franchise operations need isolated user management per admin with centralized oversight.</p>
+  <p><strong>Solution:</strong></p>
+  <ul>
+    <li><strong>Admin Isolation</strong>: Each Admin sees only users they created. The <code>createdBy</code> field enforces this at query level.</li>
+    <li><strong>Soft Delete</strong>: Users are never hard-deleted. A <code>deletedAt</code> timestamp marks them as archived. Archived users viewable on a separate page and restorable.</li>
+    <li><strong>CSV User Export</strong>: <code>GET /api/admin/users/export-csv</code> downloads user list as CSV.</li>
+    <li><strong>Password Reset</strong>: Admin can generate temporary passwords for users.</li>
+    <li><strong>Super Admin AI Management</strong>: Super Admin can access and manage any admin's AI Assistant settings through the user management interface.</li>
+  </ul>
+  <p><strong>Key Functions:</strong></p>
+  <ul>
+    <li><code>POST /api/admin/users</code> &mdash; Create new user/admin</li>
+    <li><code>PATCH /api/admin/users/:id</code> &mdash; Update user</li>
+    <li><code>DELETE /api/admin/users/:id</code> &mdash; Soft-delete user</li>
+    <li><code>POST /api/admin/users/:id/restore</code> &mdash; Restore archived user</li>
+    <li><code>GET /api/admin/users/deleted</code> &mdash; List archived users</li>
+  </ul>
+</div>
+
+<h3>8.4 Onboarding</h3>
+<div class="section-card">
+  <p><strong>Problem:</strong> New admin accounts need to provide business details to personalize their AI assistant before using the app.</p>
+  <p><strong>Solution:</strong> A mandatory 5-section multi-step form that collects:</p>
+  <ol>
+    <li><strong>Business Info</strong>: Address, installation range, travel time billing</li>
+    <li><strong>Team &amp; Scheduling</strong>: Team size, scheduling point-of-contact, sub-installer coordination</li>
+    <li><strong>Capabilities &amp; Equipment</strong>: Bucket truck, ladder specs, vehicle graphics, wraps capability</li>
+    <li><strong>Product Lists &amp; Pricing</strong>: Sign types offered, pricing info</li>
+    <li><strong>Install Time Standards</strong>: Standard installation durations for different sign types</li>
+  </ol>
+  <p>On completion, the system auto-creates a personalized OpenAI Assistant by merging the base system prompt with the admin's business details. Users are redirected to <code>/onboarding</code> until completed.</p>
+</div>
+
+<!-- 9. AI INTEGRATION -->
+<h2 id="ai">9. AI Integration</h2>
+<div class="section-card">
+  <h4>OpenAI GPT-4o</h4>
+  <p>The platform integrates OpenAI's GPT-4o model through multiple channels:</p>
+
+  <h4>Image Analysis &amp; Auto-Tagging</h4>
+  <p><code>POST /api/analyze-image</code> &mdash; Uploads an image to GPT-4o Vision. The AI analyzes the signage photo and returns suggested tags from the predefined 16-category list. Tags are stored as <code>aiSuggestedTags</code> on the project.</p>
+
+  <h4>Work Order PDF Extraction</h4>
+  <p><code>POST /api/calendar-events/extract-file-data</code> &mdash; Converts PDF pages to images using <code>pdftoppm</code>, sends to GPT-4o Vision, extracts structured data (invoice#, customer name, address, sign types, dimensions). Auto-fills the calendar event creation form.</p>
+
+  <h4>Install Time Estimation</h4>
+  <p>Uses the OpenAI Assistants API with admin-specific assistants to estimate installation duration, complexity, and recommended crew size. Falls back to direct completions if the assistant call fails.</p>
+
+  <h4>Per-Admin Personalized Assistants</h4>
+  <p>Each admin gets their own OpenAI Assistant (stored as <code>openaiAssistantId</code>). Created automatically on onboarding completion by merging the global base prompt (<code>OPENAI_ASSISTANT_ID</code>) with the admin's business details. Admins can customize their assistant's instructions and upload knowledge files (pricing sheets, catalogs) via vector stores on the Assistant Settings page.</p>
+
+  <h4>Intake Dialog</h4>
+  <p><code>POST /api/intake/create-from-prompt</code> &mdash; Natural language scheduling requests (e.g., "next Tuesday morning at 10am for Jones Lang") processed by the AI to extract event details and create bookings.</p>
+
+  <p><strong>Key API Endpoints:</strong></p>
+  <ul>
+    <li><code>GET /api/assistant/admin/:adminId/settings</code> &mdash; Get assistant config</li>
+    <li><code>PUT /api/assistant/admin/:adminId/instructions</code> &mdash; Update assistant instructions</li>
+    <li><code>POST /api/assistant/admin/:adminId/files</code> &mdash; Upload knowledge file</li>
+    <li><code>DELETE /api/assistant/admin/:adminId/files/:fileId</code> &mdash; Delete knowledge file</li>
+    <li><code>POST /api/assistant/admin/:adminId/create</code> &mdash; Create/recreate assistant</li>
+  </ul>
+</div>
+
+<!-- 10. API REFERENCE -->
+<h2 id="api">10. API Reference</h2>
+<div class="section-card">
+  <p>All API endpoints are prefixed with <code>/api</code>. Authentication is enforced via middleware:</p>
+  <ul>
+    <li><code>requireAuth</code> &mdash; Requires an authenticated session (any role)</li>
+    <li><code>requireAdmin</code> &mdash; Requires admin or super_admin role</li>
+  </ul>
+
+  <h4>Authentication (8 endpoints)</h4>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/auth/me</td><td>Get current authenticated user</td></tr>
+    <tr><td>POST</td><td>/api/auth/login</td><td>Email/phone + password login</td></tr>
+    <tr><td>POST</td><td>/api/auth/logout</td><td>End session</td></tr>
+    <tr><td>POST</td><td>/api/auth/face-login</td><td>Face recognition login</td></tr>
+    <tr><td>POST</td><td>/api/auth/face-register</td><td>Register face for login</td></tr>
+    <tr><td>POST</td><td>/api/auth/2fa/setup</td><td>Initialize 2FA setup</td></tr>
+    <tr><td>POST</td><td>/api/auth/2fa/validate-login</td><td>Validate 2FA code during login</td></tr>
+    <tr><td>POST</td><td>/api/auth/request-password-reset</td><td>Request password reset email</td></tr>
+    <tr><td>POST</td><td>/api/auth/reset-password</td><td>Reset password with token</td></tr>
+  </table>
+
+  <h4>User Management (8 endpoints)</h4>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/admin/users</td><td>List users (isolated by role)</td></tr>
+    <tr><td>GET</td><td>/api/admin/users/export-csv</td><td>Export users as CSV</td></tr>
+    <tr><td>GET</td><td>/api/admin/users/deleted</td><td>List archived users</td></tr>
+    <tr><td>POST</td><td>/api/admin/users</td><td>Create new user/admin</td></tr>
+    <tr><td>PATCH</td><td>/api/admin/users/:id</td><td>Update user</td></tr>
+    <tr><td>DELETE</td><td>/api/admin/users/:id</td><td>Soft-delete user</td></tr>
+    <tr><td>POST</td><td>/api/admin/users/:id/restore</td><td>Restore archived user</td></tr>
+    <tr><td>POST</td><td>/api/admin/users/:id/reset-password</td><td>Admin resets user password</td></tr>
+  </table>
+
+  <h4>Projects (10 endpoints)</h4>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/projects</td><td>List projects</td></tr>
+    <tr><td>GET</td><td>/api/projects/:id</td><td>Get project details</td></tr>
+    <tr><td>POST</td><td>/api/projects</td><td>Create project with images</td></tr>
+    <tr><td>PATCH</td><td>/api/projects/:id</td><td>Update project fields</td></tr>
+    <tr><td>DELETE</td><td>/api/projects/:id</td><td>Delete project</td></tr>
+    <tr><td>POST</td><td>/api/projects/:id/images</td><td>Add images to project</td></tr>
+    <tr><td>POST</td><td>/api/projects/export</td><td>Bulk ZIP export</td></tr>
+    <tr><td>GET</td><td>/api/projects/:id/pdf</td><td>Generate PDF report</td></tr>
+    <tr><td>POST</td><td>/api/projects/:id/email</td><td>Email report</td></tr>
+    <tr><td>POST</td><td>/api/analyze-image</td><td>AI image analysis</td></tr>
+  </table>
+
+  <h4>Calendar Events (14 endpoints)</h4>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/calendar-events</td><td>List all events</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events</td><td>Create event</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/with-attachments</td><td>Create event with files</td></tr>
+    <tr><td>PATCH</td><td>/api/calendar-events/:id</td><td>Update event</td></tr>
+    <tr><td>DELETE</td><td>/api/calendar-events/:id</td><td>Delete event</td></tr>
+    <tr><td>GET</td><td>/api/calendar-events/:id/details</td><td>Get event with attachments</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/extract-file-data</td><td>AI work order extraction</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/:id/assignments</td><td>Assign users</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/:id/send-assignment-emails</td><td>Send notification emails</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/:id/report-issue</td><td>Report issue on event</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/export</td><td>CSV export by status</td></tr>
+    <tr><td>POST</td><td>/api/calendar-events/:id/add-files</td><td>Add files to event</td></tr>
+    <tr><td>GET</td><td>/api/calendar-filter-colors</td><td>Get status filter colors</td></tr>
+    <tr><td>PATCH</td><td>/api/calendar-filter-colors/:statusKey</td><td>Update filter color</td></tr>
+  </table>
+
+  <h4>Customer-Facing (4 endpoints, no auth required)</h4>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/confirm-booking/:token</td><td>Confirm booking via email link</td></tr>
+    <tr><td>GET</td><td>/api/booking-calendar/:token</td><td>View booking calendar (customer)</td></tr>
+    <tr><td>GET</td><td>/api/reschedule-booking/:token</td><td>View reschedule form</td></tr>
+    <tr><td>POST</td><td>/api/reschedule-booking/:token</td><td>Submit reschedule request</td></tr>
+  </table>
+
+  <h4>Other Endpoints</h4>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+    <tr><td>GET</td><td>/api/weather</td><td>Get weather for coordinates</td></tr>
+    <tr><td>GET</td><td>/api/weather/forecast</td><td>Get multi-day forecast</td></tr>
+    <tr><td>GET</td><td>/api/weather/default-location</td><td>Weather for Waltham, MA</td></tr>
+    <tr><td>POST</td><td>/api/geocode</td><td>Geocode address to coordinates</td></tr>
+    <tr><td>POST</td><td>/api/notifications/send-schedule-confirmation</td><td>Send confirmation email</td></tr>
+    <tr><td>GET/POST</td><td>/api/job-timers/:calendarEventId/*</td><td>Job timer start/stop</td></tr>
+    <tr><td>GET/PUT/POST/DELETE</td><td>/api/assistant/*</td><td>AI assistant management</td></tr>
+    <tr><td>POST</td><td>/api/onboarding</td><td>Submit onboarding form</td></tr>
+    <tr><td>POST</td><td>/api/intake/create-from-prompt</td><td>Natural language event creation</td></tr>
+  </table>
+
+  <p><strong>Total API Endpoints: 70+</strong></p>
+</div>
+
+<!-- 11. FRONTEND PAGES -->
+<h2 id="pages">11. Frontend Pages</h2>
+<div class="section-card">
+  <table>
+    <tr><th>Route</th><th>Page</th><th>Access</th><th>Description</th></tr>
+    <tr><td><code>/login</code></td><td>Login</td><td>Public</td><td>Email/phone login with 2FA and face recognition options</td></tr>
+    <tr><td><code>/forgot-password</code></td><td>Forgot Password</td><td>Public</td><td>Request password reset email</td></tr>
+    <tr><td><code>/reset-password</code></td><td>Reset Password</td><td>Public</td><td>Set new password via token</td></tr>
+    <tr><td><code>/onboarding</code></td><td>Onboarding</td><td>Auth</td><td>5-section business setup form</td></tr>
+    <tr><td><code>/dashboard</code></td><td>Dashboard</td><td>Auth</td><td>Project gallery with search, filters, grid/list views, bulk export</td></tr>
+    <tr><td><code>/projects/new</code></td><td>New Project</td><td>Auth</td><td>Create project with photo upload</td></tr>
+    <tr><td><code>/projects/:id</code></td><td>Project Detail</td><td>Auth</td><td>View/edit project, manage images, generate reports</td></tr>
+    <tr><td><code>/calendar</code></td><td>Install Calendar</td><td>Auth</td><td>Day/week/month calendar with AI auto-fill, weather, and export</td></tr>
+    <tr><td><code>/admin</code></td><td>User Management</td><td>Admin</td><td>Create/edit/delete users, manage roles</td></tr>
+    <tr><td><code>/archive</code></td><td>Archived Users</td><td>Admin</td><td>View and restore soft-deleted users</td></tr>
+    <tr><td><code>/reschedule-requests</code></td><td>Reschedule Requests</td><td>Admin</td><td>Review customer reschedule requests</td></tr>
+    <tr><td><code>/assistant-settings</code></td><td>AI Assistant Settings</td><td>Super Admin</td><td>Manage AI assistant instructions and knowledge files</td></tr>
+    <tr><td><code>/account</code></td><td>Account Settings</td><td>Auth</td><td>Profile, password change, face login setup, 2FA setup</td></tr>
+    <tr><td><code>/confirm-booking/:token</code></td><td>Confirm Booking</td><td>Public</td><td>Customer booking confirmation page</td></tr>
+    <tr><td><code>/reschedule-booking/:token</code></td><td>Reschedule Booking</td><td>Public</td><td>Customer reschedule request form</td></tr>
+  </table>
+</div>
+
+<!-- 12. EXTERNAL INTEGRATIONS -->
+<h2 id="integrations">12. External Integrations</h2>
+<div class="section-card">
+  <table>
+    <tr><th>Service</th><th>Purpose</th><th>Configuration</th></tr>
+    <tr><td><strong>OpenAI API</strong></td><td>GPT-4o for image analysis, PDF extraction, Assistants API</td><td><code>OPENAI_API_KEY</code>, <code>OPENAI_ASSISTANT_ID</code></td></tr>
+    <tr><td><strong>OpenWeather API</strong></td><td>Weather forecasting and geocoding</td><td><code>OPENWEATHER_API_KEY</code></td></tr>
+    <tr><td><strong>SMTP (Email)</strong></td><td>Nodemailer for booking confirmations and notifications</td><td><code>SMTP_USER</code>, <code>SMTP_PASS</code></td></tr>
+    <tr><td><strong>Replit Object Storage</strong></td><td>Cloud storage for images, PDFs, and attachments</td><td><code>DEFAULT_OBJECT_STORAGE_BUCKET_ID</code></td></tr>
+    <tr><td><strong>PostgreSQL (Neon)</strong></td><td>Primary database</td><td><code>DATABASE_URL</code></td></tr>
+  </table>
+
+  <h4>Environment Variables (Secrets)</h4>
+  <table>
+    <tr><th>Variable</th><th>Purpose</th></tr>
+    <tr><td><code>DATABASE_URL</code></td><td>PostgreSQL connection string</td></tr>
+    <tr><td><code>SESSION_SECRET</code></td><td>Express session encryption key</td></tr>
+    <tr><td><code>OPENAI_API_KEY</code></td><td>OpenAI API authentication</td></tr>
+    <tr><td><code>OPENAI_ASSISTANT_ID</code></td><td>Base assistant ID for cloning per-admin</td></tr>
+    <tr><td><code>OPENWEATHER_API_KEY</code></td><td>Weather API authentication</td></tr>
+    <tr><td><code>SMTP_USER</code> / <code>SMTP_PASS</code></td><td>Email sending credentials</td></tr>
+    <tr><td><code>DEFAULT_OBJECT_STORAGE_BUCKET_ID</code></td><td>Replit object storage bucket identifier</td></tr>
+  </table>
+</div>
+
+<!-- 13. DEPLOYMENT -->
+<h2 id="deployment">13. Deployment &amp; Infrastructure</h2>
+<div class="section-card">
+  <h4>Platform</h4>
+  <p>Deployed on <strong>Replit</strong> with automatic builds, TLS, and health checks. The application runs as a single process serving both the Express API and the Vite-built React frontend.</p>
+
+  <h4>Build Process</h4>
+  <div class="code-block">
+# Development
+npm run dev          # Starts Express + Vite dev server
+
+# Production Build
+npm run build        # Bundles React app + compiles server
+npm run start        # Runs production server
+
+# Database
+npm run db:push      # Sync Drizzle schema to PostgreSQL
+  </div>
+
+  <h4>File Storage</h4>
+  <p>All uploaded files (images, PDFs, attachments) are stored in Replit Object Storage. Files are accessed via the <code>/objects/*</code> route which proxies to the cloud storage bucket. A migration endpoint exists to move legacy local files to cloud storage.</p>
+
+  <h4>Session Storage</h4>
+  <p>Sessions are persisted in PostgreSQL via <code>connect-pg-simple</code>, ensuring sessions survive server restarts.</p>
+
+  <h4>Performance Optimizations</h4>
+  <ul>
+    <li>Weather API responses cached in <code>weather_cache</code> table with expiry</li>
+    <li>Frontend uses React Query with automatic caching and background refetching</li>
+    <li>Images use lazy loading (<code>loading="lazy"</code>)</li>
+    <li>Weather auto-refreshes hourly (60-minute refetch interval)</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center; padding: 40px 0 20px; color: #94a3b8; font-size: 0.8rem;">
+  <p>&mdash; End of Technical Documentation &mdash;</p>
+  <p>InstalliQ.ai &copy; 2026 FASTSIGNS of Waltham. All rights reserved.</p>
+  <p>Generated February 2026</p>
+</div>
+
+</div>
+</body>
+</html>

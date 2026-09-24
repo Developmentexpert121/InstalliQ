@@ -1,0 +1,16 @@
+Build an internal API endpoint POST /api/internal/provision-user that SignSuiteIQ calls to automatically create/update users in InstallIQ.
+
+Auth: Require an X-App-Secret header and compare it (constant-time) against an env var SSO_SECRET_INSTALLIQ. If it's missing or wrong, return 401 { "error": "invalid app secret" }. This value MUST be identical to the one SignSuiteIQ uses.
+
+Request body: JSON with external_id (SignSuiteIQ user id), email, username, name, role, phone, job_title, location, action ("upsert" or "delete"), an optional password (plaintext, only present at create/reset), an optional tenant object (company info), and an admin object { external_id, email, username, name } describing the account owner this user belongs to.
+
+Behavior for action: "upsert":
+
+Resolve the owning admin: find an existing InstallIQ user whose email equals admin.email (case-insensitive). If found, use their local id as the parent. If not found, create the user but leave them unlinked (and log a warning) — do not fail the request. Optionally store admin.external_id in a column like signsuiteiq_admin_id so future matches survive email changes.
+Find an existing InstallIQ user by email (case-insensitive) OR by a stored signsuiteiq_user_id column equal to external_id.
+If found: update name, username, phone, job_title, location, and set created_by to the resolved admin's id so the user appears under that admin. Only update the password if password is provided.
+If not found: create a new user with those fields, created_by = the resolved admin's id, signsuiteiq_user_id = external_id, and hash+store password if provided (otherwise a random placeholder). Add a signsuiteiq_user_id column (unique, nullable) if it doesn't exist.
+Return 200 { "ok": true }.
+Behavior for action: "delete": soft-archive/deactivate the matching user (by signsuiteiq_user_id or email). Return 200 { "ok": true }. Never hard-delete.
+
+Important: the goal is that a user created in SignSuiteIQ appears in InstallIQ's User Management under the same admin, matched by the admin's email — without any manual setup. Make the endpoint idempotent (safe to call repeatedly).

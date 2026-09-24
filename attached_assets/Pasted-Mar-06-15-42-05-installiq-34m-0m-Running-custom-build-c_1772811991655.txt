@@ -1,0 +1,57 @@
+Mar 06 15:42:05 [installiq] [34m│[0m Running custom build command: npm ci && npm install -g tsx && npm run build
+Mar 06 15:42:09 [installiq] [34m│[0m npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+Mar 06 15:42:09 [installiq] [34m│[0m npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+Mar 06 15:42:09 [installiq] [34m│[0m npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+Mar 06 15:42:10 [installiq] [34m│[0m npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+Mar 06 15:42:12 [installiq] [34m│[0m npm warn deprecated jpeg-exif@1.1.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+Mar 06 15:42:13 [installiq] [34m│[0m npm warn deprecated glob@7.1.6: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+Mar 06 15:42:27 [installiq] [34m│[0m 
+Mar 06 15:42:27 [installiq] [34m│[0m added 946 packages, and audited 947 packages in 23s
+Mar 06 15:42:27 [installiq] [34m│[0m 
+Mar 06 15:42:27 [installiq] [34m│[0m 108 packages are looking for funding
+Mar 06 15:42:27 [installiq] [34m│[0m   run `npm fund` for details
+Mar 06 15:42:28 [installiq] [34m│[0m 
+Mar 06 15:42:28 [installiq] [34m│[0m 31 vulnerabilities (8 low, 22 high, 1 critical)
+Mar 06 15:42:28 [installiq] [34m│[0m 
+Mar 06 15:42:28 [installiq] [34m│[0m To address issues that do not require attention, run:
+Mar 06 15:42:28 [installiq] [34m│[0m   npm audit fix
+Mar 06 15:42:28 [installiq] [34m│[0m 
+Mar 06 15:42:28 [installiq] [34m│[0m To address all issues (including breaking changes), run:
+Mar 06 15:42:28 [installiq] [34m│[0m   npm audit fix --force
+Mar 06 15:42:28 [installiq] [34m│[0m 
+Mar 06 15:42:28 [installiq] [34m│[0m Run `npm audit` for details.
+Mar 06 15:42:28 [installiq] [34m│[0m npm notice
+Mar 06 15:42:28 [installiq] [34m│[0m npm notice New major version of npm available! 10.9.4 -> 11.11.0
+Mar 06 15:42:28 [installiq] [34m│[0m npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.0
+Mar 06 15:42:28 [installiq] [34m│[0m npm notice To update run: npm install -g npm@11.11.0
+Mar 06 15:42:28 [installiq] [34m│[0m npm notice
+Mar 06 15:42:28 [installiq] [34m│[0m 
+Mar 06 15:42:28 [installiq] [34m│[0m added 5 packages in 857ms
+Mar 06 15:42:28 [installiq] [34m│[0m 
+Mar 06 15:42:28 [installiq] [34m│[0m 2 packages are looking for funding
+Mar 06 15:42:28 [installiq] [34m│[0m   run `npm fund` for details
+Mar 06 15:42:29 [installiq] [34m│[0m 
+Mar 06 15:42:29 [installiq] [34m│[0m > rest-express@1.0.0 build
+Mar 06 15:42:29 [installiq] [34m│[0m > tsx script/build.ts
+Mar 06 15:42:29 [installiq] [34m│[0m 
+Mar 06 15:42:29 [installiq] [34m│[0m building client...
+Mar 06 15:42:29 [installiq] [34m│[0m vite v7.3.1 building client environment for production...
+Mar 06 15:42:30 [installiq] [34m│[0m transforming...
+Mar 06 15:42:31 [installiq] [34m│[0m 
+Mar 06 15:42:31 [installiq] [34m│[0m A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+Mar 06 15:42:35 [installiq] [34m│[0m ✓ 2424 modules transformed.
+Mar 06 15:42:37 [installiq] [34m│[0m rendering chunks...
+Mar 06 15:42:38 [installiq] [34m│[0m computing gzip size...
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/index.html                                                2.50 kB │ gzip:   0.96 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/assets/FASTSIGNS-MYS-Logo_1771624193112-DEmmUeyF.jpg     48.66 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/assets/index-Dz9bA4rR.css                               138.34 kB │ gzip:  22.66 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/assets/charts-BCHdlPMJ.js                                 0.62 kB │ gzip:   0.37 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/assets/ui-ByYA7II1.js                                   128.99 kB │ gzip:  41.59 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/assets/vendor-N--QU9DW.js                               140.91 kB │ gzip:  45.31 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ../dist/public/assets/index-Cs2EKGmm.js                              1,473.76 kB │ gzip: 362.09 kB
+Mar 06 15:42:38 [installiq] [34m│[0m ✓ built in 8.40s
+Mar 06 15:42:38 [installiq] [34m│[0m building server...
+Mar 06 15:42:39 [installiq] [34m│[0m 
+Mar 06 15:42:39 [installiq] [34m│[0m   dist/index.cjs  3.6mb ⚠️
+Mar 06 15:42:39 [installiq] [34m│[0m 
+Mar 06 15:42:39 [installiq] [34m│[0m ⚡ Done in 553ms

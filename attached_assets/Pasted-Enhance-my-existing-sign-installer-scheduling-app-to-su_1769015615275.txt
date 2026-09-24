@@ -1,0 +1,152 @@
+Enhance my existing sign installer scheduling app to support “Create Calendar Entry from Prompt + Upload (WO + Proofs)”.
+
+USER FLOW
+Add a button: “Create from Prompt + Upload”
+Step 1: Scheduler enters a short prompt like:
+  “I need this job installed on Feb 2nd at 10 am”
+Step 2: Scheduler uploads:
+  - Work Order PDF (required)
+  - Proof PDF(s) (optional, multiple allowed)
+Step 3: App extracts job details + IDs from PDFs, calls GPT to estimate install time, then shows a Review screen.
+Step 4: Scheduler edits if needed, then clicks:
+  - “Save Draft” OR
+  - “Schedule + Send Customer Confirmation Email”
+
+KEY EXTRACTION REQUIREMENTS (PDF PARSING)
+From the Work Order PDF:
+- Extract Work Order Number (WO#)
+  - Example pattern: “WORK ORDER 401-50752” (this exact format appears in our WO PDF)  [use regex]
+- Extract install site address (Installed section):
+  - company name
+  - street
+  - city/state/zip
+- Extract customer contact:
+  - Order Contact name
+  - phone
+  - email
+- Extract salesperson name and (if present) salesperson contact info
+
+From Proof PDF(s):
+- Extract Invoice Number (or Estimate Number)
+  - Example pattern: “INVOICE NUMBER: EST-50752” (this exact format appears in our proof PDFs) [use regex]
+- Store this ID as “invoiceNumber” even if it’s an estimate (“EST-xxxxx”)
+
+IMPORTANT: The system must support BOTH:
+- WO#/Job# formats like 401-50752
+- Invoice/Estimate formats like EST-50752
+and store them in the Job record.
+
+DATA MODEL (EXTEND EXISTING – DO NOT DUPLICATE)
+Job:
+- id
+- workOrderNumber (string)
+- invoiceNumber (string, nullable)
+- jobName/description (string, nullable)
+- address, formattedAddress, lat, lng
+- customerName
+- pocName, customerEmail, customerPhone
+- salesName, salesEmail, salesPhone
+- notes
+- createdAt, updatedAt
+
+InstallEvent:
+- id
+- jobId
+- startTime, endTime
+- status enum: SCHEDULED, CONFIRMED, NEEDS_RESCHEDULE, COMPLETED, ISSUE
+- assignedInstallerId (nullable)
+- gptEstimateMinutes (int)
+- createdAt, updatedAt
+
+Attachment:
+- id, jobId
+- fileUrl, fileName, fileType
+- category enum: WORK_ORDER, PROOF
+- createdAt
+
+INTAKE API
+Create an intake endpoint that accepts multipart form data:
+POST /api/intake/create-from-prompt
+- promptText
+- workOrderFile
+- proofFiles[] (optional)
+
+It returns:
+- extractedJobDraft (all extracted fields + confidence flags)
+- proposedEventDraft (startTime from prompt; endTime TBD)
+- gptEstimate { estimatedMinutes, confidence, shortSummary }
+
+DATE/TIME PARSING
+- Parse date/time from prompt into America/New_York timezone.
+- If no time provided, default to 9:00 AM and show it in Review.
+
+GEOCODING
+- After extracting address, geocode to lat/lng and store it on the Job.
+- Use the same provider used for the Map integration.
+
+GPT INSTALL TIME ESTIMATION (INTEGRATE MY EXISTING GPT LOGIC)
+I have an Install Time Calculator GPT already. Implement integration as follows:
+- Add a backend “estimateInstallTime” function that calls our existing estimator endpoint used by the app.
+- If the repo currently has an OpenAI API call, reuse that pattern and send a structured prompt.
+- Inputs to estimator:
+  - workOrderNumber, invoiceNumber (if available)
+  - install address
+  - WO extracted text summary (truncate safely)
+  - products summary (if parseable)
+  - any notes
+  - number of jobs scheduled that day (optional)
+- Outputs saved to InstallEvent.gptEstimateMinutes and used to propose endTime.
+
+REVIEW & CONFIRM UI (HUMAN IN THE LOOP)
+Show a Review screen before scheduling:
+- Editable:
+  - WO#, Invoice/Estimate#
+  - address + map preview
+  - customer POC info
+  - sales info
+  - startTime and endTime
+  - assigned installer/team
+  - status (default SCHEDULED)
+- Display:
+  - GPT estimated duration + confidence + summary
+  - Weather preview for the scheduled time/location
+  - Attachments viewer (WO + proofs)
+
+ACTIONS
+- “Save Draft”: saves Job + InstallEvent + Attachments, no email.
+- “Schedule + Send Confirmation Email”: saves everything THEN sends customer confirmation email.
+
+CONFIRMATION EMAIL
+When scheduling:
+- Email customerEmail:
+  - subject includes WO# and/or Invoice#
+  - date/time window
+  - address
+  - job name/description if available
+- CC: waltham.installer@fastsigns.com
+- Store log in NotificationLog table:
+  - type CONFIRMATION_EMAIL, toEmail, ccEmails, status, sentAt, jobId, eventId
+
+CALENDAR INTEGRATION
+- Calendar shows event title like: “WO 401-50752 – 268 Summer Street Lobby”
+- Clicking event opens Job Card Drawer showing:
+  - extracted IDs (WO# + Invoice#)
+  - attachments
+  - weather + map navigation buttons
+  - photos/tags
+  - completion + issue workflow
+
+VALIDATION
+- If WO# is missing, block scheduling and force user to enter it on Review.
+- If address missing, block scheduling until address is provided.
+
+ENV VARS
+- WEATHER_API_KEY
+- GOOGLE_MAPS_API_KEY or MAPBOX_TOKEN
+- EMAIL_PROVIDER_API_KEY
+- estimator keys (reuse existing GPT integration)
+
+IMPORTANT
+- Follow existing repo structure and coding patterns.
+- Do not break existing photo upload/tagging.
+- Keep code production-ready, with clear error messages and rollback if email fails.

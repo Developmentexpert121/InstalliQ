@@ -1,0 +1,81 @@
+You are a senior DevOps and Node.js performance engineer. Analyze my entire project and refactor the build and deployment workflow for **speed, reliability, and simplicity**.
+
+Goals:
+
+1. Reduce build time significantly.
+2. Simplify deployment to cloud platforms (Replit Deployments, Docker, Vercel, Railway, or Fly.io).
+3. Follow modern Node.js and DevOps best practices.
+4. Remove unnecessary build steps, dependencies, and scripts.
+
+Tasks:
+
+1. **Analyze Dependencies**
+
+   * Remove unused dependencies from package.json.
+   * Move dev-only packages to devDependencies.
+   * Suggest lighter alternatives for heavy packages.
+   * Ensure Node.js LTS compatibility.
+
+2. **Optimize Build Process**
+
+   * Replace slow bundlers with faster ones (esbuild or swc if applicable).
+   * Cache dependencies where possible.
+   * Avoid rebuilding unchanged assets.
+   * Minimize transpilation steps.
+   * Enable incremental builds if possible.
+
+3. **Simplify Project Structure**
+
+   * Ensure a clean structure:
+     /src
+     /config
+     /scripts
+     /public
+     package.json
+   * Remove redundant files.
+
+4. **Improve package.json Scripts**
+   Provide optimized scripts like:
+
+   * dev (fast local dev)
+   * build (production build)
+   * start (production start)
+   * lint
+   * test
+
+5. **Production Optimization**
+
+   * Enable NODE_ENV=production
+   * Use compression and caching.
+   * Optimize static asset delivery.
+   * Ensure environment variables are handled securely.
+
+6. **Deployment Optimization**
+   Provide a simple deployment strategy with:
+
+   * minimal build steps
+   * smaller bundle size
+   * faster cold start
+
+   Include examples for:
+
+   * Replit Deployments
+   * Docker
+   * Railway or Fly.io
+
+7. **Performance Improvements**
+
+   * Identify slow startup areas.
+   * Reduce server initialization time.
+   * Lazy-load modules where possible.
+
+8. **Final Deliverables**
+   Provide:
+
+   * optimized package.json
+   * improved folder structure
+   * deployment instructions
+   * explanation of performance improvements
+   * optional Dockerfile for production.
+
+Focus on **fast builds, minimal dependencies, and clean deployment workflow.**

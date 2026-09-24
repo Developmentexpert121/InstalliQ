@@ -1,0 +1,92 @@
+26-03-11 20:53:20.46
+5f0c7af7
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2026-03-11 20:53:21.38
+5f0c7af7
+User
+> rest-express@1.0.0 start
+2026-03-11 20:53:21.38
+5f0c7af7
+User
+> NODE_ENV=production node dist/index.cjs
+2026-03-11 20:53:22.53
+5f0c7af7
+User
+3:23:22 PM [express] serving on port 5000
+2026-03-11 20:53:22.67
+5f0c7af7
+User
+(node:41) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+2026-03-11 20:53:22.67
+5f0c7af7
+User
+(Use `node --trace-warnings ...` to show where the warning was created)
+2026-03-11 20:53:23.02
+5f0c7af7
+User
+3:23:23 PM [express] Application fully initialized
+2026-03-11 20:53:24.10
+5f0c7af7
+User
+3:23:24 PM [express] GET /api/reschedule-requests 304 in 413ms
+2026-03-11 20:53:24.28
+5f0c7af7
+User
+3:23:24 PM [express] GET /api/auth/google/available 304 in 107ms
+2026-03-11 20:53:24.31
+5f0c7af7
+User
+3:23:24 PM [express] GET /api/auth/me 200 in 179ms
+2026-03-11 20:53:24.88
+5f0c7af7
+User
+3:23:24 PM [express] GET /api/projects 304 in 188ms
+2026-03-11 20:53:24.99
+5f0c7af7
+User
+3:23:24 PM [express] GET /api/reschedule-requests 304 in 266ms
+2026-03-11 20:53:55.19
+5f0c7af7
+User
+3:23:55 PM [express] GET /api/reschedule-requests 304 in 693ms
+2026-03-11 20:54:26.18
+5f0c7af7
+User
+3:24:26 PM [express] GET /api/reschedule-requests 304 in 673ms
+2026-03-11 20:54:57.18
+5f0c7af7
+User
+3:24:57 PM [express] GET /api/reschedule-requests 304 in 686ms
+2026-03-11 20:55:28.29
+5f0c7af7
+User
+3:25:28 PM [express] GET /api/reschedule-requests 304 in 745ms
+2026-03-11 20:55:59.35
+5f0c7af7
+User
+3:25:59 PM [express] GET /api/reschedule-requests 304 in 716ms
+2026-03-11 20:56:30.37
+5f0c7af7
+User
+3:26:30 PM [express] GET /api/reschedule-requests 304 in 708ms
+2026-03-11 20:57:01.38
+5f0c7af7
+User
+3:27:01 PM [express] GET /api/reschedule-requests 304 in 638ms
+2026-03-11 20:57:32.37
+5f0c7af7
+User
+3:27:32 PM [express] GET /api/reschedule-requests 304 in 672ms
+2026-03-11 20:58:03.40
+5f0c7af7
+User
+3:28:03 PM [express] GET /api/reschedule-requests 304 in 687ms
+2026-03-11 20:58:03.40
+5f0c7af7
+User
+3:28:03 PM [express] GET /api/reschedule-requests 304 in 687ms
+2026-03-11 20:58:03.40
+5f0c7af7
+User
+3:28:03 PM [express] GET /api/reschedule-requests 304 in 687ms

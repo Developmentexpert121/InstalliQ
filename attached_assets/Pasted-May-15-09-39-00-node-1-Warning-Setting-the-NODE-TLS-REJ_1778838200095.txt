@@ -1,0 +1,203 @@
+May 15 09:39:00  (node:1) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+May 15 09:39:00  (Use `node --trace-warnings ...` to show where the warning was created)
+May 15 09:39:00  
+May 15 09:39:00  > rest-express@1.0.0 start
+May 15 09:39:00  > NODE_ENV=production node dist/index.cjs
+May 15 09:39:00  
+May 15 09:39:02  Database: attempting DigitalOcean PostgreSQL...
+May 15 09:39:03  Non-Replit environment detected, skipping Replit Object Storage initialization
+May 15 09:39:03  
+May 15 09:39:03  === Environment: PRODUCTION ===
+May 15 09:39:03  
+May 15 09:39:03  ✓ All required environment variables are set
+May 15 09:39:03  
+May 15 09:39:03  Database: connection attempt 1/3 to DigitalOcean...
+May 15 09:39:03  9:39:03 AM [express] serving on port 8080
+May 15 09:39:03  (node:29) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+May 15 09:39:03  (Use `node --trace-warnings ...` to show where the warning was created)
+May 15 09:39:03  Database: connected to DigitalOcean PostgreSQL
+May 15 09:39:03  [AutoMigrate] Checking database schema...
+May 15 09:39:03  [AutoMigrate] Tables already exist, checking for missing columns...
+May 15 09:39:03  [AutoMigrate] ✓ Index ensured: assets_gdrive_dedup
+May 15 09:39:03  [AutoMigrate] ✓ Index ensured: assets_installiq_dedup
+May 15 09:39:03  [AutoMigrate] Schema is up to date
+May 15 09:39:04  [Seeder] Running seeders...
+May 15 09:39:04  [Seeder] Schema migrations complete — 29/29 statements executed
+May 15 09:39:04  [Seeder] Reset password for super admin: developmentexpert121@gmail.com
+May 15 09:39:04  [Seeder] Reset password for super admin: vjkalwani@gmail.com
+May 15 09:39:04  [Seeder] Reset password for super admin: mehta.shishir@gmail.com
+May 15 09:39:04  [Seeder] Reset password for admin: saniyatanyal1@gmail.com
+May 15 09:39:05  [Seeder] Reset password for admin: vjkalwani@yahoo.com
+May 15 09:39:05  [Seeder] Deduplicated global_tags (kept lowest id per name)
+May 15 09:39:05  [Seeder] Ensured unique index on global_tags.name
+May 15 09:39:05  [Seeder] Added 0 new default global tags
+May 15 09:39:05  [Seeder] Ensured asset_manager_access enabled for saniyatanyal1@gmail.com (id=4)
+May 15 09:39:05  [Seeder] Ensured asset_manager_access enabled for vjkalwani@yahoo.com (id=35)
+May 15 09:39:06  [Seeder] asset_tag_library already up to date for all admins
+May 15 09:39:06  [Seeder] Seeders complete
+May 15 09:39:06  [Startup] Cleared any stale CompanyCam sync states
+May 15 09:39:06  9:39:06 AM [express] Application fully initialized
+May 15 09:39:06  [Scheduler] Starting — will run tasks every 1 hour
+May 15 09:39:06  [Scheduler] Running hourly tasks...
+May 15 09:39:06  [Scheduler] Weather refresh: updating 11 upcoming job(s)
+May 15 09:39:06  Geocoding address: 
+May 15 09:39:06  Geocoding: No results found for 
+May 15 09:39:06  Geocoding address:  140 Kendrick St Needham, MA 02494
+May 15 09:39:06  Geocoding: No results found for  140 Kendrick St Needham, MA 02494
+May 15 09:39:06  Geocoding address: 777 Dedham st, Newton, MA 02459, US
+May 15 09:39:06  Geocoded via city/state: Newton,MA,US -> 42.3370414 -71.2092214
+May 15 09:39:06  Geocoding address: 
+May 15 09:39:06  Geocoding: No results found for 
+May 15 09:39:06  Geocoding address: 
+May 15 09:39:06  Geocoding: No results found for 
+May 15 09:39:06  Geocoding address: 100 Clarendon St, Boston, MA 02116, US
+May 15 09:39:06  Geocoded via city/state: Boston,MA,US -> 42.3554334 -71.060511
+May 15 09:39:06  Geocoding address: 55 Wheeler St, Cambridge, MA 02138, US
+May 15 09:39:06  Geocoded via city/state: Cambridge,MA,US -> 42.3656347 -71.1040018
+May 15 09:39:06  Geocoding address: 200 Clarendon St, Boston, MA 02116, US
+May 15 09:39:06  Geocoded via city/state: Boston,MA,US -> 42.3554334 -71.060511
+May 15 09:39:06  Geocoding address: 	1000 Winter St, Waltham, MA 02451
+May 15 09:39:06  Geocoding: No results found for 	1000 Winter St, Waltham, MA 02451
+May 15 09:39:06  Geocoding address: 211 Massachusetts Ave, Cambridge, MA 02139, US
+May 15 09:39:06  Geocoded via city/state: Cambridge,MA,US -> 42.3656347 -71.1040018
+May 15 09:39:06  Geocoding address: 100A Middle St. Manchester, NH 03101
+May 15 09:39:06  Geocoding: No results found for 100A Middle St. Manchester, NH 03101
+May 15 09:39:06  [Scheduler] Weather refresh complete: 5/11 updated
+May 15 09:39:06  [Scheduler] Escalation: no past-due SCHEDULED jobs found
+May 15 09:39:06  [Scheduler] Hourly tasks complete
+May 15 09:39:37  9:39:37 AM [express] GET /api/reschedule-requests 304 in 114ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/auth/me 200 in 19ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/reschedule-requests 200 in 35ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/asset-manager/my-access 304 in 31ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/projects/27 304 in 93ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/global-tags 304 in 89ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/owner-tags 304 in 105ms
+May 15 09:39:39  9:39:39 AM [express] GET /api/settings/subscription-gate 304 in 26ms
+May 15 09:39:39  Error fetching subscription: error: column "plan_notification" does not exist
+May 15 09:39:39      at /workspace/dist/index.cjs:65:15292
+May 15 09:39:39      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:39:39      at async p2e (/workspace/dist/index.cjs:247:130160)
+May 15 09:39:39      at async /workspace/dist/index.cjs:1317:3574 {
+May 15 09:39:39    length: 116,
+May 15 09:39:39    severity: 'ERROR',
+May 15 09:39:39    code: '42703',
+May 15 09:39:39    detail: undefined,
+May 15 09:39:39    hint: undefined,
+May 15 09:39:39    position: '8',
+May 15 09:39:39    internalPosition: undefined,
+May 15 09:39:39    internalQuery: undefined,
+May 15 09:39:39    where: undefined,
+May 15 09:39:39    schema: undefined,
+May 15 09:39:39    table: undefined,
+May 15 09:39:39    column: undefined,
+May 15 09:39:39    dataType: undefined,
+May 15 09:39:39    constraint: undefined,
+May 15 09:39:39    file: 'parse_relation.c',
+May 15 09:39:39    line: '3822',
+May 15 09:39:39    routine: 'errorMissingColumn'
+May 15 09:39:39  }
+May 15 09:39:39  9:39:39 AM [express] GET /api/subscription/my-subscription 500 in 45ms
+May 15 09:39:46  Error uploading to DigitalOcean Spaces: InvalidAccessKeyId: UnknownError
+May 15 09:39:46      at Ra.getErrorSchemaOrThrowBaseException (/workspace/dist/index.cjs:459:32684)
+May 15 09:39:46      at xC.handleError (/workspace/dist/index.cjs:467:17414)
+May 15 09:39:46      at xC.deserializeResponse (/workspace/dist/index.cjs:448:19152)
+May 15 09:39:46      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:39:46      at async /workspace/dist/index.cjs:445:5819
+May 15 09:39:46      at async /workspace/dist/index.cjs:468:2779
+May 15 09:39:46      at async /workspace/dist/index.cjs:469:10400
+May 15 09:39:46      at async /workspace/dist/index.cjs:467:39216
+May 15 09:39:46      at async /workspace/dist/index.cjs:467:49854
+May 15 09:39:46      at async /workspace/dist/index.cjs:467:50223 {
+May 15 09:39:46    '$fault': 'client',
+May 15 09:39:46    '$retryable': undefined,
+May 15 09:39:46    '$metadata': {
+May 15 09:39:46      httpStatusCode: 403,
+May 15 09:39:46      requestId: 'tx000004941421d11b3451e-006a06e9e2-2b0bdfc-nyc3e',
+May 15 09:39:46      extendedRequestId: undefined,
+May 15 09:39:46      cfId: undefined,
+May 15 09:39:46      attempts: 1,
+May 15 09:39:46      totalRetryDelay: 0
+May 15 09:39:46    },
+May 15 09:39:46    Code: 'InvalidAccessKeyId',
+May 15 09:39:46    RequestId: 'tx000004941421d11b3451e-006a06e9e2-2b0bdfc-nyc3e',
+May 15 09:39:46    HostId: '2b0bdfc-nyc3e-nyc3-zg05'
+May 15 09:39:46  }
+May 15 09:39:46  Error uploading project images: InvalidAccessKeyId: UnknownError
+May 15 09:39:46      at Ra.getErrorSchemaOrThrowBaseException (/workspace/dist/index.cjs:459:32684)
+May 15 09:39:46      at xC.handleError (/workspace/dist/index.cjs:467:17414)
+May 15 09:39:46      at xC.deserializeResponse (/workspace/dist/index.cjs:448:19152)
+May 15 09:39:46      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:39:46      at async /workspace/dist/index.cjs:445:5819
+May 15 09:39:46      at async /workspace/dist/index.cjs:468:2779
+May 15 09:39:46      at async /workspace/dist/index.cjs:469:10400
+May 15 09:39:46      at async /workspace/dist/index.cjs:467:39216
+May 15 09:39:46      at async /workspace/dist/index.cjs:467:49854
+May 15 09:39:46      at async /workspace/dist/index.cjs:467:50223 {
+May 15 09:39:46    '$fault': 'client',
+May 15 09:39:46    '$retryable': undefined,
+May 15 09:39:46    '$metadata': {
+May 15 09:39:46      httpStatusCode: 403,
+May 15 09:39:46      requestId: 'tx000004941421d11b3451e-006a06e9e2-2b0bdfc-nyc3e',
+May 15 09:39:46      extendedRequestId: undefined,
+May 15 09:39:46      cfId: undefined,
+May 15 09:39:46      attempts: 1,
+May 15 09:39:46      totalRetryDelay: 0
+May 15 09:39:46    },
+May 15 09:39:46    Code: 'InvalidAccessKeyId',
+May 15 09:39:46    RequestId: 'tx000004941421d11b3451e-006a06e9e2-2b0bdfc-nyc3e',
+May 15 09:39:46    HostId: '2b0bdfc-nyc3e-nyc3-zg05'
+May 15 09:39:46  }
+May 15 09:39:46  9:39:46 AM [express] POST /api/projects/27/images 500 in 1640ms
+May 15 09:42:04  9:42:04 AM [express] GET /api/auth/me 200 in 12ms
+May 15 09:42:04  Error fetching subscription: error: column "plan_notification" does not exist
+May 15 09:42:04      at /workspace/dist/index.cjs:65:15292
+May 15 09:42:04      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:42:04      at async p2e (/workspace/dist/index.cjs:247:130160)
+May 15 09:42:04      at async /workspace/dist/index.cjs:1317:3574 {
+May 15 09:42:04    length: 116,
+May 15 09:42:04    severity: 'ERROR',
+May 15 09:42:04    code: '42703',
+May 15 09:42:04    detail: undefined,
+May 15 09:42:04    hint: undefined,
+May 15 09:42:04    position: '8',
+May 15 09:42:04    internalPosition: undefined,
+May 15 09:42:04    internalQuery: undefined,
+May 15 09:42:04    where: undefined,
+May 15 09:42:04    schema: undefined,
+May 15 09:42:04    table: undefined,
+May 15 09:42:04    column: undefined,
+May 15 09:42:04    dataType: undefined,
+May 15 09:42:04    constraint: undefined,
+May 15 09:42:04    file: 'parse_relation.c',
+May 15 09:42:04    line: '3822',
+May 15 09:42:04    routine: 'errorMissingColumn'
+May 15 09:42:04  }
+May 15 09:42:04  9:42:04 AM [express] GET /api/subscription/my-subscription 500 in 91ms
+May 15 09:42:04  9:42:04 AM [express] GET /api/settings/subscription-gate 304 in 80ms
+May 15 09:42:04  9:42:04 AM [express] GET /api/auth/google/available 304 in 18ms
+May 15 09:42:07  9:42:07 AM [express] GET /api/onboarding-questions 200 in 25ms
+May 15 09:42:20  Auto-created OpenAI Assistant asst_4YAcQgy1w6VEd8kIkwvAP3JP for admin Shivam
+May 15 09:42:21  9:42:21 AM [express] POST /api/onboarding 200 in 4129ms
+May 15 09:42:21  9:42:21 AM [express] GET /api/reschedule-requests 304 in 52ms
+May 15 09:42:21  9:42:21 AM [express] GET /api/global-tags 200 in 60ms
+May 15 09:42:21  9:42:21 AM [express] GET /api/asset-manager/my-access 200 in 89ms
+May 15 09:42:21  9:42:21 AM [express] GET /api/owner-tags 200 in 93ms
+May 15 09:42:21  9:42:21 AM [express] GET /api/calendar-filter-colors 304 in 89ms
+May 15 09:42:21  9:42:21 AM [express] GET /api/calendar-events 200 in 113ms
+May 15 09:42:26  9:42:26 AM [express] POST /api/auth/logout 200 in 9ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/subscription/my-subscription 401 in 12ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/reschedule-requests 401 in 16ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/auth/google/available 304 in 22ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/asset-manager/my-access 401 in 27ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/settings/subscription-gate 401 in 5ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/calendar-events 401 in 73ms
+May 15 09:42:27  9:42:27 AM [express] GET /api/auth/google/available 304 in 14ms
+May 15 09:42:28  9:42:28 AM [express] GET /api/weather/default-location 401 in 10ms
+May 15 09:42:29  9:42:29 AM [express] GET /api/admin/assignable-users 401 in 5ms
+May 15 09:42:29  9:42:29 AM [express] GET /api/weather/default-location 401 in 7ms
+May 15 09:42:29  9:42:29 AM [express] GET /api/admin/assignable-users 401 in 6ms
+May 15 09:42:39  [LOGIN] Step 1: Parsing request body...
+May 15 09:42:39  [LOGIN] Step 2: Looking up user: setiashivam351@gmail.com
+May 15 09:42:39  [LOGIN] Step 3: User found (id: 54 ), verifying password...
+May 15 09:42:39  [LOGIN] Password mismatch for user: 54
+May 15 09:42:39  9:42:39 AM [express] POST /api/auth/login 401 in 196ms

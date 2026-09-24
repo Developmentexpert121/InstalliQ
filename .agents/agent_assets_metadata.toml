@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "tA9W7NyLgfLYkB5-3CASb"
+uri = "file://docs/DEVELOPER.md"
+type = "text"
+title = "InstalliQ.ai — Developer Documentation"

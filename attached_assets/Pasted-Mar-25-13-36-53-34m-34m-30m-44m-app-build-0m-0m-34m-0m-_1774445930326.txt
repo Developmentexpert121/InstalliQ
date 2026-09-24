@@ -1,0 +1,205 @@
+Mar 25 13:36:53  [34m╭────────────[34m[30m[44m app build [0m[0m[34m───────────╼[0m
+Mar 25 13:36:53  [34m│[0m Timer: Builder started at 2026-03-25T13:36:53Z
+Mar 25 13:36:54  [34m│[0m        
+Mar 25 13:36:54  [34m│[0m -----> Creating runtime environment
+Mar 25 13:36:54  [34m│[0m        
+Mar 25 13:36:54  [34m│[0m        NPM_CONFIG_LOGLEVEL=error
+Mar 25 13:36:54  [34m│[0m        NODE_TLS_REJECT_UNAUTHORIZED=0
+Mar 25 13:36:54  [34m│[0m        NODE_OPTIONS=--max-old-space-size=1536
+Mar 25 13:36:54  [34m│[0m        NODE_VERBOSE=false
+Mar 25 13:36:54  [34m│[0m        NODE_ENV=production
+Mar 25 13:36:54  [34m│[0m        NODE_MODULES_CACHE=true
+Mar 25 13:36:54  [34m│[0m        
+Mar 25 13:36:54  [34m│[0m -----> Installing binaries
+Mar 25 13:36:54  [34m│[0m        engines.node (package.json):   20.x
+Mar 25 13:36:54  [34m│[0m        engines.npm (package.json):    >=10
+Mar 25 13:36:54  [34m│[0m        
+Mar 25 13:36:55  [34m│[0m        Resolving node version 20.x...
+Mar 25 13:36:55  [34m│[0m        Downloading and installing node 20.20.0...
+Mar 25 13:36:55  [34m│[0m        Validating checksum
+Mar 25 13:36:58  [34m│[0m        Bootstrapping npm >=10 (replacing 10.8.2)...
+Mar 25 13:36:58  [34m│[0m        (node:2634) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Mar 25 13:36:58  [34m│[0m        (Use `node --trace-warnings ...` to show where the warning was created)
+Mar 25 13:37:02  [34m│[0m        npm 11.12.0 installed
+Mar 25 13:37:03  [34m│[0m        
+Mar 25 13:37:03  [34m│[0m -----> Restoring cache
+Mar 25 13:37:03  [34m│[0m        - npm cache
+Mar 25 13:37:03  [34m│[0m        
+Mar 25 13:37:03  [34m│[0m -----> Installing dependencies
+Mar 25 13:37:03  [34m│[0m        Installing node modules
+Mar 25 13:37:04  [34m│[0m        (node:2947) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Mar 25 13:37:04  [34m│[0m        (Use `node --trace-warnings ...` to show where the warning was created)
+Mar 25 13:37:06  [34m│[0m        npm error code EUSAGE
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error Missing: docx@9.6.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: exceljs@4.4.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: @types/node@25.5.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: hash.js@1.1.7 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: jszip@3.10.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: xml@1.0.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: xml-js@1.6.11 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: archiver@5.3.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: dayjs@1.11.20 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: fast-csv@4.3.6 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: readable-stream@3.6.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: saxes@5.0.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: tmp@0.2.5 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: unzipper@0.10.14 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: @fast-csv/format@4.3.5 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: @fast-csv/parse@4.3.6 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: @types/node@14.18.63 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.escaperegexp@4.1.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.isboolean@3.0.3 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.isfunction@3.0.9 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.isnil@4.0.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: @types/node@14.18.63 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.groupby@4.6.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.isundefined@3.0.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.uniq@4.5.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: minimalistic-assert@1.0.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lie@3.3.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: pako@1.0.11 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: readable-stream@2.3.8 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: setimmediate@1.0.5 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: immediate@3.0.6 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: xmlchars@2.2.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: big-integer@1.6.52 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: binary@0.3.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: bluebird@3.4.7 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: buffer-indexof-polyfill@1.0.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: duplexer2@0.1.4 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: fstream@1.0.12 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: listenercount@1.0.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: readable-stream@2.3.8 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: buffers@0.1.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: chainsaw@0.1.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: traverse@0.3.9 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: readable-stream@2.3.8 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: mkdirp@0.5.6 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: rimraf@2.7.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: minimist@1.2.8 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: glob@7.2.3 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: sax@1.6.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: undici-types@7.18.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: safe-buffer@5.1.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: string_decoder@1.1.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: archiver-utils@2.1.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: buffer-crc32@0.2.13 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: tar-stream@2.2.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: zip-stream@4.1.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: glob@7.2.3 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.defaults@4.2.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.difference@4.5.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.flatten@4.4.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.isplainobject@4.0.6 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: lodash.union@4.6.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: readable-stream@2.3.8 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: minimatch@3.1.5 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: brace-expansion@1.1.12 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: bl@4.1.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: fs-constants@1.0.0 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: buffer@5.7.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: readable-stream@3.6.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: archiver-utils@3.0.4 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: compress-commons@4.1.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: crc32-stream@4.0.3 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: safe-buffer@5.1.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: string_decoder@1.1.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: minimatch@3.1.5 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: brace-expansion@1.1.12 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: safe-buffer@5.1.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: string_decoder@1.1.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: safe-buffer@5.1.2 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error Missing: string_decoder@1.1.1 from lock file
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error Clean install a project
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error Usage:
+Mar 25 13:37:06  [34m│[0m        npm error npm ci
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error Options:
+Mar 25 13:37:06  [34m│[0m        npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+Mar 25 13:37:06  [34m│[0m        npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+Mar 25 13:37:06  [34m│[0m        npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+Mar 25 13:37:06  [34m│[0m        npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts]
+Mar 25 13:37:06  [34m│[0m        npm error [--allow-git <all|none|root>] [--no-audit] [--no-bin-links] [--no-fund]
+Mar 25 13:37:06  [34m│[0m        npm error [--dry-run]
+Mar 25 13:37:06  [34m│[0m        npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+Mar 25 13:37:06  [34m│[0m        npm error [--workspaces] [--include-workspace-root] [--install-links]
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --install-strategy
+Mar 25 13:37:06  [34m│[0m        npm error     Sets the strategy for installing packages in node_modules.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --legacy-bundling
+Mar 25 13:37:06  [34m│[0m        npm error     Instead of hoisting package installs in `node_modules`, install packages
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --global-style
+Mar 25 13:37:06  [34m│[0m        npm error     Only install direct dependencies in the top level `node_modules`,
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --omit
+Mar 25 13:37:06  [34m│[0m        npm error     Dependency types to omit from the installation tree on disk.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --include
+Mar 25 13:37:06  [34m│[0m        npm error     Option that allows for defining which types of dependencies to install.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --strict-peer-deps
+Mar 25 13:37:06  [34m│[0m        npm error     If set to `true`, and `--legacy-peer-deps` is not set, then _any_
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --foreground-scripts
+Mar 25 13:37:06  [34m│[0m        npm error     Run all build scripts (ie, `preinstall`, `install`, and
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --ignore-scripts
+Mar 25 13:37:06  [34m│[0m        npm error     If true, npm does not run scripts specified in package.json files.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --allow-git
+Mar 25 13:37:06  [34m│[0m        npm error     Limits the ability for npm to fetch dependencies from git references.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --audit
+Mar 25 13:37:06  [34m│[0m        npm error     When "true" submit audit reports alongside the current npm command to the
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --bin-links
+Mar 25 13:37:06  [34m│[0m        npm error     Tells npm to create symlinks (or `.cmd` shims on Windows) for package
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --fund
+Mar 25 13:37:06  [34m│[0m        npm error     When "true" displays the message at the end of each `npm install`
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --dry-run
+Mar 25 13:37:06  [34m│[0m        npm error     Indicates that you don't want npm to make any changes and that it should
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   -w|--workspace
+Mar 25 13:37:06  [34m│[0m        npm error     Enable running a command in the context of the configured workspaces of the
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --workspaces
+Mar 25 13:37:06  [34m│[0m        npm error     Set to true to run the command in the context of **all** configured
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --include-workspace-root
+Mar 25 13:37:06  [34m│[0m        npm error     Include the workspace root when workspaces are enabled for a command.
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error   --install-links
+Mar 25 13:37:06  [34m│[0m        npm error     When set file: protocol dependencies will be packed and installed as
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error aliases: clean-install, ic, install-clean, isntall-clean
+Mar 25 13:37:06  [34m│[0m        npm error
+Mar 25 13:37:06  [34m│[0m        npm error Run "npm help ci" for more info
+Mar 25 13:37:06  [34m│[0m        npm error A complete log of this run can be found in: /tmp/npmcache.xiN5h/_logs/2026-03-25T13_37_03_888Z-debug-0.log
+Mar 25 13:37:06  [34m│[0m 
+Mar 25 13:37:06  [34m│[0m -----> Build failed
+Mar 25 13:37:06  [34m│[0m  !     npm lockfile is not in sync
+Mar 25 13:37:06  [34m│[0m 
+Mar 25 13:37:06  [34m│[0m        This error occurs when the contents of `package.json` contains a different
+Mar 25 13:37:06  [34m│[0m        set of dependencies that the contents of `package-lock.json`. This can happen
+Mar 25 13:37:06  [34m│[0m        when a package is added, modified, or removed but the lockfile was not updated.
+Mar 25 13:37:06  [34m│[0m 
+Mar 25 13:37:06  [34m│[0m        To fix this, run `npm install` locally in your app directory to regenerate the
+Mar 25 13:37:06  [34m│[0m        lockfile, commit the changes to `package-lock.json`, and redeploy.
+Mar 25 13:37:06  [34m│[0m       
+Mar 25 13:37:06  [34m│[0m        https://devcenter.heroku.com/articles/troubleshooting-node-deploys#make-sure-that-the-lockfile-is-up-to-date
+Mar 25 13:37:06  [34m│[0m 
+Mar 25 13:37:06  [34m│[0m Timer: Builder ran for 12.777056726s and ended at 2026-03-25T13:37:06Z
+Mar 25 13:37:06  [34m│[0m [31;1mERROR: [0mfailed to build: exit status 1
+Mar 25 13:37:06  [34m│[0m 
+Mar 25 13:37:06  [34m│[0m 
+Mar 25 13:37:06  [34m│[0m [31m ✘ build failed[0m

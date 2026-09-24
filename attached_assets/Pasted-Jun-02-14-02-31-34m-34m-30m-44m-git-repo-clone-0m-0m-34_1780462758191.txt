@@ -1,0 +1,271 @@
+Jun 02 14:02:31  [34m╭────────────[34m[30m[44m git repo clone [0m[0m[34m───────────╼[0m
+Jun 02 14:02:31  [34m│[0m [34m › fetching app source code[0m
+Jun 02 14:02:31  [34m│[0m => Selecting branch "productions"
+Jun 02 14:02:40  [34m│[0m => Checking out commit "56bdc231679271abf5baa5044f8a2695df18388b"
+Jun 02 14:02:40  [34m│[0m 
+Jun 02 14:02:40  [34m│[0m [32m ✔ cloned repo to [35m/workspace[0m[0m
+Jun 02 14:02:40  [34m╰────────────────────────────────────────╼[0m
+Jun 02 14:02:40  
+Jun 02 14:02:41  [34m › configuring build-time app environment variables:[0m
+Jun 02 14:02:41       OPENAI_API_KEY RAZORPAY_KEY_ID SMTP_FROM RAZORPAY_KEY_SECRET NODE_OPTIONS NODE_VERSION SMTP_USER GOOGLE_CLIENT_ID NODE_ENV DO_SPACES_SECRET DATABASE_URL PROXY_SECRET SSO_SECRET_INSTALLIQ GOOGLE_CLIENT_SECRET SMTP_PASS RAZORPAY_API_URL DO_SPACES_CDN_URL DO_SPACES_REGION PORT SESSION_SECRET DO_SPACES_KEY OPENWEATHER_API_KEY DO_SPACES_ENDPOINT DIGITALOCEAN_DATABASE_URL DO_SPACES_BUCKET NODE_TLS_REJECT_UNAUTHORIZED OPENAI_ASSISTANT_ID SENDGRID_API_KEY SIGNSUITEIQ_SSO_SECRET
+Jun 02 14:02:41  
+Jun 02 14:02:41  [34m › configuring custom build command to be run at the end of the build:[0m
+Jun 02 14:02:41     [34m│[0m npm install
+Jun 02 14:02:41     [34m│[0m npm run build
+Jun 02 14:02:41  
+Jun 02 14:02:41  [34m╭────────────[34m[30m[44m buildpack detection [0m[0m[34m───────────╼[0m
+Jun 02 14:02:41  [34m│[0m [34m › using Ubuntu 22.04 stack[0m
+Jun 02 14:02:43  [34m│[0m Detected the following buildpacks suitable to build your app:
+Jun 02 14:02:43  [34m│[0m 
+Jun 02 14:02:43  [34m│[0m    digitalocean/nodejs-appdetect  v0.1.2    
+Jun 02 14:02:43  [34m│[0m    heroku/nodejs                  v0.341.5  (Node.js)
+Jun 02 14:02:43  [34m│[0m    digitalocean/procfile          v0.1.0    (Procfile)
+Jun 02 14:02:43  [34m│[0m    digitalocean/custom            v0.2.0    (Custom Build Command)
+Jun 02 14:02:43  [34m╰─────────────────────────────────────────────╼[0m
+Jun 02 14:02:43  
+Jun 02 14:02:43  [34m╭────────────[34m[30m[44m build caching [0m[0m[34m───────────╼[0m
+Jun 02 14:02:43  [34m│[0m [34m › checking for cache from a previous build[0m
+Jun 02 14:02:43  [34m│[0m Timer: Analyzer started at 2026-06-02T14:02:43Z
+Jun 02 14:02:44  [34m│[0m Restoring metadata for "heroku/nodejs:shim" from cache
+Jun 02 14:02:44  [34m│[0m Timer: Analyzer ran for 610.121203ms and ended at 2026-06-02T14:02:44Z
+Jun 02 14:02:44  [34m│[0m Timer: Restorer started at 2026-06-02T14:02:44Z
+Jun 02 14:02:44  [34m│[0m Restoring data for "heroku/nodejs:shim" from cache
+Jun 02 14:02:46  [34m│[0m Timer: Restorer ran for 2.562119628s and ended at 2026-06-02T14:02:46Z
+Jun 02 14:02:46  [34m╰───────────────────────────────────────╼[0m
+Jun 02 14:02:46  
+Jun 02 14:02:47  [34m╭────────────[34m[30m[44m app build [0m[0m[34m───────────╼[0m
+Jun 02 14:02:47  [34m│[0m Timer: Builder started at 2026-06-02T14:02:47Z
+Jun 02 14:02:47  [34m│[0m        
+Jun 02 14:02:47  [34m│[0m -----> Creating runtime environment
+Jun 02 14:02:47  [34m│[0m        
+Jun 02 14:02:47  [34m│[0m        NPM_CONFIG_LOGLEVEL=error
+Jun 02 14:02:47  [34m│[0m        NODE_TLS_REJECT_UNAUTHORIZED=0
+Jun 02 14:02:47  [34m│[0m        NODE_OPTIONS=--max-old-space-size=1536
+Jun 02 14:02:47  [34m│[0m        NODE_VERBOSE=false
+Jun 02 14:02:47  [34m│[0m        NODE_ENV=production
+Jun 02 14:02:47  [34m│[0m        NODE_VERSION=20
+Jun 02 14:02:47  [34m│[0m        NODE_MODULES_CACHE=true
+Jun 02 14:02:47  [34m│[0m        
+Jun 02 14:02:47  [34m│[0m -----> Installing binaries
+Jun 02 14:02:48  [34m│[0m        engines.node (package.json):   20.x
+Jun 02 14:02:48  [34m│[0m        engines.npm (package.json):    >=10
+Jun 02 14:02:48  [34m│[0m        
+Jun 02 14:02:48  [34m│[0m        Resolving node version 20.x...
+Jun 02 14:02:48  [34m│[0m        Downloading and installing node 20.20.2...
+Jun 02 14:02:48  [34m│[0m        Validating checksum
+Jun 02 14:02:51  [34m│[0m        Bootstrapping npm >=10 (replacing 10.8.2)...
+Jun 02 14:02:52  [34m│[0m        (node:2844) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Jun 02 14:02:52  [34m│[0m        (Use `node --trace-warnings ...` to show where the warning was created)
+Jun 02 14:02:57  [34m│[0m        npm 11.16.0 installed
+Jun 02 14:02:58  [34m│[0m        
+Jun 02 14:02:58  [34m│[0m -----> Restoring cache
+Jun 02 14:02:58  [34m│[0m        - npm cache
+Jun 02 14:02:58  [34m│[0m        
+Jun 02 14:02:58  [34m│[0m -----> Installing dependencies
+Jun 02 14:02:58  [34m│[0m        Installing node modules
+Jun 02 14:03:00  [34m│[0m        (node:3191) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Jun 02 14:03:00  [34m│[0m        (Use `node --trace-warnings ...` to show where the warning was created)
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m        added 888 packages, and audited 889 packages in 31s
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m        112 packages are looking for funding
+Jun 02 14:03:29  [34m│[0m          run `npm fund` for details
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m        27 vulnerabilities (3 low, 16 moderate, 8 high)
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m        To address issues that do not require attention, run:
+Jun 02 14:03:29  [34m│[0m          npm audit fix
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m        To address all issues (including breaking changes), run:
+Jun 02 14:03:29  [34m│[0m          npm audit fix --force
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m        Run `npm audit` for details.
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m -----> Build
+Jun 02 14:03:29  [34m│[0m        
+Jun 02 14:03:29  [34m│[0m -----> Caching build
+Jun 02 14:03:29  [34m│[0m        - npm cache
+Jun 02 14:03:30  [34m│[0m        
+Jun 02 14:03:30  [34m│[0m -----> Pruning devDependencies
+Jun 02 14:03:30  [34m│[0m        (node:4256) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Jun 02 14:03:30  [34m│[0m        (Use `node --trace-warnings ...` to show where the warning was created)
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m        up to date, audited 889 packages in 4s
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m        112 packages are looking for funding
+Jun 02 14:03:34  [34m│[0m          run `npm fund` for details
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m        27 vulnerabilities (3 low, 16 moderate, 8 high)
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m        To address issues that do not require attention, run:
+Jun 02 14:03:34  [34m│[0m          npm audit fix
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m        To address all issues (including breaking changes), run:
+Jun 02 14:03:34  [34m│[0m          npm audit fix --force
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m        Run `npm audit` for details.
+Jun 02 14:03:34  [34m│[0m        
+Jun 02 14:03:34  [34m│[0m -----> Build succeeded!
+Jun 02 14:03:34  [34m│[0m Running custom build command: npm install
+Jun 02 14:03:34  [34m│[0m npm run build
+Jun 02 14:03:35  [34m│[0m (node:4465) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Jun 02 14:03:35  [34m│[0m (Use `node --trace-warnings ...` to show where the warning was created)
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m up to date, audited 889 packages in 4s
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m 112 packages are looking for funding
+Jun 02 14:03:38  [34m│[0m   run `npm fund` for details
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m 27 vulnerabilities (3 low, 16 moderate, 8 high)
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m To address issues that do not require attention, run:
+Jun 02 14:03:38  [34m│[0m   npm audit fix
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m To address all issues (including breaking changes), run:
+Jun 02 14:03:38  [34m│[0m   npm audit fix --force
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m Run `npm audit` for details.
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts 7 packages have install scripts not yet covered by allowScripts:
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   esbuild@0.27.4 (install: (install scripts present))
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   @scarf/scarf@1.4.0 (install: (install scripts present))
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   bufferutil@4.1.0 (install: node-gyp rebuild)
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   esbuild@0.25.12 (install: (install scripts present))
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   sharp@0.34.5 (install: (install scripts present))
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   esbuild@0.27.4 (install: (install scripts present))
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts   esbuild@0.27.4 (install: (install scripts present))
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts
+Jun 02 14:03:38  [34m│[0m npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:38  [34m│[0m > rest-express@1.0.0 build
+Jun 02 14:03:38  [34m│[0m > tsx script/build.ts
+Jun 02 14:03:38  [34m│[0m 
+Jun 02 14:03:39  [34m│[0m building client...
+Jun 02 14:03:39  [34m│[0m vite v7.3.1 building client environment for production...
+Jun 02 14:03:39  [34m│[0m transforming...
+Jun 02 14:03:49  [34m│[0m ✓ 3162 modules transformed.
+Jun 02 14:03:50  [34m│[0m Generated an empty chunk: "react-vendor".
+Jun 02 14:03:50  [34m│[0m rendering chunks...
+Jun 02 14:03:51  [34m│[0m computing gzip size...
+Jun 02 14:03:51  [34m│[0m ../dist/public/index.html                                              2.71 kB │ gzip:   1.01 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/FASTSIGNS-MYS-Logo_1771624193112-DEmmUeyF.jpg   48.66 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/quill-CQ7DNbul.css                              24.24 kB │ gzip:   3.62 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/index-D1OuhhqT.css                             176.03 kB │ gzip:  27.47 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/react-vendor-l0sNRNKZ.js                         0.00 kB │ gzip:   0.02 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/FASTSIGNS-MYS-Logo_1771624193112-mHeABwuK.js     0.08 kB │ gzip:   0.10 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/skeleton-DDbIpBqS.js                             0.21 kB │ gzip:   0.18 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/image-url-DZFa30EA.js                            0.38 kB │ gzip:   0.21 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/charts-BfmQAdIl.js                               0.44 kB │ gzip:   0.29 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/progress-BCRRXuzK.js                             0.51 kB │ gzip:   0.35 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/confirm-dialog-B-76mRVr.js                       0.71 kB │ gzip:   0.41 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/checkbox-DBzjPisB.js                             0.78 kB │ gzip:   0.44 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/switch-CpuGCjZ9.js                               0.89 kB │ gzip:   0.47 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/lazy-image-p_vRfk8r.js                           0.96 kB │ gzip:   0.57 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/tabs-CYloh0mj.js                                 1.18 kB │ gzip:   0.50 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/table-CHiAe2rQ.js                                1.57 kB │ gzip:   0.56 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/map-link-picker-CKnnoX9V.js                      1.61 kB │ gzip:   0.81 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/form-szYniP5Q.js                                 2.79 kB │ gzip:   1.23 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/select-DiWpXhIi.js                               3.20 kB │ gzip:   1.16 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/forgot-password-YNjlswJB.js                      4.26 kB │ gzip:   1.70 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/alert-dialog-BF3UKF0H.js                         4.96 kB │ gzip:   1.84 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/time-estimator-BWXMfOlZ.js                       6.07 kB │ gzip:   2.39 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/last-updates-B17dVkVK.js                         6.18 kB │ gzip:   2.42 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/reset-password-CKlvEZOP.js                       7.75 kB │ gzip:   2.55 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/confirm-booking-B-SuC745.js                      7.80 kB │ gzip:   2.11 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/reschedule-booking-3hBmeTGF.js                   8.18 kB │ gzip:   2.34 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/email-templates-RSYnrAJR.js                     11.32 kB │ gzip:   3.46 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/face-capture-DtsQKnoY.js                        11.67 kB │ gzip:   3.37 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/archive-Selv4FLN.js                             11.70 kB │ gzip:   3.58 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/job-notifications-SJO3q6HV.js                   11.88 kB │ gzip:   3.67 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/feedback-inbox-7VXrQQrF.js                      12.21 kB │ gzip:   3.52 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/router-vendor-uegKR1BS.js                       12.26 kB │ gzip:   5.08 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/assistant-settings-BAjr7zlQ.js                  13.33 kB │ gzip:   3.79 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/ai-calendar-dialog-OqAEpZ2T.js                  16.34 kB │ gzip:   4.84 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/developer-guide-DSG7DLCA.js                     18.65 kB │ gzip:   5.20 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/user-manual-MqtmGgVX.js                         19.25 kB │ gzip:   4.16 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/project-new-BWqOvpam.js                         20.02 kB │ gzip:   5.81 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/questionnaire-management-D5uW5pw0.js            21.41 kB │ gzip:   5.39 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/login-JhyY_6TK.js                               21.91 kB │ gzip:   6.88 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/reschedule-requests-DUcw95wW.js                 22.29 kB │ gzip:   5.52 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/calendar-BjV227Qz.js                            22.41 kB │ gzip:   5.95 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/super-admin-manual-DmfIhwkA.js                  23.62 kB │ gzip:   5.22 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/dashboard-DpjKz0ps.js                           25.53 kB │ gzip:   6.61 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/project-detail-BY6Xty7g.js                      25.78 kB │ gzip:   6.75 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/form-vendor-XkSg815p.js                         28.25 kB │ gzip:  10.37 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/owner-admin-manual-wnI-TeU1.js                  28.90 kB │ gzip:   5.85 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/date-vendor-CF1CHNXX.js                         32.23 kB │ gzip:   9.41 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/activity-logs-iazR2ach.js                       33.45 kB │ gzip:   8.75 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/account-settings-CpniMb_z.js                    34.73 kB │ gzip:   8.37 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/icons-vendor-D6okRkrh.js                        35.10 kB │ gzip:  10.67 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/subscription-plans-Ps-gh-h7.js                  36.00 kB │ gzip:   8.50 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/onboarding-C0Icrr5Y.js                          38.45 kB │ gzip:  10.61 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/query-vendor-CbJRCscF.js                        39.86 kB │ gzip:  12.01 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/admin-BWKSvjxa.js                               52.10 kB │ gzip:  11.14 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/survey-DgjABSXF.js                              53.06 kB │ gzip:  13.09 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/types-BYXt4Znb.js                               58.77 kB │ gzip:  13.89 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/schema-BUThucVi.js                              59.03 kB │ gzip:  16.32 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/index-Dhw7TfIW.js                               78.38 kB │ gzip:  18.89 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/index-DeoRywEc.js                               89.46 kB │ gzip:  25.82 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/google-calendar-S0fblm72.js                    194.73 kB │ gzip:  48.46 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/quill.snow-DEnNTUYu.js                         209.20 kB │ gzip:  62.79 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/ui-CMuHKCTn.js                                 281.46 kB │ gzip:  88.10 kB
+Jun 02 14:03:51  [34m│[0m ../dist/public/assets/face-api-vendor-0fcKdqxx.js                    638.74 kB │ gzip: 155.55 kB
+Jun 02 14:03:51  [34m│[0m ✓ built in 11.47s
+Jun 02 14:03:51  [34m│[0m building server...
+Jun 02 14:03:51  [34m│[0m ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m     server/vite.ts:11:26:
+Jun 02 14:03:51  [34m│[0m       11 │ const currentDir = typeof import.meta.dirname === "string"
+Jun 02 14:03:51  [34m│[0m          ╵                           ~~~~~~~~~~~
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m   You need to set the output format to "esm" for "import.meta" to work correctly.
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m     server/vite.ts:12:4:
+Jun 02 14:03:51  [34m│[0m       12 │   ? import.meta.dirname
+Jun 02 14:03:51  [34m│[0m          ╵     ~~~~~~~~~~~
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m   You need to set the output format to "esm" for "import.meta" to work correctly.
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m     server/vite.ts:13:31:
+Jun 02 14:03:51  [34m│[0m       13 │   : path.dirname(fileURLToPath(import.meta.url));
+Jun 02 14:03:51  [34m│[0m          ╵                                ~~~~~~~~~~~
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m   You need to set the output format to "esm" for "import.meta" to work correctly.
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m ✘ [ERROR] The symbol "allUsers" has already been declared
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m     server/routes.ts:4858:12:
+Jun 02 14:03:51  [34m│[0m       4858 │       const allUsers = await storage.getAllUsers();
+Jun 02 14:03:51  [34m│[0m            ╵             ~~~~~~~~
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m   The symbol "allUsers" was originally declared here:
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m     server/routes.ts:4856:12:
+Jun 02 14:03:51  [34m│[0m       4856 │       const allUsers = await storage.getAllUsers();
+Jun 02 14:03:51  [34m│[0m            ╵             ~~~~~~~~
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m 3 warnings and 1 error
+Jun 02 14:03:51  [34m│[0m Error: Build failed with 1 error:
+Jun 02 14:03:51  [34m│[0m server/routes.ts:4858:12: ERROR: The symbol "allUsers" has already been declared
+Jun 02 14:03:51  [34m│[0m     at failureErrorWithLog (/workspace/node_modules/esbuild/lib/main.js:1467:15)
+Jun 02 14:03:51  [34m│[0m     at /workspace/node_modules/esbuild/lib/main.js:926:25
+Jun 02 14:03:51  [34m│[0m     at runOnEndCallbacks (/workspace/node_modules/esbuild/lib/main.js:1307:45)
+Jun 02 14:03:51  [34m│[0m     at buildResponseToResult (/workspace/node_modules/esbuild/lib/main.js:924:7)
+Jun 02 14:03:51  [34m│[0m     at /workspace/node_modules/esbuild/lib/main.js:951:16
+Jun 02 14:03:51  [34m│[0m     at responseCallbacks.<computed> (/workspace/node_modules/esbuild/lib/main.js:603:9)
+Jun 02 14:03:51  [34m│[0m     at handleIncomingPacket (/workspace/node_modules/esbuild/lib/main.js:658:12)
+Jun 02 14:03:51  [34m│[0m     at Socket.readFromStdout (/workspace/node_modules/esbuild/lib/main.js:581:7)
+Jun 02 14:03:51  [34m│[0m     at Socket.emit (node:events:524:28)
+Jun 02 14:03:51  [34m│[0m     at addChunk (node:internal/streams/readable:561:12) {
+Jun 02 14:03:51  [34m│[0m   errors: [Getter/Setter],
+Jun 02 14:03:51  [34m│[0m   warnings: [Getter/Setter]
+Jun 02 14:03:51  [34m│[0m }
+Jun 02 14:03:51  [34m│[0m building: exit status 1
+Jun 02 14:03:51  [34m│[0m Timer: Builder ran for 1m4.591762269s and ended at 2026-06-02T14:03:51Z
+Jun 02 14:03:51  [34m│[0m [31;1mERROR: [0mfailed to build: exit status 1
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m 
+Jun 02 14:03:51  [34m│[0m [31m ✘ build failed[0m

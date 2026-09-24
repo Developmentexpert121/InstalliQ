@@ -1,0 +1,198 @@
+Jun 09 14:27:43  Internal Server Error: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:27:43      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:27:43      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:27:43      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:27:43      at async wz.getUser (/workspace/dist/index.cjs:247:133474)
+Jun 09 14:27:43      at async h (/workspace/dist/index.cjs:1574:24791) {
+Jun 09 14:27:43    length: 121,
+Jun 09 14:27:43    severity: 'ERROR',
+Jun 09 14:27:43    code: '42703',
+Jun 09 14:27:43    detail: undefined,
+Jun 09 14:27:43    hint: undefined,
+Jun 09 14:27:43    position: '329',
+Jun 09 14:27:43    internalPosition: undefined,
+Jun 09 14:27:43    internalQuery: undefined,
+Jun 09 14:27:43    where: undefined,
+Jun 09 14:27:43    schema: undefined,
+Jun 09 14:27:43    table: undefined,
+Jun 09 14:27:43    column: undefined,
+Jun 09 14:27:43    dataType: undefined,
+Jun 09 14:27:43    constraint: undefined,
+Jun 09 14:27:43    file: 'parse_relation.c',
+Jun 09 14:27:43    line: '3822',
+Jun 09 14:27:43    routine: 'errorMissingColumn'
+Jun 09 14:27:43  }
+Jun 09 14:27:43  Internal Server Error: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:27:43      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:27:43      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:27:43      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:27:43      at async wz.getUser (/workspace/dist/index.cjs:247:133474)
+Jun 09 14:27:43      at async n (/workspace/dist/index.cjs:1550:6696) {
+Jun 09 14:27:43    length: 121,
+Jun 09 14:27:43    severity: 'ERROR',
+Jun 09 14:27:43    code: '42703',
+Jun 09 14:27:43    detail: undefined,
+Jun 09 14:27:43    hint: undefined,
+Jun 09 14:27:43    position: '329',
+Jun 09 14:27:43    internalPosition: undefined,
+Jun 09 14:27:43    internalQuery: undefined,
+Jun 09 14:27:43    where: undefined,
+Jun 09 14:27:43    schema: undefined,
+Jun 09 14:27:43    table: undefined,
+Jun 09 14:27:43    column: undefined,
+Jun 09 14:27:43    dataType: undefined,
+Jun 09 14:27:43    constraint: undefined,
+Jun 09 14:27:43    file: 'parse_relation.c',
+Jun 09 14:27:43    line: '3822',
+Jun 09 14:27:43    routine: 'errorMissingColumn'
+Jun 09 14:27:43  }
+Jun 09 14:27:43  2:27:43 PM [express] GET /api/admin/assignable-users 500 in 141ms
+Jun 09 14:27:43  2:27:43 PM [express] GET /api/calendar-filter-colors 500 in 169ms
+Jun 09 14:27:43  2:27:43 PM [express] GET /api/availability-blocks 500 in 119ms
+Jun 09 14:27:43  2:27:43 PM [express] GET /api/sender/status 500 in 81ms
+Jun 09 14:27:53  [SSO] Unexpected error: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:27:53      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:27:53      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:27:53      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:27:53      at async wz.getUserBySignsuiteiqUserId (/workspace/dist/index.cjs:247:134132)
+Jun 09 14:27:53      at async /workspace/dist/index.cjs:1574:1285 {
+Jun 09 14:27:53    length: 121,
+Jun 09 14:27:53    severity: 'ERROR',
+Jun 09 14:27:53    code: '42703',
+Jun 09 14:27:53    detail: undefined,
+Jun 09 14:27:53    hint: undefined,
+Jun 09 14:27:53    position: '329',
+Jun 09 14:27:53    internalPosition: undefined,
+Jun 09 14:27:53    internalQuery: undefined,
+Jun 09 14:27:53    where: undefined,
+Jun 09 14:27:53    schema: undefined,
+Jun 09 14:27:53    table: undefined,
+Jun 09 14:27:53    column: undefined,
+Jun 09 14:27:53    dataType: undefined,
+Jun 09 14:27:53    constraint: undefined,
+Jun 09 14:27:53    file: 'parse_relation.c',
+Jun 09 14:27:53    line: '3822',
+Jun 09 14:27:53    routine: 'errorMissingColumn'
+Jun 09 14:27:53  }
+Jun 09 14:27:59  Internal Server Error: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:27:59      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:27:59      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:27:59      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:27:59      at async wz.getUser (/workspace/dist/index.cjs:247:133474)
+Jun 09 14:27:59      at async /workspace/dist/index.cjs:1550:7027 {
+Jun 09 14:27:59    length: 121,
+Jun 09 14:27:59    severity: 'ERROR',
+Jun 09 14:27:59    code: '42703',
+Jun 09 14:27:59    detail: undefined,
+Jun 09 14:27:59    hint: undefined,
+Jun 09 14:27:59    position: '329',
+Jun 09 14:27:59    internalPosition: undefined,
+Jun 09 14:27:59    internalQuery: undefined,
+Jun 09 14:27:59    where: undefined,
+Jun 09 14:27:59    schema: undefined,
+Jun 09 14:27:59    table: undefined,
+Jun 09 14:27:59    column: undefined,
+Jun 09 14:27:59    dataType: undefined,
+Jun 09 14:27:59    constraint: undefined,
+Jun 09 14:27:59    file: 'parse_relation.c',
+Jun 09 14:27:59    line: '3822',
+Jun 09 14:27:59    routine: 'errorMissingColumn'
+Jun 09 14:27:59  }
+Jun 09 14:27:59  2:27:59 PM [express] GET /api/auth/me 500 in 59ms
+Jun 09 14:28:00  2:28:00 PM [express] GET /api/auth/google/available 304 in 16ms
+Jun 09 14:28:02  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:02  [LOGIN] Step 2: Looking up user: waltham@fastsigns.com
+Jun 09 14:28:02  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:02  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:02      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:02      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:02      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:02      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:02      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:02  2:28:02 PM [express] POST /api/auth/login 500 in 19ms
+Jun 09 14:28:14  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:14  [LOGIN] Step 2: Looking up user: john.dowd@fastsigns.com
+Jun 09 14:28:14  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:14  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:14      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:14      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:14      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:14      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:14      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:14  2:28:14 PM [express] POST /api/auth/login 500 in 60ms
+Jun 09 14:28:21  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:21  [LOGIN] Step 2: Looking up user: waltham@fastsigns.com
+Jun 09 14:28:21  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:21  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:21      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:21      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:21      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:21      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:21      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:22  2:28:22 PM [express] POST /api/auth/login 500 in 57ms
+Jun 09 14:28:25  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:25  [LOGIN] Step 2: Looking up user: john.dowd@fastsigns.com
+Jun 09 14:28:25  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:25  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:25      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:25      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:25      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:25      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:25      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:25  2:28:25 PM [express] POST /api/auth/login 500 in 54ms
+Jun 09 14:28:26  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:26  [LOGIN] Step 2: Looking up user: waltham@fastsigns.com
+Jun 09 14:28:26  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:26  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:26      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:26      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:26      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:26      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:26      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:26  2:28:26 PM [express] POST /api/auth/login 500 in 53ms
+Jun 09 14:28:44  Internal Server Error: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:44      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:44      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:44      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:44      at async wz.getUser (/workspace/dist/index.cjs:247:133474)
+Jun 09 14:28:44      at async /workspace/dist/index.cjs:1550:7027 {
+Jun 09 14:28:44    length: 121,
+Jun 09 14:28:44    severity: 'ERROR',
+Jun 09 14:28:44    code: '42703',
+Jun 09 14:28:44    detail: undefined,
+Jun 09 14:28:44    hint: undefined,
+Jun 09 14:28:44    position: '329',
+Jun 09 14:28:44    internalPosition: undefined,
+Jun 09 14:28:44    internalQuery: undefined,
+Jun 09 14:28:44    where: undefined,
+Jun 09 14:28:44    schema: undefined,
+Jun 09 14:28:44    table: undefined,
+Jun 09 14:28:44    column: undefined,
+Jun 09 14:28:44    dataType: undefined,
+Jun 09 14:28:44    constraint: undefined,
+Jun 09 14:28:44    file: 'parse_relation.c',
+Jun 09 14:28:44    line: '3822',
+Jun 09 14:28:44    routine: 'errorMissingColumn'
+Jun 09 14:28:44  }
+Jun 09 14:28:44  2:28:44 PM [express] GET /api/auth/me 500 in 55ms
+Jun 09 14:28:45  2:28:45 PM [express] GET /api/auth/google/available 304 in 12ms
+Jun 09 14:28:48  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:48  [LOGIN] Step 2: Looking up user: john.dowd@fastsigns.com
+Jun 09 14:28:48  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:48  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:48      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:48      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:48      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:48      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:48      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:48  2:28:48 PM [express] POST /api/auth/login 500 in 56ms
+Jun 09 14:28:51  [LOGIN] Step 1: Parsing request body...
+Jun 09 14:28:51  [LOGIN] Step 2: Looking up user: john.dowd@fastsigns.com
+Jun 09 14:28:51  [LOGIN] UNCAUGHT ERROR: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:51  [LOGIN] STACK: error: column "signsuiteiq_admin_id" does not exist
+Jun 09 14:28:51      at /workspace/dist/index.cjs:65:15292
+Jun 09 14:28:51      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Jun 09 14:28:51      at async /workspace/dist/index.cjs:247:127386
+Jun 09 14:28:51      at async wz.getUserByUsername (/workspace/dist/index.cjs:247:133592)
+Jun 09 14:28:51      at async /workspace/dist/index.cjs:1550:9226
+Jun 09 14:28:51  2:28:51 PM [express] POST /api/auth/login 500 in 68ms

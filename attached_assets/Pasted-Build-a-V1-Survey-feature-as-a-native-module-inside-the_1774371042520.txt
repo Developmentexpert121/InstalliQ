@@ -1,0 +1,243 @@
+Build a V1 “Survey” feature as a native module inside the existing Node.js InstalliQ application.
+
+Very important:
+- This must feel like part of the current InstalliQ product, not a separate app.
+- Reuse the existing layout, navigation, styling, colors, typography, spacing, components, buttons, forms, cards, and mobile behavior.
+- Match the current app shell exactly.
+- If needed, use a richer client-side component only for the photo annotation experience, but do not make the Survey module feel visually different from the rest of InstalliQ.
+
+Goal:
+Create a mobile-first field survey workflow for users working mainly on their phones. The tool should allow a user to launch a Survey directly from a calendar event, carry over job information automatically, upload or take multiple photos, annotate each photo, add notes, and save the survey inside InstalliQ.
+
+Calendar / Workflow Requirements
+
+1. New Calendar Status
+Add a new calendar event/job status called:
+- Surveys
+
+This status should be available in the existing calendar workflow.
+
+2. Button Behavior Change
+When a calendar event is in the “Surveys” status:
+- do not show the “Completed Photos” button
+- instead show a button called “Survey Photos”
+
+When the user taps “Survey Photos”:
+- launch the Survey module for that event/job
+
+3. Prefill Survey Data from Calendar Event
+When the Survey module is launched from a calendar event, pre-fill the survey with the event/job information from the calendar.
+
+Pre-fill these fields:
+- Job Name
+- Address, if available
+- Job Description
+- Job Notes
+
+Important:
+- Job Description and Job Notes should be pulled from the calendar event and automatically inserted into the survey
+- The user should still be able to edit these values inside the survey before saving
+- The survey should remain linked to the originating calendar event/job
+
+V1 Scope
+
+4. Survey List View
+Create a Survey list page inside the existing app.
+
+Show:
+- Survey name / Job name
+- Address
+- Created date
+- Status if available
+- Photo count
+- Linked calendar event/job if relevant
+
+Include:
+- Search bar
+- Button for “New Survey”
+- Mobile-friendly card or list layout
+
+5. New Survey / Edit Survey Form
+Create a survey form with these fields:
+- Job Name
+- Address
+- Description
+- General Notes
+
+Behavior:
+- If launched from a calendar event, pre-fill the fields using event/job data
+- Allow the user to edit the values before saving
+- Support both new survey creation and editing an existing survey
+
+The form should be simple, mobile-friendly, and consistent with the existing InstalliQ forms.
+
+Include:
+- Save Survey
+- Cancel / Back
+
+6. Multiple Photo Upload / Camera Capture
+Inside each survey, allow the user to:
+- Take a photo using device camera
+- Upload photos from device
+- Add multiple photos to one survey
+- View uploaded photos in a gallery/grid
+- Delete a photo
+
+The upload experience must work well on mobile.
+
+7. Photo Detail / Annotation Screen
+When a user taps a photo, open a photo editor/detail screen.
+
+Required V1 tools:
+- Freehand draw on the photo with touch or mouse
+- Add text labels
+- Add typed measurement text such as:
+  - 48" W x 24" H
+  - Mount 12" above counter
+- Undo last action
+- Clear annotations
+- Save annotated image
+
+Important:
+- Preserve the original image
+- Save an annotated version separately
+- Mark whether a photo has annotations
+
+If arrows or simple shapes are easy to implement, include them, but they are optional for V1.
+
+8. Per-Photo Notes
+Each photo must support its own note/caption field.
+
+The user should be able to:
+- add notes for each individual photo
+- edit notes later
+- view notes in the survey detail screen
+
+9. Survey Detail View
+Build a Survey detail page that shows:
+- Job Name
+- Address
+- Description
+- General Notes
+- Source calendar event/job reference
+- All survey photos
+
+For each photo, show:
+- thumbnail
+- whether it has annotations
+- photo note
+- tap to open photo editor/detail
+
+This page must work well on phones and desktop.
+
+10. Mobile-First UX
+This feature will mainly be used on phones.
+
+Design requirements:
+- large touch targets
+- sticky action buttons where helpful
+- fast and simple workflow
+- minimal typing friction
+- responsive layouts
+- no cluttered toolbars
+- easy back/save behavior
+
+11. V1 Data Model
+Use or create a simple structure like this:
+
+Survey
+- id
+- calendarEventId or jobId
+- jobName
+- address
+- description
+- generalNotes
+- createdAt
+- updatedAt
+- createdBy
+- photos[]
+
+SurveyPhoto
+- id
+- surveyId
+- originalImageUrl
+- annotatedImageUrl
+- note
+- hasAnnotations
+- sortOrder
+- createdAt
+
+If useful, you may also store lightweight annotation metadata, but do not overengineer V1.
+
+12. Calendar Integration Requirements
+The Survey module must integrate cleanly with the existing calendar/event workflow.
+
+Required behavior:
+- a calendar event can be marked with status “Surveys”
+- when that status is active, show “Survey Photos” instead of “Completed Photos”
+- tapping “Survey Photos” opens the survey for that event
+- if no survey exists yet, create a new prefilled survey draft
+- if a survey already exists for that event, open the existing survey
+- keep the survey linked to the original calendar event/job
+
+13. Persistence
+Use the existing Node.js app architecture and persistence patterns.
+If the app already has a database, integrate with it.
+If full backend wiring is not immediately possible, create the feature with clean mock/service layers so real persistence can be connected easily.
+
+14. Design Consistency
+This feature must inherit the existing InstalliQ design language:
+- same header/nav shell
+- same page width rules
+- same fonts
+- same input styles
+- same buttons
+- same cards
+- same color palette
+- same spacing
+- same save/cancel patterns
+- same loading and empty states
+- same error handling and validation style
+
+15. Code Expectations
+Build this cleanly and in a maintainable way:
+- reusable components
+- modular code
+- clear folder structure
+- comments only where helpful
+- no unnecessary complexity
+- production-style structure, but scoped to V1
+
+16. Nice-to-Have Only If Easy
+Include only if easy and does not slow down V1:
+- reorder photos
+- annotation badge/icon on thumbnails
+- simple print-friendly survey summary
+- photo count on survey cards
+
+Out of Scope for V1
+Do not build these yet unless trivial:
+- AR measurement
+- AI analysis
+- PDF export workflow
+- voice notes
+- offline sync engine
+- advanced permissions
+- client portal sharing
+- complex markup layers
+- heavy reporting
+
+Priority Order
+Focus on these in order:
+1. Native InstalliQ look and feel
+2. Calendar integration with new “Surveys” status
+3. “Survey Photos” button behavior
+4. Prefill survey data from calendar event
+5. Mobile survey creation flow
+6. Multiple photo upload/capture
+7. Photo annotation
+8. Per-photo notes
+9. Survey detail/save flow
+
+Final deliverable:
+A working V1 Survey module inside the existing Node.js InstalliQ app that allows users to launch surveys from calendar events marked with the “Surveys” status, replaces the “Completed Photos” button with “Survey Photos,” pre-fills the survey from calendar event/job data, and lets users create surveys, add multiple photos, annotate photos, add notes, and manage survey details with a mobile-first experience that matches the existing product.

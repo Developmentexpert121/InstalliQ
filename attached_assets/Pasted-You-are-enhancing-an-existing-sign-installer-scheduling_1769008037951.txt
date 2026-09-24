@@ -1,0 +1,139 @@
+You are enhancing an existing sign installer scheduling app that already supports job photo uploads and AI tagging. Add a robust Google-Calendar-like scheduler PLUS weather and map/driving integration per calendar entry based on job location.
+
+STACK ASSUMPTION (match repo conventions if different):
+- Frontend: React (or Next.js if present)
+- Backend: Node/Express (or Next.js API routes if present)
+- DB: Postgres via Prisma OR existing DB layer already in repo
+- Auth/Roles: already exists (Admin/Scheduler/Installer/Sales)
+
+PRIMARY FEATURES
+1) Calendar Scheduling (Google Calendar style)
+- Day / Week / Month views
+- Drag & drop to move events
+- Resize to change duration
+- Click event opens Job Card drawer
+- Create event by selecting time range opens Create Install modal
+- Events linked to a Job record
+
+2) Job Card Drawer must include:
+- Job info (job number/name)
+- Address + contact info
+- Attachments/PDFs (if present in system)
+- Photos/tags section (reuse existing feature)
+- Status dropdown with color-coded status:
+  - SCHEDULED, CONFIRMED, NEEDS_RESCHEDULE, COMPLETED, ISSUE
+- Assigned installer/team
+- NEW: Weather panel
+- NEW: Map panel + navigation buttons
+
+WEATHER REQUIREMENTS (PER JOB / EVENT)
+- When viewing a calendar event/job, show weather for that job location and install time window.
+- Inputs:
+  - job address -> geocode to lat/lng
+  - event startTime/endTime -> choose forecast closest to startTime (and optionally show window forecast)
+- Weather display in Job Card:
+  - current conditions (if same-day) or forecast for event time
+  - temperature, precipitation chance, wind, and a small icon/summary
+  - clearly label the forecast time used
+- Weather should update automatically when:
+  - event is moved to a different day/time
+  - address is updated
+- Implement caching to reduce API calls:
+  - Cache by (lat,lng,date/hour bucket) in DB table WeatherCache or in-memory with TTL
+  - TTL: 30–60 minutes for current; 3–6 hours for forecast
+- Use one of these APIs (prefer simplest integration):
+  - OpenWeather One Call (recommended) OR WeatherAPI.com
+- Add env vars:
+  - WEATHER_API_KEY
+  - WEATHER_PROVIDER (optional)
+- Create backend route:
+  - GET /api/weather?jobId=...&eventId=... OR /api/weather?lat=...&lng=...&time=ISO
+  - Response: { provider, timeUsed, temp, feelsLike, precipProb, windSpeed, summary, icon }
+
+MAP + DRIVING REQUIREMENTS (PER JOB / EVENT)
+- Job Card must include a map preview and 1-click directions.
+- Address handling:
+  - Store canonical address and geocoded lat/lng on the Job table
+  - If job has no lat/lng, geocode on save or on first view, then persist
+- Map UI:
+  - Embedded map with a pin at the job site
+  - Show address and a “Copy Address” button
+  - Buttons:
+    - “Open in Google Maps”
+    - “Open in Apple Maps” (iOS-friendly link)
+    - “Open Waze” (optional)
+- Installer view:
+  - Installer can tap “Navigate” and open driving directions on their device
+  - If feasible, show estimated travel time from current location ONLY if user grants browser geolocation permission (optional).
+- Map provider:
+  - Prefer Google Maps JS Embed OR Mapbox GL depending on repo.
+  - If you implement Google Maps:
+    - Add env var: GOOGLE_MAPS_API_KEY
+    - Use an embed map (simplest) OR Places/Geocoding API
+  - If you implement Mapbox:
+    - Add env var: MAPBOX_TOKEN
+- Geocoding:
+  - Use the same provider for geocoding as the map if possible.
+  - Add backend route:
+    - POST /api/geocode { address } -> { formattedAddress, lat, lng }
+  - Persist lat/lng to Job so weather + map are consistent.
+
+DATABASE / MODELS (EXTEND EXISTING)
+If Jobs table exists, extend it; do NOT duplicate it.
+- Job:
+  id, jobNumber, jobName, address, formattedAddress,
+  lat (float), lng (float),
+  customerName, customerEmail, customerPhone, pocName,
+  salesName, salesEmail, salesPhone,
+  notes, createdAt, updatedAt
+- InstallEvent:
+  id, jobId (FK), startTime, endTime, assignedInstallerId (nullable),
+  status (enum), createdAt, updatedAt
+- WeatherCache (new, if DB caching used):
+  id, lat, lng, timeBucket (datetime or string), provider, payloadJson, expiresAt, createdAt
+
+API ENDPOINTS (FOLLOW REPO CONVENTIONS)
+- Events:
+  GET /api/events?start=ISO&end=ISO
+  POST /api/events
+  PATCH /api/events/:id
+- Jobs:
+  GET /api/jobs/:id
+  PATCH /api/jobs/:id
+- Geocode:
+  POST /api/geocode { address }
+- Weather:
+  GET /api/weather?eventId=... (server will look up jobId/lat/lng/time from event)
+  OR GET /api/weather?lat=...&lng=...&time=ISO
+
+UI IMPLEMENTATION NOTES
+- Calendar UI: use FullCalendar React (timeGridDay/timeGridWeek/dayGridMonth) unless repo already uses a calendar library
+- Job Card Drawer layout:
+  Section A: Job details
+  Section B: Weather (with refresh button)
+  Section C: Map (pin + directions buttons)
+  Section D: Photos/tags + completion controls
+- When event is dragged/resized:
+  - Save new times
+  - Weather panel automatically refetches based on updated time
+- Conflict validation: prevent overlapping events for same installer/team
+
+ROLES / ACCESS CONTROL
+- Scheduler/Admin: full create/edit/move/resize; edit job fields; assign installers
+- Installer: view assigned events; open Job Card; navigate; upload photos; mark completed; flag issue
+- Sales: view jobs/issues/photos (limited editing)
+
+DELIVERABLES
+- /calendar page
+- Components: CalendarView, CreateInstallModal, JobCardDrawer, WeatherPanel, MapPanel
+- API routes: events CRUD + geocode + weather
+- DB migrations
+- Minimal README update listing required env vars:
+  WEATHER_API_KEY
+  GOOGLE_MAPS_API_KEY or MAPBOX_TOKEN
+  (and any geocoding provider key if separate)
+
+IMPORTANT
+- Follow existing repo structure/coding style.
+- Do not break existing photo upload/tagging.
+- Keep implementation production-ready and avoid hardcoding secrets.

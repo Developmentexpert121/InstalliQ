@@ -1,0 +1,116 @@
+Prompt for InstallIQ — implement the SignSuiteIQ user-provisioning receiver
+Context
+InstallIQ is one of three products under the SignSuiteIQ umbrella. SignSuiteIQ (the parent admin panel) is now the source of truth for user accounts. Whenever a user is created, edited, has their password reset, is archived, or is restored in SignSuiteIQ, SignSuiteIQ pushes that change to InstallIQ over HTTPS. Your job is to implement the receiver so those users land in InstallIQ's own database and can log in directly at installiq.ai with the same credentials.
+
+This is a one-way push: SignSuiteIQ → InstallIQ. You do not call back to SignSuiteIQ for this.
+
+What you're building
+A single internal HTTP endpoint:
+
+POST /api/internal/provision-user
+
+It receives JSON, authenticates via a shared secret in a custom header, and upserts/archives the user in InstallIQ's own users table.
+
+Authentication
+The shared secret lives in the env var SIGNSUITEIQ_SSO_SECRET on InstallIQ's server.
+It is sent by SignSuiteIQ as the request header X-App-Secret: <secret>.
+This is the same secret value already configured for SSO between InstallIQ and SignSuiteIQ. Do not reuse a different one.
+Reject any request whose X-App-Secret is missing or does not match — return 401.
+Do not accept the secret via the Authorization header or via a clientSecret field in the body. (Replit's WAF blocks both — that's why we use X-App-Secret.)
+Request shape
+{
+  "external_id": 4,
+  "email": "saniyatanyal1@gmail.com",
+  "username": "saniyatanyal1",
+  "name": "Saniya Tanyal",
+  "role": "admin",
+  "phone": null,
+  "job_title": null,
+  "location": null,
+  "action": "upsert",
+  "password": "TempPass1!"
+}
+
+Field rules:
+
+Field	Type	Always present?	Notes
+external_id	int	yes	SignSuiteIQ's internal user id. Store it on your side as signsuite_user_id (nullable int, indexed) so you can correlate later. Do NOT use it as your primary key.
+email	string	yes	The unique key. Match users by LOWER(email).
+username	string	yes	Use as-is, or fall back to your own derivation if you already have a different one for this email.
+name	string	yes	
+role	string	yes	One of super_admin, admin, user. Map to your role names if they differ.
+phone, job_title, location	string | null	yes	May be null.
+action	string	yes	"upsert" or "delete" — see below.
+password	string	only sometimes	Plaintext, sent over HTTPS. Present on create, password reset, and forgot-password. Absent on profile-only updates and on restore.
+Behavior
+action: "upsert"
+Look up user by LOWER(email).
+If not found → insert a new row with all fields. If password is present, bcrypt-hash it (cost 10) and store. If password is absent, store an unusable random hash so the row exists but cannot be logged into until the user goes through "Forgot password."
+If found → update name / username / role / phone / job_title / location / signsuite_user_id. If password is present, bcrypt-hash and overwrite the stored password. If password is absent, leave the existing password untouched.
+Also clear any "archived"/"deleted" flag on the row — an upsert un-archives a previously-deleted user.
+action: "delete"
+Look up user by LOWER(email). If not found → return 200 with { ok: true, ignored: true } (idempotent no-op).
+Soft-archive the row (set your equivalent of deleted_at = NOW()). Do not hard-delete.
+The user should immediately fail direct login at installiq.ai after this.
+Response shape
+Always return JSON. Any HTTP 2xx status is treated as success by SignSuiteIQ.
+
+Success:
+
+{ "ok": true, "user_id": 123, "action": "upsert" }
+
+Auth failure (return 401):
+
+{ "error": "invalid app secret" }
+
+Validation failure (return 400):
+
+{ "error": "email is required" }
+
+Unexpected server error (return 5xx so SignSuiteIQ retries with backoff):
+
+{ "error": "<message>" }
+
+Idempotency & safety
+This endpoint will be called multiple times for the same user (retries, backfill, repeat events). Make every call safe to repeat — match by email and upsert.
+Treat the body as authoritative: if email matches an existing row, update the existing row; never create duplicates by email.
+Log every call (timestamp, action, email, result). These calls are not user-facing — log freely.
+One-time backfill
+After your endpoint is live and verified, tell the SignSuiteIQ team to run their backfill script. That will push every existing SignSuiteIQ user (currently 51) through your endpoint with action: "upsert" and no password field. You should create those rows with an unusable password — the users will use "Forgot password" on installiq.ai to set a real one (or just keep using SSO).
+
+How to test before SignSuiteIQ calls you
+curl -i -X POST https://www.installiq.ai/api/internal/provision-user \
+  -H "Content-Type: application/json" \
+  -H "X-App-Secret: $SIGNSUITEIQ_SSO_SECRET" \
+  -d '{
+    "external_id": 999999,
+    "email": "provision-test@example.com",
+    "username": "provision-test",
+    "name": "Provision Test",
+    "role": "user",
+    "phone": null, "job_title": null, "location": null,
+    "action": "upsert",
+    "password": "TestPass123!"
+  }'
+
+Expected: 200 OK with { "ok": true, ... }. Then verify the user can log in at installiq.ai with provision-test@example.com / TestPass123!. Then call again with "action": "delete" and confirm direct login now fails.
+
+Bad secret test:
+
+curl -i -X POST https://www.installiq.ai/api/internal/provision-user \
+  -H "Content-Type: application/json" \
+  -H "X-App-Secret: wrong" \
+  -d '{"email":"x@x.com","action":"upsert","name":"x","username":"x","role":"user","external_id":1,"phone":null,"job_title":null,"location":null}'
+
+Expected: 401.
+
+Don't do these
+Don't expose this endpoint behind any kind of auth gate that requires a session/cookie — SignSuiteIQ calls server-to-server with no session.
+Don't add an Authorization: Bearer check. The WAF in front of these apps strips/blocks Authorization on POSTs to internal endpoints; only the X-App-Secret header reliably gets through.
+Don't return non-JSON (e.g. an HTML error page or your SPA fallback) — that will look like a 200 to SignSuiteIQ and silently mask real failures.
+Don't try to push anything back to SignSuiteIQ. This is one-way.
+Done definition
+POST /api/internal/provision-user deployed to production at https://www.installiq.ai/api/internal/provision-user.
+SIGNSUITEIQ_SSO_SECRET set in InstallIQ's production env, matching the value SignSuiteIQ uses for InstallIQ's SSO.
+The two curl tests above pass.
+A real user created in SignSuiteIQ admin appears in InstallIQ's users table within 60 seconds and can log in directly at installiq.ai.

@@ -1,0 +1,204 @@
+~/workspace$ git push origin replit-branch 
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 61.18 KiB | 30.59 MiB/s, done.
+Total 8 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/Shishir-Mehta/InstalliQ.git
+   a335e57..8e34d9d  replit-branch -> replit-branch
+~/workspace$ git push origin replit-branch 
+Everything up-to-date
+~/workspace$ git push origin replit-branch 
+Everything up-to-date
+~/workspace$ ^C
+~/workspace$ ^C
+~/workspace$ ^[[200~git push origin replit-branch
+git push origin replit-branchbash: git: command not found
+~/workspace$ 
+~/workspace$ git push origin replit-branch
+
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.07 KiB | 1.07 MiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/Shishir-Mehta/InstalliQ.git
+   8e34d9d..10f215f  replit-branch -> replit-branch
+~/workspace$ npm run build  
+
+> rest-express@1.0.0 build
+> tsx script/build.ts
+
+building client...
+vite v7.3.1 building client environment for production...
+✓ 3162 modules transformed.
+Generated an empty chunk: "react-vendor".
+../dist/public/index.html                                              2.69 kB │ gzip:   1.00 kB
+../dist/public/assets/FASTSIGNS-MYS-Logo_1771624193112-DEmmUeyF.jpg   48.66 kB
+../dist/public/assets/quill-CQ7DNbul.css                              24.24 kB │ gzip:   3.62 kB
+../dist/public/assets/index-D1OuhhqT.css                             176.03 kB │ gzip:  27.40 kB
+../dist/public/assets/react-vendor-l0sNRNKZ.js                         0.00 kB │ gzip:   0.02 kB
+../dist/public/assets/FASTSIGNS-MYS-Logo_1771624193112-mHeABwuK.js     0.08 kB │ gzip:   0.10 kB
+../dist/public/assets/skeleton-CtgnKM9T.js                             0.21 kB │ gzip:   0.18 kB
+../dist/public/assets/image-url-DZFa30EA.js                            0.38 kB │ gzip:   0.21 kB
+../dist/public/assets/charts-BfmQAdIl.js                               0.44 kB │ gzip:   0.28 kB
+../dist/public/assets/progress-C3M3DBq-.js                             0.51 kB │ gzip:   0.35 kB
+../dist/public/assets/confirm-dialog-_uDemXAJ.js                       0.71 kB │ gzip:   0.41 kB
+../dist/public/assets/checkbox-B3K_R2z2.js                             0.78 kB │ gzip:   0.44 kB
+../dist/public/assets/switch-D-N5_sJM.js                               0.89 kB │ gzip:   0.48 kB
+../dist/public/assets/lazy-image-CmvoemK9.js                           0.96 kB │ gzip:   0.57 kB
+../dist/public/assets/tabs-Dx5ESXGn.js                                 1.18 kB │ gzip:   0.50 kB
+../dist/public/assets/table-DDBIpK2P.js                                1.57 kB │ gzip:   0.56 kB
+../dist/public/assets/map-link-picker-CuGj_Arv.js                      1.61 kB │ gzip:   0.81 kB
+../dist/public/assets/form-BAJw2X5_.js                                 2.79 kB │ gzip:   1.23 kB
+../dist/public/assets/select-BH3lS5sP.js                               3.20 kB │ gzip:   1.17 kB
+../dist/public/assets/forgot-password-DN4w0By1.js                      4.26 kB │ gzip:   1.71 kB
+../dist/public/assets/alert-dialog-Dm_uvHpi.js                         4.96 kB │ gzip:   1.85 kB
+../dist/public/assets/time-estimator-DaWEHa5C.js                       6.07 kB │ gzip:   2.40 kB
+../dist/public/assets/last-updates-xLahYt0O.js                         6.18 kB │ gzip:   2.42 kB
+../dist/public/assets/reset-password-DRKanE3S.js                       7.75 kB │ gzip:   2.56 kB
+../dist/public/assets/confirm-booking-DN4K05Lz.js                      7.80 kB │ gzip:   2.12 kB
+../dist/public/assets/reschedule-booking-iaFo0Aqs.js                   8.18 kB │ gzip:   2.35 kB
+../dist/public/assets/email-templates-DUJSQjCy.js                     11.32 kB │ gzip:   3.45 kB
+../dist/public/assets/face-capture-3jSqPeGQ.js                        11.67 kB │ gzip:   3.37 kB
+../dist/public/assets/archive-DKIQ-_MZ.js                             11.70 kB │ gzip:   3.58 kB
+../dist/public/assets/job-notifications-DJbkJwEV.js                   11.88 kB │ gzip:   3.67 kB
+../dist/public/assets/feedback-inbox-C4MZ8So1.js                      12.21 kB │ gzip:   3.52 kB
+../dist/public/assets/router-vendor-uegKR1BS.js                       12.26 kB │ gzip:   5.08 kB
+../dist/public/assets/assistant-settings-dnfO1Plq.js                  13.33 kB │ gzip:   3.79 kB
+../dist/public/assets/ai-calendar-dialog-BffyH7r1.js                  16.34 kB │ gzip:   4.84 kB
+../dist/public/assets/developer-guide-CbV-08pi.js                     18.65 kB │ gzip:   5.21 kB
+../dist/public/assets/user-manual-fS985HpC.js                         19.25 kB │ gzip:   4.18 kB
+../dist/public/assets/project-new-Bv75tgIL.js                         20.02 kB │ gzip:   5.81 kB
+../dist/public/assets/questionnaire-management-DP9cL29c.js            21.41 kB │ gzip:   5.39 kB
+../dist/public/assets/login-DzMh2qJc.js                               21.91 kB │ gzip:   6.88 kB
+../dist/public/assets/reschedule-requests-Dtpdvu7y.js                 22.29 kB │ gzip:   5.52 kB
+../dist/public/assets/calendar-DrXKU-Ay.js                            22.41 kB │ gzip:   5.95 kB
+../dist/public/assets/super-admin-manual-CrtTQc25.js                  23.62 kB │ gzip:   5.25 kB
+../dist/public/assets/dashboard-CVA85U2h.js                           25.53 kB │ gzip:   6.61 kB
+../dist/public/assets/project-detail-G6sQx29O.js                      25.78 kB │ gzip:   6.75 kB
+../dist/public/assets/form-vendor-XkSg815p.js                         28.25 kB │ gzip:  10.36 kB
+../dist/public/assets/owner-admin-manual-BNedCjBC.js                  28.90 kB │ gzip:   5.90 kB
+../dist/public/assets/date-vendor-CF1CHNXX.js                         32.23 kB │ gzip:   9.33 kB
+../dist/public/assets/activity-logs-D5F1sPWD.js                       33.45 kB │ gzip:   8.71 kB
+../dist/public/assets/account-settings-BLUoNmfx.js                    34.73 kB │ gzip:   8.37 kB
+../dist/public/assets/icons-vendor-D6okRkrh.js                        35.10 kB │ gzip:  10.74 kB
+../dist/public/assets/subscription-plans-B3P_hXDp.js                  36.00 kB │ gzip:   8.49 kB
+../dist/public/assets/onboarding-Cuu4WVOU.js                          38.45 kB │ gzip:  10.59 kB
+../dist/public/assets/query-vendor-CbJRCscF.js                        39.86 kB │ gzip:  12.03 kB
+../dist/public/assets/admin-C2h-gYBA.js                               52.10 kB │ gzip:  11.12 kB
+../dist/public/assets/survey-BCoMqhLQ.js                              53.06 kB │ gzip:  13.08 kB
+../dist/public/assets/types-BYXt4Znb.js                               58.77 kB │ gzip:  13.87 kB
+../dist/public/assets/schema-BUThucVi.js                              59.03 kB │ gzip:  16.25 kB
+../dist/public/assets/index-EjiSjD1R.js                               78.38 kB │ gzip:  18.85 kB
+../dist/public/assets/index-CFeWL2bE.js                               89.46 kB │ gzip:  25.80 kB
+../dist/public/assets/google-calendar-8PyngLgd.js                    194.80 kB │ gzip:  48.37 kB
+../dist/public/assets/quill.snow-DEnNTUYu.js                         209.20 kB │ gzip:  62.62 kB
+../dist/public/assets/ui-CMuHKCTn.js                                 281.46 kB │ gzip:  88.07 kB
+../dist/public/assets/face-api-vendor-0fcKdqxx.js                    638.74 kB │ gzip: 155.09 kB
+✓ built in 8.02s
+building server...
+▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+
+    server/vite.ts:11:26:
+      11 │ const currentDir = typeof import.meta.dirname === "string"
+         ╵                           ~~~~~~~~~~~
+
+  You need to set the output format to "esm" for "import.meta" to work correctly.
+
+▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+
+    server/vite.ts:12:4:
+      12 │   ? import.meta.dirname
+         ╵     ~~~~~~~~~~~
+
+  You need to set the output format to "esm" for "import.meta" to work correctly.
+
+▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+
+    server/vite.ts:13:31:
+      13 │   : path.dirname(fileURLToPath(import.meta.url));
+         ╵                                ~~~~~~~~~~~
+
+  You need to set the output format to "esm" for "import.meta" to work correctly.
+
+▲ [WARNING] Import "getUser" will always be undefined because there is no matching export in "server/asset-manager/storage.ts" [import-is-undefined]
+
+    server/asset-manager/companycam.ts:66:32:
+      66 │         const u = await storage.getUser(opts.userId);
+         ╵                                 ~~~~~~~
+
+▲ [WARNING] Import "getUser" will always be undefined because there is no matching export in "server/asset-manager/storage.ts" [import-is-undefined]
+
+    server/asset-manager/index.ts:33:32:
+      33 │         const u = await storage.getUser(userId);
+         ╵                                 ~~~~~~~
+
+5 warnings
+
+  dist/index.cjs  3.8mb ⚠️
+
+⚡ Done in 245ms
+copying pdfkit font data...
+~/workspace$ git fetch origin
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 5 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 2.07 KiB | 54.00 KiB/s, done.
+From https://github.com/Shishir-Mehta/InstalliQ
+   f07f6ac..a00c09f  dev-work    -> origin/dev-work
+   c591b59..e781814  productions -> origin/productions
+~/workspace$ git merge origin/dev-work
+Auto-merging client/src/pages/google-calendar.tsx
+CONFLICT (content): Merge conflict in client/src/pages/google-calendar.tsx
+Auto-merging replit.md
+CONFLICT (content): Merge conflict in replit.md
+Automatic merge failed; fix conflicts and then commit the result.
+~/workspace$ npm run build   
+
+> rest-express@1.0.0 build
+> tsx script/build.ts
+
+building client...
+vite v7.3.1 building client environment for production...
+✓ 2313 modules transformed.
+✗ Build failed in 2.62s
+error during build:
+[vite:esbuild] Transform failed with 1 error:
+/home/runner/workspace/client/src/pages/google-calendar.tsx:1:0: ERROR: Unexpected "<<"
+file: /home/runner/workspace/client/src/pages/google-calendar.tsx:1:0
+
+Unexpected "<<"
+1  |  <<<<<<< HEAD
+   |  ^
+2  |  import { useState, useRef, useEffect, useMemo } from "react";
+3  |  import { Link } from "wouter";
+
+    at failureErrorWithLog (/home/runner/workspace/node_modules/vite/node_modules/esbuild/lib/main.js:1748:15)
+    at /home/runner/workspace/node_modules/vite/node_modules/esbuild/lib/main.js:1017:50
+    at responseCallbacks.<computed> (/home/runner/workspace/node_modules/vite/node_modules/esbuild/lib/main.js:884:9)
+    at handleIncomingPacket (/home/runner/workspace/node_modules/vite/node_modules/esbuild/lib/main.js:939:12)
+    at Socket.readFromStdout (/home/runner/workspace/node_modules/vite/node_modules/esbuild/lib/main.js:862:7)
+    at Socket.emit (node:events:524:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:191:23)
+Error: Command failed: node --max-old-space-size=1536 node_modules/.bin/vite build
+    at genericNodeError (node:internal/errors:984:15)
+    at wrappedFn (node:internal/errors:538:14)
+    at checkExecSyncError (node:child_process:891:11)
+    at execSync (node:child_process:963:15)
+    at buildAll (/home/runner/workspace/script/build.ts:44:3) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 3069,
+  stdout: null,
+  stderr: null
+}

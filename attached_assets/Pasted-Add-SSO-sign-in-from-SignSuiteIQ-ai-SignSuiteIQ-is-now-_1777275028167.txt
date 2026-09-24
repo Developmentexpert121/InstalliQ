@@ -1,0 +1,48 @@
+Add SSO sign-in from SignSuiteIQ.ai
+
+SignSuiteIQ is now the central identity hub for our suite. When a user clicks the "InstalliQ" tile on their SignSuiteIQ dashboard, their browser is redirected to https://www.installiq.ai/sso/callback?code=<one-time-code>. We need to add a route that handles that, exchanges the code for the user identity, and logs the user into InstalliQ — without showing the login screen.
+
+What to build
+
+Add an environment secret to this Replit project named SIGNSUITEIQ_SSO_SECRET. Its value is:
+fdf0f6e482d549973f1804e5f464db1a1e98f7776bfe183aaaa406bb2b497739
+(Treat it like a password — never log it, never expose it to the browser. Server-side only.)
+
+Add a column to the users table: signsuiteiq_user_id INTEGER UNIQUE. This is the bridge between an InstalliQ user and their SignSuiteIQ identity.
+
+Add one new route on the backend: GET /sso/callback
+
+Read code from the query string. If missing, render an error page.
+Make a server-to-server POST request to https://www.signsuiteiq.ai/api/sso/exchange with JSON body:
+{ "code": "<the code>", "clientId": "installiq", "clientSecret": "<from env>" }
+
+On non-200 response: render an error page with the message returned. Do not retry — codes are single-use.
+On 200 response, the body looks like:
+{
+  "appKey": "installiq",
+  "user": {
+    "id": 42,
+    "name": "Jane Doe",
+    "username": "jdoe",
+    "email": "jane@example.com",
+    "phone": null,
+    "role": "user",
+    "companyId": 7
+  }
+}
+
+Find a local InstalliQ user by signsuiteiq_user_id = user.id. If not found, fall back to matching by email (case-insensitive); when matched by email, stamp signsuiteiq_user_id = user.id so future logins are direct. If still not found, create a new local user with the email/name/role provided (no password — they'll only ever sign in via SSO).
+Start InstalliQ's normal login session for that user (the same cookie/JWT your existing login flow uses).
+Redirect to / (or wherever your post-login landing page is).
+Important constraints
+
+clientSecret must come from process.env.SIGNSUITEIQ_SSO_SECRET. Never hardcode it.
+The exchange call is server-to-server only. Never expose the secret or the exchange URL to the browser.
+Do not change the existing email/password login — keep it working in parallel. SSO is an additional entry point.
+Codes expire in 60 seconds and are single-use; the API will reject anything else.
+How to test once it's wired
+
+Log into SignSuiteIQ as a user who has InstalliQ access.
+On the dashboard, click the InstalliQ tile.
+You should land directly inside InstalliQ, logged in, no login form shown.
+Don't change anything else — no UI changes, no signup-page changes, no password migration. Just add this one route + column + secret.

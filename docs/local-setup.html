@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstalliQ.ai — Local Setup Guide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0f1e3c;
+      --blue:    #1a3a6b;
+      --accent:  #2563eb;
+      --green:   #16a34a;
+      --yellow:  #ca8a04;
+      --red:     #dc2626;
+      --bg:      #f8fafc;
+      --surface: #ffffff;
+      --border:  #e2e8f0;
+      --text:    #1e293b;
+      --muted:   #64748b;
+      --code-bg: #0f1e3c;
+      --code-fg: #e2e8f0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 16px 64px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: #fff;
+      padding: 48px 32px 40px;
+      margin: 0 -16px 48px;
+      text-align: center;
+    }
+    header .logo {
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1rem;
+      opacity: 0.8;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* ── Section headings ── */
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin: 40px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 .step-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 24px 0 8px;
+    }
+
+    p { margin-bottom: 12px; }
+
+    /* ── Prereq cards ── */
+    .prereq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .prereq-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .prereq-card .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .prereq-card .value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .prereq-card .note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── Code blocks ── */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-fg);
+      border-radius: 10px;
+      padding: 20px 22px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      position: relative;
+      margin: 12px 0 20px;
+    }
+    pre code { font-family: "Fira Code", "Cascadia Code", "Menlo", monospace; }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: rgba(255,255,255,0.12);
+      color: #cbd5e1;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.22); color: #fff; }
+    .copy-btn.copied { background: #16a34a33; color: #4ade80; }
+
+    /* Comment / section colours inside .env block */
+    .cm  { color: #94a3b8; }   /* comment */
+    .kv  { color: #7dd3fc; }   /* key */
+    .eq  { color: #94a3b8; }   /* = */
+    .val { color: #86efac; }   /* value */
+    .ph  { color: #fbbf24; }   /* placeholder */
+
+    /* ── Env table ── */
+    .env-table-wrap { overflow-x: auto; margin: 12px 0 24px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    thead tr { background: var(--navy); color: #fff; }
+    th { padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; }
+    td { padding: 10px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8fafc; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .badge-req  { background: #fef2f2; color: var(--red);    border: 1px solid #fecaca; }
+    .badge-opt  { background: #f0fdf4; color: var(--green);  border: 1px solid #bbf7d0; }
+
+    .var-name {
+      font-family: "Fira Code", monospace;
+      font-size: 0.8rem;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--navy);
+    }
+
+    /* ── Callout boxes ── */
+    .callout {
+      display: flex;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .callout-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+    .callout-warn  { background: #fffbeb; border: 1px solid #fde68a; }
+    .callout-info  { background: #eff6ff; border: 1px solid #bfdbfe; }
+    .callout-tip   { background: #f0fdf4; border: 1px solid #bbf7d0; }
+
+    /* ── Tips list ── */
+    ul, ol { padding-left: 22px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    li strong { color: var(--navy); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">InstalliQ.ai</div>
+  <h1>Local Development Setup</h1>
+  <p>Everything you need to run the app on your own machine.</p>
+</header>
+
+<div class="container">
+
+  <!-- ── Prerequisites ── -->
+  <h2>Prerequisites</h2>
+  <div class="prereq-grid">
+    <div class="prereq-card">
+      <div class="label">Runtime</div>
+      <div class="value">Node.js 20.x</div>
+      <div class="note"><a href="https://nodejs.org" target="_blank">Download at nodejs.org</a></div>
+    </div>
+    <div class="prereq-card">
+      <div class="label">Package manager</div>
+      <div class="value">npm 10+</div>
+      <div class="note">Ships with Node 20 — no separate install needed</div>
+    </div>
+    <div class="prereq-card">
+      <div class="label">Database</div>
+      <div class="value">PostgreSQL</div>
+      <div class="note">Local install <em>or</em> point at the DigitalOcean DB</div>
+    </div>
+  </div>
+
+  <!-- ── Step 1 ── -->
+  <h2><span class="step-badge">Step 1</span> Install dependencies</h2>
+  <p>Open a terminal in the project root and run:</p>
+  <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>npm install</code></pre>
+
+  <!-- ── Step 2 ── -->
+  <h2><span class="step-badge">Step 2</span> Create your <code>.env</code> file</h2>
+  <p>
+    Create a file named <code>.env</code> in the project root. The dev server reads it
+    automatically. Fill in the values from the sections below.
+  </p>
+
+  <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code><span class="cm"># ─── DATABASE (pick one) ──────────────────────────────────────────────────</span>
+<span class="cm"># Option A: DigitalOcean managed database (shares production data — use carefully)</span>
+<span class="kv">DIGITALOCEAN_DATABASE_URL</span><span class="eq">=</span><span class="ph">postgresql://user:password@host:port/dbname?sslmode=require</span>
+
+<span class="cm"># Option B: Local PostgreSQL (recommended for safe testing)</span>
+<span class="kv">DATABASE_URL</span><span class="eq">=</span><span class="ph">postgresql://localhost:5432/installiq</span>
+
+<span class="cm"># ─── REQUIRED ──────────────────────────────────────────────────────────────</span>
+<span class="kv">SESSION_SECRET</span><span class="eq">=</span><span class="ph">any-long-random-string-at-least-32-characters</span>
+<span class="kv">SIGNSUITEIQ_SSO_SECRET</span><span class="eq">=</span><span class="ph">must-match-production-value-for-companycam-tokens</span>
+
+<span class="cm"># ─── AI FEATURES (image analysis, scheduling, PDF parsing) ────────────────</span>
+<span class="kv">OPENAI_API_KEY</span><span class="eq">=</span><span class="ph">sk-...</span>
+
+<span class="cm"># ─── FILE UPLOADS (photos, PDFs, exports) ─────────────────────────────────</span>
+<span class="kv">DO_SPACES_KEY</span><span class="eq">=</span><span class="ph">your-digitalocean-spaces-access-key</span>
+<span class="kv">DO_SPACES_SECRET</span><span class="eq">=</span><span class="ph">your-digitalocean-spaces-secret-key</span>
+<span class="kv">DO_SPACES_ENDPOINT</span><span class="eq">=</span><span class="val">https://nyc3.digitaloceanspaces.com</span>
+<span class="kv">DO_SPACES_BUCKET</span><span class="eq">=</span><span class="val">productionstorage</span>
+<span class="kv">DO_SPACES_CDN_URL</span><span class="eq">=</span><span class="val">https://productionstorage.nyc3.digitaloceanspaces.com</span>
+
+<span class="cm"># ─── EMAIL (welcome emails, survey PDFs, schedule confirmations) ───────────</span>
+<span class="kv">SMTP_HOST</span><span class="eq">=</span><span class="val">smtp0001.neo.space</span>
+<span class="kv">SMTP_PORT</span><span class="eq">=</span><span class="val">587</span>
+<span class="kv">SMTP_USER</span><span class="eq">=</span><span class="ph">your-smtp-username</span>
+<span class="kv">SMTP_PASS</span><span class="eq">=</span><span class="ph">your-smtp-password</span>
+
+<span class="cm"># ─── PAYMENTS (Razorpay subscription plans) ───────────────────────────────</span>
+<span class="kv">RAZORPAY_KEY_ID</span><span class="eq">=</span><span class="ph">rzp_...</span>
+<span class="kv">RAZORPAY_KEY_SECRET</span><span class="eq">=</span><span class="ph">your-razorpay-secret</span>
+
+<span class="cm"># ─── WEATHER (calendar forecast strip) ────────────────────────────────────</span>
+<span class="kv">OPENWEATHER_API_KEY</span><span class="eq">=</span><span class="ph">your-openweather-key</span>
+
+<span class="cm"># ─── GOOGLE CALENDAR INTEGRATION ──────────────────────────────────────────</span>
+<span class="kv">GOOGLE_CLIENT_ID</span><span class="eq">=</span><span class="ph">your-google-client-id</span>
+<span class="kv">GOOGLE_CLIENT_SECRET</span><span class="eq">=</span><span class="ph">your-google-client-secret</span>
+
+<span class="cm"># ─── SENDGRID (optional email sender verification) ────────────────────────</span>
+<span class="kv">SENDGRID_API_KEY</span><span class="eq">=</span><span class="ph">SG....</span>
+
+<span class="cm"># ─── APP BASE URL (used in email links) ───────────────────────────────────</span>
+<span class="kv">BASE_URL</span><span class="eq">=</span><span class="val">http://localhost:5000</span></code></pre>
+
+  <!-- ── Step 3 ── -->
+  <h2><span class="step-badge">Step 3</span> Set up the database schema</h2>
+
+  <h3>Option A — Local PostgreSQL</h3>
+  <p>Create the database, then push the Drizzle schema:</p>
+  <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>createdb installiq
+npm run db:push</code></pre>
+
+  <h3>Option B — DigitalOcean database</h3>
+  <p>The schema is already in place on the live database. Skip <code>db:push</code> — running it against production is safe (Drizzle only adds missing columns/tables) but double-check before applying.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <div>
+      <strong>Production data warning.</strong>
+      If you point <code>DIGITALOCEAN_DATABASE_URL</code> at the live database, any users or
+      projects you create locally will be real data. Use a local Postgres instance for
+      day-to-day development and reserve the DigitalOcean connection for read-only debugging.
+    </div>
+  </div>
+
+  <!-- ── Step 4 ── -->
+  <h2><span class="step-badge">Step 4</span> Start the app</h2>
+  <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>npm run dev</code></pre>
+  <p>
+    The frontend and backend both run on <strong>http://localhost:5000</strong> — no separate
+    commands needed. When the server starts it prints a summary of which environment variables
+    are set and which are missing; check that output if anything isn't working.
+  </p>
+
+  <!-- ── Env reference table ── -->
+  <h2>Environment Variable Reference</h2>
+  <div class="env-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Required?</th>
+          <th>What breaks without it</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="var-name">DIGITALOCEAN_DATABASE_URL</span><br><em style="font-size:0.78rem;color:#64748b">or <span class="var-name">DATABASE_URL</span></em></td>
+          <td><span class="badge badge-req">Required</span></td>
+          <td>App refuses to start — no database connection</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">SESSION_SECRET</span></td>
+          <td><span class="badge badge-req">Required</span></td>
+          <td>Login sessions can't be signed; all logins fail</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">SIGNSUITEIQ_SSO_SECRET</span></td>
+          <td><span class="badge badge-req">Required</span></td>
+          <td>CompanyCam API tokens can't be encrypted or decrypted</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">OPENAI_API_KEY</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>AI image tagging, install-time scheduling, and PDF parsing are disabled</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">DO_SPACES_KEY</span> + <span class="var-name">DO_SPACES_SECRET</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Photo and file uploads fail (app still loads)</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">SMTP_USER</span> + <span class="var-name">SMTP_PASS</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Emails (welcome, schedule, survey PDFs) are not sent</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">RAZORPAY_KEY_ID</span> + <span class="var-name">RAZORPAY_KEY_SECRET</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Subscription payment flows fail</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">OPENWEATHER_API_KEY</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Weather strip on the calendar is blank</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">GOOGLE_CLIENT_ID</span> + <span class="var-name">GOOGLE_CLIENT_SECRET</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Google Calendar sync is disabled</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">SENDGRID_API_KEY</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>SendGrid email sender verification unavailable</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">BASE_URL</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Links inside emails point to the wrong host</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">OPENAI_ASSISTANT_ID</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Master AI assistant falls back to default GPT-4o completions</td>
+        </tr>
+        <tr>
+          <td><span class="var-name">DO_SPACES_ENDPOINT</span> / <span class="var-name">DO_SPACES_BUCKET</span> / <span class="var-name">DO_SPACES_CDN_URL</span></td>
+          <td><span class="badge badge-opt">Optional</span></td>
+          <td>Default to the production Spaces values — only override if using a different bucket</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Tips ── -->
+  <h2>Tips &amp; Common Issues</h2>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <div>
+      <strong>Check the startup log.</strong> When you run <code>npm run dev</code> the server
+      prints an environment report listing every missing variable. Read that output first if
+      something isn't working.
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">🔑</span>
+    <div>
+      <strong><code>SIGNSUITEIQ_SSO_SECRET</code> must match production.</strong>
+      This key is used to AES-256-GCM encrypt CompanyCam API tokens already stored in the
+      database. If it doesn't match, decryption will fail and CompanyCam integrations will
+      appear broken even though the tokens exist.
+    </div>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🛢️</span>
+    <div>
+      <strong>Local Postgres is the safest choice.</strong>
+      Restore a database dump from production for realistic data, or start fresh and create a
+      super-admin account through the seeder. Either way you won't risk touching live records.
+    </div>
+  </div>
+
+  <ul>
+    <li>
+      <strong>Port conflict?</strong> The app defaults to port <code>5000</code>.
+      Set <code>PORT=3000</code> (or any free port) in your <code>.env</code> to change it.
+    </li>
+    <li>
+      <strong>SSL errors with local Postgres?</strong> Use <code>DATABASE_URL</code>
+      (not <code>DIGITALOCEAN_DATABASE_URL</code>) — the app only enables SSL for the
+      DigitalOcean connection.
+    </li>
+    <li>
+      <strong>Schema out of date?</strong> Run <code>npm run db:push</code> after pulling
+      new changes that include schema updates.
+    </li>
+    <li>
+      <strong>File uploads not working locally?</strong> Either supply the DigitalOcean
+      Spaces credentials in <code>.env</code> or expect upload routes to return errors —
+      the rest of the app will still function normally.
+    </li>
+  </ul>
+
+</div><!-- /container -->
+
+<footer>
+  InstalliQ.ai &mdash; Internal developer documentation &mdash; <span id="year"></span>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function copyCode(btn) {
+    const pre = btn.closest("pre");
+    const text = pre.innerText.replace(/^Copy\n/, "").trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = "Copied!";
+      btn.classList.add("copied");
+      setTimeout(() => {
+        btn.textContent = "Copy";
+        btn.classList.remove("copied");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

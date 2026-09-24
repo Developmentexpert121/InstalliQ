@@ -1,0 +1,111 @@
+The plain-English explanation (what you mean)
+
+“We have one software platform, but multiple independent businesses use it. Each business should be isolated from the others (data + users). Within a business, they may have multiple locations, and each location has its own users and admins. Users should only see what they’re allowed to see based on their business and location.”
+
+Key concepts and terms (use these words)
+
+Tenant = a business/customer account (e.g., “FASTSIGNS Waltham” is one tenant)
+
+Location / Site = a branch within a tenant (e.g., Waltham / Quincy / etc.)
+
+Users belong to exactly one tenant, and may belong to one or more locations inside that tenant
+
+Roles/Permissions determine what they can do (Admin vs Manager vs Installer vs Viewer, etc.)
+
+Isolation: data from Tenant A must never be visible to Tenant B
+
+The “requirements” you can send a developer
+1) Data separation rules
+
+Every record in the database that is tenant-owned must have a tenant_id
+
+Most records also need a location_id (if they are specific to a location)
+
+All queries must be scoped by tenant_id (and often location_id) by default
+
+2) User & role model
+
+User has tenant_id
+
+User can be assigned:
+
+Tenant-level roles (can manage the whole tenant)
+
+Location-level roles (only within certain locations)
+
+Example roles:
+
+Tenant Owner / Tenant Admin: manage billing, create locations, manage all users, see everything in the tenant
+
+Location Admin: manage users/settings for only that location
+
+Standard User: can view/create jobs/photos only for assigned location(s)
+
+Read-only: can view but not edit
+
+3) Authentication & authorization behavior
+
+Login identifies the user and therefore their tenant_id
+
+After login:
+
+If user belongs to multiple locations, they either:
+
+pick a “current location” in the UI, or
+
+see a combined view across allowed locations
+
+Authorization checks must enforce:
+
+same tenant
+
+location membership (if location-scoped resource)
+
+role permissions
+
+4) Tenant-specific configuration (“each business has their own setup”)
+
+There are settings that should be stored per tenant (and sometimes per location), like:
+
+Branding/logo/colors
+
+Default pricing, workflows, job statuses
+
+Integrations (CompanyCam, QuickBooks, email settings, etc.)
+
+Notification rules
+This typically becomes:
+
+tenant_settings table
+
+location_settings table (optional override)
+
+A simple mental model diagram you can include
+
+Tenant (Business) → Locations → Users
+
+Tenant: “Customer Company”
+
+Locations: “Branch A / Branch B”
+
+Users: assigned to Tenant + one/more Locations
+
+Concrete database sketch (what devs like)
+
+tenants(id, name, plan, created_at)
+
+locations(id, tenant_id, name, address, ...)
+
+users(id, tenant_id, email, name, ...)
+
+user_locations(user_id, location_id) (many-to-many)
+
+roles(id, name, scope) where scope ∈ {tenant, location}
+
+user_roles(user_id, role_id, location_id NULLABLE)
+
+Business data tables (jobs, photos, invoices, etc.) include tenant_id and often location_id
+
+Example you can share (super clear)
+
+“FASTSIGNS Waltham is Tenant 101. They have two locations: Waltham (Loc 1) and Quincy (Loc 2). A Waltham installer user can only see jobs/photos in Loc 1. A tenant admin can see both locations and manage users across the tenant. No one in Tenant 101 can ever see anything from Tenant 202.”

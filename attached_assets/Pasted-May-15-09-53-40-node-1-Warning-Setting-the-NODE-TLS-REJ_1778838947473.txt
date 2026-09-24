@@ -1,0 +1,181 @@
+May 15 09:53:40  (node:1) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+May 15 09:53:40  (Use `node --trace-warnings ...` to show where the warning was created)
+May 15 09:53:40  
+May 15 09:53:40  > rest-express@1.0.0 start
+May 15 09:53:40  > NODE_ENV=production node dist/index.cjs
+May 15 09:53:40  
+May 15 09:53:42  Database: attempting DigitalOcean PostgreSQL...
+May 15 09:53:42  Non-Replit environment detected, skipping Replit Object Storage initialization
+May 15 09:53:42  
+May 15 09:53:42  === Environment: PRODUCTION ===
+May 15 09:53:42  
+May 15 09:53:42  ✓ All required environment variables are set
+May 15 09:53:42  
+May 15 09:53:42  Database: connection attempt 1/3 to DigitalOcean...
+May 15 09:53:42  9:53:42 AM [express] serving on port 8080
+May 15 09:53:42  (node:29) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+May 15 09:53:42  (Use `node --trace-warnings ...` to show where the warning was created)
+May 15 09:53:42  Database: connected to DigitalOcean PostgreSQL
+May 15 09:53:42  [AutoMigrate] Checking database schema...
+May 15 09:53:42  [AutoMigrate] Tables already exist, checking for missing columns...
+May 15 09:53:43  [AutoMigrate] Added missing column: admin_subscriptions.plan_notification
+May 15 09:53:43  [AutoMigrate] ✓ Index ensured: assets_gdrive_dedup
+May 15 09:53:43  [AutoMigrate] ✓ Index ensured: assets_installiq_dedup
+May 15 09:53:43  [Seeder] Running seeders...
+May 15 09:53:43  [Seeder] Schema migrations complete — 29/29 statements executed
+May 15 09:53:43  [Seeder] Reset password for super admin: developmentexpert121@gmail.com
+May 15 09:53:43  [Seeder] Reset password for super admin: vjkalwani@gmail.com
+May 15 09:53:43  [Seeder] Reset password for super admin: mehta.shishir@gmail.com
+May 15 09:53:43  [Seeder] Reset password for admin: saniyatanyal1@gmail.com
+May 15 09:53:44  [Seeder] Reset password for admin: vjkalwani@yahoo.com
+May 15 09:53:44  [Seeder] Deduplicated global_tags (kept lowest id per name)
+May 15 09:53:44  [Seeder] Ensured unique index on global_tags.name
+May 15 09:53:44  [Seeder] Added 0 new default global tags
+May 15 09:53:44  [Seeder] Ensured asset_manager_access enabled for saniyatanyal1@gmail.com (id=4)
+May 15 09:53:44  [Seeder] Ensured asset_manager_access enabled for vjkalwani@yahoo.com (id=35)
+May 15 09:53:44  [Seeder] Added 22 global tags to asset_tag_library for admin setiashivam351@gmail.com (id=54)
+May 15 09:53:44  [Seeder] asset_tag_library sync complete — 22 tags added across 12 admin(s)
+May 15 09:53:44  [Seeder] Seeders complete
+May 15 09:53:44  [Startup] Cleared any stale CompanyCam sync states
+May 15 09:53:45  9:53:45 AM [express] Application fully initialized
+May 15 09:53:45  [Scheduler] Starting — will run tasks every 1 hour
+May 15 09:53:45  [Scheduler] Running hourly tasks...
+May 15 09:53:45  [Scheduler] Weather refresh: updating 11 upcoming job(s)
+May 15 09:53:45  Geocoding address: 
+May 15 09:53:45  Geocoding: No results found for 
+May 15 09:53:45  Geocoding address:  140 Kendrick St Needham, MA 02494
+May 15 09:53:45  Geocoding: No results found for  140 Kendrick St Needham, MA 02494
+May 15 09:53:45  Geocoding address: 777 Dedham st, Newton, MA 02459, US
+May 15 09:53:45  Geocoded via city/state: Newton,MA,US -> 42.3370414 -71.2092214
+May 15 09:53:45  Geocoding address: 
+May 15 09:53:45  Geocoding: No results found for 
+May 15 09:53:45  Geocoding address: 
+May 15 09:53:45  Geocoding: No results found for 
+May 15 09:53:45  Geocoding address: 100 Clarendon St, Boston, MA 02116, US
+May 15 09:53:45  Geocoded via city/state: Boston,MA,US -> 42.3554334 -71.060511
+May 15 09:53:45  Geocoding address: 55 Wheeler St, Cambridge, MA 02138, US
+May 15 09:53:45  Geocoded via city/state: Cambridge,MA,US -> 42.3656347 -71.1040018
+May 15 09:53:45  Geocoding address: 	1000 Winter St, Waltham, MA 02451
+May 15 09:53:45  Geocoding: No results found for 	1000 Winter St, Waltham, MA 02451
+May 15 09:53:45  Geocoding address: 200 Clarendon St, Boston, MA 02116, US
+May 15 09:53:45  Geocoded via city/state: Boston,MA,US -> 42.3554334 -71.060511
+May 15 09:53:45  Geocoding address: 211 Massachusetts Ave, Cambridge, MA 02139, US
+May 15 09:53:45  Geocoded via city/state: Cambridge,MA,US -> 42.3656347 -71.1040018
+May 15 09:53:45  Geocoding address: 100A Middle St. Manchester, NH 03101
+May 15 09:53:45  Geocoding: No results found for 100A Middle St. Manchester, NH 03101
+May 15 09:53:45  [Scheduler] Weather refresh complete: 5/11 updated
+May 15 09:53:45  [Scheduler] Escalation: no past-due SCHEDULED jobs found
+May 15 09:53:45  [Scheduler] Hourly tasks complete
+May 15 09:54:40  9:54:40 AM [express] GET /api/auth/me 200 in 17ms
+May 15 09:54:42  9:54:42 AM [express] GET /api/reschedule-requests 304 in 47ms
+May 15 09:54:42  9:54:42 AM [express] GET /api/settings/subscription-gate 304 in 30ms
+May 15 09:54:42  9:54:42 AM [express] GET /api/asset-manager/my-access 304 in 31ms
+May 15 09:54:42  9:54:42 AM [express] GET /api/subscription/plans 304 in 80ms
+May 15 09:54:42  9:54:42 AM [express] GET /api/subscription/my-subscription 200 in 90ms
+May 15 09:54:43  9:54:43 AM [express] GET /api/global-tags 304 in 17ms
+May 15 09:54:43  9:54:43 AM [express] GET /api/owner-tags 304 in 23ms
+May 15 09:54:44  9:54:44 AM [express] GET /api/projects 304 in 51ms
+May 15 09:54:46  9:54:46 AM [express] GET /api/projects/27 304 in 16ms
+May 15 09:54:51  Error uploading to DigitalOcean Spaces: InvalidAccessKeyId: UnknownError
+May 15 09:54:51      at Ra.getErrorSchemaOrThrowBaseException (/workspace/dist/index.cjs:459:32684)
+May 15 09:54:51      at xC.handleError (/workspace/dist/index.cjs:467:17414)
+May 15 09:54:51      at xC.deserializeResponse (/workspace/dist/index.cjs:448:19152)
+May 15 09:54:51      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:54:51      at async /workspace/dist/index.cjs:445:5819
+May 15 09:54:51      at async /workspace/dist/index.cjs:468:2779
+May 15 09:54:51      at async /workspace/dist/index.cjs:469:10400
+May 15 09:54:51      at async /workspace/dist/index.cjs:467:39216
+May 15 09:54:51      at async /workspace/dist/index.cjs:467:49854
+May 15 09:54:51      at async /workspace/dist/index.cjs:467:50223 {
+May 15 09:54:51    '$fault': 'client',
+May 15 09:54:51    '$retryable': undefined,
+May 15 09:54:51    '$metadata': {
+May 15 09:54:51      httpStatusCode: 403,
+May 15 09:54:51      requestId: 'tx000002b6df78253720311-006a06ed6b-2a9ccf7-nyc3e',
+May 15 09:54:51      extendedRequestId: undefined,
+May 15 09:54:51      cfId: undefined,
+May 15 09:54:51      attempts: 1,
+May 15 09:54:51      totalRetryDelay: 0
+May 15 09:54:51    },
+May 15 09:54:51    Code: 'InvalidAccessKeyId',
+May 15 09:54:51    RequestId: 'tx000002b6df78253720311-006a06ed6b-2a9ccf7-nyc3e',
+May 15 09:54:51    HostId: '2a9ccf7-nyc3e-nyc3-zg05'
+May 15 09:54:51  }
+May 15 09:54:51  Error uploading project images: InvalidAccessKeyId: UnknownError
+May 15 09:54:51      at Ra.getErrorSchemaOrThrowBaseException (/workspace/dist/index.cjs:459:32684)
+May 15 09:54:51      at xC.handleError (/workspace/dist/index.cjs:467:17414)
+May 15 09:54:51      at xC.deserializeResponse (/workspace/dist/index.cjs:448:19152)
+May 15 09:54:51      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:54:51      at async /workspace/dist/index.cjs:445:5819
+May 15 09:54:51      at async /workspace/dist/index.cjs:468:2779
+May 15 09:54:51      at async /workspace/dist/index.cjs:469:10400
+May 15 09:54:51      at async /workspace/dist/index.cjs:467:39216
+May 15 09:54:51      at async /workspace/dist/index.cjs:467:49854
+May 15 09:54:51      at async /workspace/dist/index.cjs:467:50223 {
+May 15 09:54:51    '$fault': 'client',
+May 15 09:54:51    '$retryable': undefined,
+May 15 09:54:51    '$metadata': {
+May 15 09:54:51      httpStatusCode: 403,
+May 15 09:54:51      requestId: 'tx000002b6df78253720311-006a06ed6b-2a9ccf7-nyc3e',
+May 15 09:54:51      extendedRequestId: undefined,
+May 15 09:54:51      cfId: undefined,
+May 15 09:54:51      attempts: 1,
+May 15 09:54:51      totalRetryDelay: 0
+May 15 09:54:51    },
+May 15 09:54:51    Code: 'InvalidAccessKeyId',
+May 15 09:54:51    RequestId: 'tx000002b6df78253720311-006a06ed6b-2a9ccf7-nyc3e',
+May 15 09:54:51    HostId: '2a9ccf7-nyc3e-nyc3-zg05'
+May 15 09:54:51  }
+May 15 09:54:51  9:54:51 AM [express] POST /api/projects/27/images 500 in 1134ms
+May 15 09:55:02  Error uploading to DigitalOcean Spaces: InvalidAccessKeyId: UnknownError
+May 15 09:55:02      at Ra.getErrorSchemaOrThrowBaseException (/workspace/dist/index.cjs:459:32684)
+May 15 09:55:02      at xC.handleError (/workspace/dist/index.cjs:467:17414)
+May 15 09:55:02      at xC.deserializeResponse (/workspace/dist/index.cjs:448:19152)
+May 15 09:55:02      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:55:02      at async /workspace/dist/index.cjs:445:5819
+May 15 09:55:02      at async /workspace/dist/index.cjs:468:2779
+May 15 09:55:02      at async /workspace/dist/index.cjs:469:10400
+May 15 09:55:02      at async /workspace/dist/index.cjs:467:39216
+May 15 09:55:02      at async /workspace/dist/index.cjs:467:49854
+May 15 09:55:02      at async /workspace/dist/index.cjs:467:50223 {
+May 15 09:55:02    '$fault': 'client',
+May 15 09:55:02    '$retryable': undefined,
+May 15 09:55:02    '$metadata': {
+May 15 09:55:02      httpStatusCode: 403,
+May 15 09:55:02      requestId: 'tx00000c80d1df28a211d49-006a06ed76-2aaa0f6-nyc3e',
+May 15 09:55:02      extendedRequestId: undefined,
+May 15 09:55:02      cfId: undefined,
+May 15 09:55:02      attempts: 1,
+May 15 09:55:02      totalRetryDelay: 0
+May 15 09:55:02    },
+May 15 09:55:02    Code: 'InvalidAccessKeyId',
+May 15 09:55:02    RequestId: 'tx00000c80d1df28a211d49-006a06ed76-2aaa0f6-nyc3e',
+May 15 09:55:02    HostId: '2aaa0f6-nyc3e-nyc3-zg05'
+May 15 09:55:02  }
+May 15 09:55:02  Error uploading project images: InvalidAccessKeyId: UnknownError
+May 15 09:55:02      at Ra.getErrorSchemaOrThrowBaseException (/workspace/dist/index.cjs:459:32684)
+May 15 09:55:02      at xC.handleError (/workspace/dist/index.cjs:467:17414)
+May 15 09:55:02      at xC.deserializeResponse (/workspace/dist/index.cjs:448:19152)
+May 15 09:55:02      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 09:55:02      at async /workspace/dist/index.cjs:445:5819
+May 15 09:55:02      at async /workspace/dist/index.cjs:468:2779
+May 15 09:55:02      at async /workspace/dist/index.cjs:469:10400
+May 15 09:55:02      at async /workspace/dist/index.cjs:467:39216
+May 15 09:55:02      at async /workspace/dist/index.cjs:467:49854
+May 15 09:55:02      at async /workspace/dist/index.cjs:467:50223 {
+May 15 09:55:02    '$fault': 'client',
+May 15 09:55:02    '$retryable': undefined,
+May 15 09:55:02    '$metadata': {
+May 15 09:55:02      httpStatusCode: 403,
+May 15 09:55:02      requestId: 'tx00000c80d1df28a211d49-006a06ed76-2aaa0f6-nyc3e',
+May 15 09:55:02      extendedRequestId: undefined,
+May 15 09:55:02      cfId: undefined,
+May 15 09:55:02      attempts: 1,
+May 15 09:55:02      totalRetryDelay: 0
+May 15 09:55:02    },
+May 15 09:55:02    Code: 'InvalidAccessKeyId',
+May 15 09:55:02    RequestId: 'tx00000c80d1df28a211d49-006a06ed76-2aaa0f6-nyc3e',
+May 15 09:55:02    HostId: '2aaa0f6-nyc3e-nyc3-zg05'
+May 15 09:55:02  }
+May 15 09:55:02  9:55:02 AM [express] POST /api/projects/27/images 500 in 264ms
+May 15 09:55:12  9:55:12 AM [express] GET /api/reschedule-requests 304 in 22ms

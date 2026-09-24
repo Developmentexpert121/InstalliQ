@@ -1,0 +1,3 @@
+- [Calendar timezone double-conversion](calendar-tz-double-conversion.md) — synthetic calendar event `date` fields must be plain UTC instants; views re-apply toEST, so never store pre-zoned dates.
+- [Dual schema migration paths](dual-schema-migration-paths.md) — new DB columns must be added in BOTH auto-migrate.ts and seeders.ts (CREATE TABLE + ALTER list) or prod breaks with Postgres 42703.
+- [Dev server route timing](dev-server-route-timing.md) — backend has no watch (restart needed); routes register only after seeders (~1 min), so `/api/*` 404s right after restart are expected, not bugs.

@@ -1,0 +1,356 @@
+May 15 07:44:02  (node:1) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+May 15 07:44:02  (Use `node --trace-warnings ...` to show where the warning was created)
+May 15 07:44:02  
+May 15 07:44:02  > rest-express@1.0.0 start
+May 15 07:44:02  > NODE_ENV=production node dist/index.cjs
+May 15 07:44:02  
+May 15 07:44:03  Database: attempting DigitalOcean PostgreSQL...
+May 15 07:44:04  Non-Replit environment detected, skipping Replit Object Storage initialization
+May 15 07:44:04  
+May 15 07:44:04  === Environment: PRODUCTION ===
+May 15 07:44:04  
+May 15 07:44:04  ✓ All required environment variables are set
+May 15 07:44:04  
+May 15 07:44:04  Database: connection attempt 1/3 to DigitalOcean...
+May 15 07:44:04  7:44:04 AM [express] serving on port 8080
+May 15 07:44:04  (node:29) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+May 15 07:44:04  (Use `node --trace-warnings ...` to show where the warning was created)
+May 15 07:44:04  Database: connected to DigitalOcean PostgreSQL
+May 15 07:44:04  [AutoMigrate] Checking database schema...
+May 15 07:44:04  [AutoMigrate] Tables already exist, checking for missing columns...
+May 15 07:44:04  [AutoMigrate] ✓ Index ensured: assets_gdrive_dedup
+May 15 07:44:04  [AutoMigrate] ✓ Index ensured: assets_installiq_dedup
+May 15 07:44:04  [AutoMigrate] Schema is up to date
+May 15 07:44:04  [Seeder] Running seeders...
+May 15 07:44:04  [Seeder] Schema migrations complete — 29/29 statements executed
+May 15 07:44:05  [Seeder] Reset password for super admin: developmentexpert121@gmail.com
+May 15 07:44:05  [Seeder] Reset password for super admin: vjkalwani@gmail.com
+May 15 07:44:05  [Seeder] Reset password for super admin: mehta.shishir@gmail.com
+May 15 07:44:05  [Seeder] Reset password for admin: saniyatanyal1@gmail.com
+May 15 07:44:05  [Seeder] Reset password for admin: vjkalwani@yahoo.com
+May 15 07:44:05  [Seeder] Deduplicated global_tags (kept lowest id per name)
+May 15 07:44:05  [Seeder] Ensured unique index on global_tags.name
+May 15 07:44:05  [Seeder] Added 0 new default global tags
+May 15 07:44:05  [Seeder] Ensured asset_manager_access enabled for saniyatanyal1@gmail.com (id=29)
+May 15 07:44:05  [Seeder] Ensured asset_manager_access enabled for vjkalwani@yahoo.com (id=57)
+May 15 07:44:07  [Seeder] asset_tag_library already up to date for all admins
+May 15 07:44:07  [Seeder] Seeders complete
+May 15 07:44:07  [Startup] Cleared any stale CompanyCam sync states
+May 15 07:44:07  7:44:07 AM [express] Application fully initialized
+May 15 07:44:07  [Scheduler] Starting — will run tasks every 1 hour
+May 15 07:44:07  [Scheduler] Running hourly tasks...
+May 15 07:44:07  [Scheduler] Weather refresh: no upcoming jobs with addresses found
+May 15 07:44:07  [Scheduler] Escalation: no past-due SCHEDULED jobs found
+May 15 07:44:07  [Scheduler] Hourly tasks complete
+May 15 07:44:43  7:44:43 AM [express] GET /api/reschedule-requests 304 in 37ms
+May 15 07:44:45  7:44:45 AM [express] GET /api/auth/me 200 in 14ms
+May 15 07:44:45  7:44:45 AM [express] GET /api/auth/me 401 in 1ms
+May 15 07:44:46  7:44:46 AM [express] GET /api/auth/me 200 in 13ms
+May 15 07:44:46  7:44:46 AM [express] GET /api/reschedule-requests 304 in 26ms
+May 15 07:44:47  7:44:47 AM [express] GET /api/global-tags 304 in 21ms
+May 15 07:44:47  7:44:47 AM [express] GET /api/settings/subscription-gate 304 in 82ms
+May 15 07:44:47  7:44:47 AM [express] GET /api/asset-manager/my-access 304 in 93ms
+May 15 07:44:47  7:44:47 AM [express] GET /api/projects/195 304 in 97ms
+May 15 07:44:47  7:44:47 AM [express] GET /api/owner-tags 304 in 19ms
+May 15 07:44:47  7:44:47 AM [express] GET /api/subscription/my-subscription 304 in 39ms
+May 15 07:44:48  7:44:48 AM [express] GET /api/auth/google/available 200 in 5ms
+May 15 07:44:58  Error uploading to DigitalOcean Spaces: NoSuchBucket: The specified bucket does not exist
+May 15 07:44:58      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 07:44:58      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 07:44:58      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 07:44:58      at async /workspace/dist/index.cjs:445:5819
+May 15 07:44:58      at async /workspace/dist/index.cjs:468:2779
+May 15 07:44:58      at async /workspace/dist/index.cjs:469:10400
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:39216
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:49854
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:50223
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:43731 {
+May 15 07:44:58    '$fault': 'client',
+May 15 07:44:58    '$retryable': undefined,
+May 15 07:44:58    '$metadata': {
+May 15 07:44:58      httpStatusCode: 404,
+May 15 07:44:58      requestId: '3ee0204a-86f1-12737469',
+May 15 07:44:58      extendedRequestId: undefined,
+May 15 07:44:58      cfId: undefined,
+May 15 07:44:58      attempts: 1,
+May 15 07:44:58      totalRetryDelay: 0
+May 15 07:44:58    },
+May 15 07:44:58    Code: 'NoSuchBucket',
+May 15 07:44:58    Resource: 'installiq.installiq/uploads/1778831098488-332386974.png',
+May 15 07:44:58    RequestId: 'not available'
+May 15 07:44:58  }
+May 15 07:44:58  Error uploading project images: NoSuchBucket: The specified bucket does not exist
+May 15 07:44:58      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 07:44:58      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 07:44:58      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 07:44:58      at async /workspace/dist/index.cjs:445:5819
+May 15 07:44:58      at async /workspace/dist/index.cjs:468:2779
+May 15 07:44:58      at async /workspace/dist/index.cjs:469:10400
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:39216
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:49854
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:50223
+May 15 07:44:58      at async /workspace/dist/index.cjs:467:43731 {
+May 15 07:44:58    '$fault': 'client',
+May 15 07:44:58    '$retryable': undefined,
+May 15 07:44:58    '$metadata': {
+May 15 07:44:58      httpStatusCode: 404,
+May 15 07:44:58      requestId: '3ee0204a-86f1-12737469',
+May 15 07:44:58      extendedRequestId: undefined,
+May 15 07:44:58      cfId: undefined,
+May 15 07:44:58      attempts: 1,
+May 15 07:44:58      totalRetryDelay: 0
+May 15 07:44:58    },
+May 15 07:44:58    Code: 'NoSuchBucket',
+May 15 07:44:58    Resource: 'installiq.installiq/uploads/1778831098488-332386974.png',
+May 15 07:44:58    RequestId: 'not available'
+May 15 07:44:58  }
+May 15 07:44:58  7:44:58 AM [express] POST /api/projects/195/images 500 in 325ms
+May 15 07:45:12  Error uploading to DigitalOcean Spaces: NoSuchBucket: The specified bucket does not exist
+May 15 07:45:12      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 07:45:12      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 07:45:12      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 07:45:12      at async /workspace/dist/index.cjs:445:5819
+May 15 07:45:12      at async /workspace/dist/index.cjs:468:2779
+May 15 07:45:12      at async /workspace/dist/index.cjs:469:10400
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:39216
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:49854
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:50223
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:43731 {
+May 15 07:45:12    '$fault': 'client',
+May 15 07:45:12    '$retryable': undefined,
+May 15 07:45:12    '$metadata': {
+May 15 07:45:12      httpStatusCode: 404,
+May 15 07:45:12      requestId: 'f27374d0-d974-11923450',
+May 15 07:45:12      extendedRequestId: undefined,
+May 15 07:45:12      cfId: undefined,
+May 15 07:45:12      attempts: 1,
+May 15 07:45:12      totalRetryDelay: 0
+May 15 07:45:12    },
+May 15 07:45:12    Code: 'NoSuchBucket',
+May 15 07:45:12    Resource: 'installiq.installiq/uploads/1778831111069-505647688.png',
+May 15 07:45:12    RequestId: 'not available'
+May 15 07:45:12  }
+May 15 07:45:12  Error uploading project images: NoSuchBucket: The specified bucket does not exist
+May 15 07:45:12      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 07:45:12      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 07:45:12      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 07:45:12      at async /workspace/dist/index.cjs:445:5819
+May 15 07:45:12      at async /workspace/dist/index.cjs:468:2779
+May 15 07:45:12      at async /workspace/dist/index.cjs:469:10400
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:39216
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:49854
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:50223
+May 15 07:45:12      at async /workspace/dist/index.cjs:467:43731 {
+May 15 07:45:12    '$fault': 'client',
+May 15 07:45:12    '$retryable': undefined,
+May 15 07:45:12    '$metadata': {
+May 15 07:45:12      httpStatusCode: 404,
+May 15 07:45:12      requestId: 'f27374d0-d974-11923450',
+May 15 07:45:12      extendedRequestId: undefined,
+May 15 07:45:12      cfId: undefined,
+May 15 07:45:12      attempts: 1,
+May 15 07:45:12      totalRetryDelay: 0
+May 15 07:45:12    },
+May 15 07:45:12    Code: 'NoSuchBucket',
+May 15 07:45:12    Resource: 'installiq.installiq/uploads/1778831111069-505647688.png',
+May 15 07:45:12    RequestId: 'not available'
+May 15 07:45:12  }
+May 15 07:45:12  7:45:12 AM [express] POST /api/projects/195/images 500 in 1086ms
+May 15 07:45:17  7:45:17 AM [express] GET /api/reschedule-requests 304 in 24ms
+May 15 08:44:07  [Scheduler] Running hourly tasks...
+May 15 08:44:07  [Scheduler] Weather refresh: no upcoming jobs with addresses found
+May 15 08:44:07  [Scheduler] Escalation: no past-due SCHEDULED jobs found
+May 15 08:44:07  [Scheduler] Hourly tasks complete
+May 15 08:46:03  8:46:03 AM [express] GET /api/projects/195 401 in 1ms
+May 15 08:46:03  8:46:03 AM [express] GET /api/reschedule-requests 401 in 1ms
+May 15 08:46:03  8:46:03 AM [express] GET /api/global-tags 401 in 1ms
+May 15 08:46:03  8:46:03 AM [express] GET /api/owner-tags 401 in 1ms
+May 15 08:46:03  8:46:03 AM [express] GET /api/asset-manager/my-access 401 in 2ms
+May 15 08:46:04  8:46:04 AM [express] GET /api/settings/subscription-gate 401 in 3ms
+May 15 08:46:05  8:46:05 AM [express] GET /api/auth/google/available 304 in 7ms
+May 15 08:46:06  8:46:06 AM [express] GET /api/subscription/my-subscription 401 in 1ms
+May 15 08:46:18  8:46:18 AM [express] GET /api/auth/me 401 in 1ms
+May 15 08:46:21  8:46:21 AM [express] GET /api/auth/google/available 304 in 7ms
+May 15 08:48:02  [LOGIN] Step 1: Parsing request body...
+May 15 08:48:02  [LOGIN] Step 2: Looking up user: saniyatanyal1@gmail.com
+May 15 08:48:02  [LOGIN] Step 3: User found (id: 29 ), verifying password...
+May 15 08:48:02  [LOGIN] Step 4: Password verified
+May 15 08:48:02  [LOGIN] Step 5: Setting session for user: 29
+May 15 08:48:02  [LOGIN] Step 6: Saving session...
+May 15 08:48:02  [LOGIN] Step 7: Session saved successfully
+May 15 08:48:02  [LOGIN] Step 8: Sending response
+May 15 08:48:02  8:48:02 AM [express] POST /api/auth/login 200 in 124ms
+May 15 08:48:02  8:48:02 AM [express] GET /api/reschedule-requests 304 in 34ms
+May 15 08:48:02  8:48:02 AM [express] GET /api/global-tags 304 in 135ms
+May 15 08:48:02  8:48:02 AM [express] GET /api/owner-tags 304 in 142ms
+May 15 08:48:02  8:48:02 AM [express] GET /api/asset-manager/my-access 304 in 133ms
+May 15 08:48:03  8:48:03 AM [express] GET /api/admin/assignable-users 304 in 41ms
+May 15 08:48:04  8:48:04 AM [express] GET /api/settings/subscription-gate 304 in 16ms
+May 15 08:48:04  8:48:04 AM [express] GET /api/calendar-events 304 in 48ms
+May 15 08:48:06  8:48:06 AM [express] GET /api/auth/google/available 304 in 17ms
+May 15 08:48:06  8:48:06 AM [express] GET /api/weather/default-location 200 in 100ms
+May 15 08:48:07  8:48:07 AM [express] GET /api/calendar-filter-colors 304 in 17ms
+May 15 08:48:09  8:48:09 AM [express] GET /api/projects 304 in 36ms
+May 15 08:48:10  8:48:10 AM [express] GET /api/projects/189 200 in 18ms
+May 15 08:48:19  Error uploading to DigitalOcean Spaces: NoSuchBucket: The specified bucket does not exist
+May 15 08:48:19      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 08:48:19      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 08:48:19      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 08:48:19      at async /workspace/dist/index.cjs:445:5819
+May 15 08:48:19      at async /workspace/dist/index.cjs:468:2779
+May 15 08:48:19      at async /workspace/dist/index.cjs:469:10400
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:39216
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:49854
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:50223
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:43731 {
+May 15 08:48:19    '$fault': 'client',
+May 15 08:48:19    '$retryable': undefined,
+May 15 08:48:19    '$metadata': {
+May 15 08:48:19      httpStatusCode: 404,
+May 15 08:48:19      requestId: '8d8dacbe-ee50-22361991',
+May 15 08:48:19      extendedRequestId: undefined,
+May 15 08:48:19      cfId: undefined,
+May 15 08:48:19      attempts: 1,
+May 15 08:48:19      totalRetryDelay: 0
+May 15 08:48:19    },
+May 15 08:48:19    Code: 'NoSuchBucket',
+May 15 08:48:19    Resource: 'installiq.installiq/uploads/1778834896840-600999696.png',
+May 15 08:48:19    RequestId: 'not available'
+May 15 08:48:19  }
+May 15 08:48:19  Error uploading project images: NoSuchBucket: The specified bucket does not exist
+May 15 08:48:19      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 08:48:19      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 08:48:19      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 08:48:19      at async /workspace/dist/index.cjs:445:5819
+May 15 08:48:19      at async /workspace/dist/index.cjs:468:2779
+May 15 08:48:19      at async /workspace/dist/index.cjs:469:10400
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:39216
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:49854
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:50223
+May 15 08:48:19      at async /workspace/dist/index.cjs:467:43731 {
+May 15 08:48:19    '$fault': 'client',
+May 15 08:48:19    '$retryable': undefined,
+May 15 08:48:19    '$metadata': {
+May 15 08:48:19      httpStatusCode: 404,
+May 15 08:48:19      requestId: '8d8dacbe-ee50-22361991',
+May 15 08:48:19      extendedRequestId: undefined,
+May 15 08:48:19      cfId: undefined,
+May 15 08:48:19      attempts: 1,
+May 15 08:48:19      totalRetryDelay: 0
+May 15 08:48:19    },
+May 15 08:48:19    Code: 'NoSuchBucket',
+May 15 08:48:19    Resource: 'installiq.installiq/uploads/1778834896840-600999696.png',
+May 15 08:48:19    RequestId: 'not available'
+May 15 08:48:19  }
+May 15 08:48:19  8:48:19 AM [express] POST /api/projects/189/images 500 in 2382ms
+May 15 08:48:33  8:48:33 AM [express] GET /api/reschedule-requests 304 in 74ms
+May 15 08:48:35  8:48:35 AM [express] GET /api/auth/me 200 in 15ms
+May 15 08:48:35  8:48:35 AM [express] GET /api/subscription/my-subscription 304 in 36ms
+May 15 08:48:37  8:48:37 AM [express] GET /api/reschedule-requests 304 in 26ms
+May 15 08:48:37  8:48:37 AM [express] GET /api/settings/subscription-gate 304 in 21ms
+May 15 08:48:37  8:48:37 AM [express] GET /api/asset-manager/my-access 304 in 23ms
+May 15 08:48:37  8:48:37 AM [express] GET /api/subscription/my-subscription 200 in 52ms
+May 15 08:48:37  8:48:37 AM [express] GET /api/projects/189 304 in 73ms
+May 15 08:48:47  Error uploading to DigitalOcean Spaces: NoSuchBucket: The specified bucket does not exist
+May 15 08:48:47      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 08:48:47      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 08:48:47      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 08:48:47      at async /workspace/dist/index.cjs:445:5819
+May 15 08:48:47      at async /workspace/dist/index.cjs:468:2779
+May 15 08:48:47      at async /workspace/dist/index.cjs:469:10400
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:39216
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:49854
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:50223
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:43731 {
+May 15 08:48:47    '$fault': 'client',
+May 15 08:48:47    '$retryable': undefined,
+May 15 08:48:47    '$metadata': {
+May 15 08:48:47      httpStatusCode: 404,
+May 15 08:48:47      requestId: 'ef150251-4de6-22434967',
+May 15 08:48:47      extendedRequestId: undefined,
+May 15 08:48:47      cfId: undefined,
+May 15 08:48:47      attempts: 1,
+May 15 08:48:47      totalRetryDelay: 0
+May 15 08:48:47    },
+May 15 08:48:47    Code: 'NoSuchBucket',
+May 15 08:48:47    Resource: 'installiq.installiq/uploads/1778834926657-304293704.png',
+May 15 08:48:47    RequestId: 'not available'
+May 15 08:48:47  }
+May 15 08:48:47  Error uploading project images: NoSuchBucket: The specified bucket does not exist
+May 15 08:48:47      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 08:48:47      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 08:48:47      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 08:48:47      at async /workspace/dist/index.cjs:445:5819
+May 15 08:48:47      at async /workspace/dist/index.cjs:468:2779
+May 15 08:48:47      at async /workspace/dist/index.cjs:469:10400
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:39216
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:49854
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:50223
+May 15 08:48:47      at async /workspace/dist/index.cjs:467:43731 {
+May 15 08:48:47    '$fault': 'client',
+May 15 08:48:47    '$retryable': undefined,
+May 15 08:48:47    '$metadata': {
+May 15 08:48:47      httpStatusCode: 404,
+May 15 08:48:47      requestId: 'ef150251-4de6-22434967',
+May 15 08:48:47      extendedRequestId: undefined,
+May 15 08:48:47      cfId: undefined,
+May 15 08:48:47      attempts: 1,
+May 15 08:48:47      totalRetryDelay: 0
+May 15 08:48:47    },
+May 15 08:48:47    Code: 'NoSuchBucket',
+May 15 08:48:47    Resource: 'installiq.installiq/uploads/1778834926657-304293704.png',
+May 15 08:48:47    RequestId: 'not available'
+May 15 08:48:47  }
+May 15 08:48:47  8:48:47 AM [express] POST /api/projects/189/images 500 in 869ms
+May 15 08:48:57  Error uploading to DigitalOcean Spaces: NoSuchBucket: The specified bucket does not exist
+May 15 08:48:57      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 08:48:57      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 08:48:57      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 08:48:57      at async /workspace/dist/index.cjs:445:5819
+May 15 08:48:57      at async /workspace/dist/index.cjs:468:2779
+May 15 08:48:57      at async /workspace/dist/index.cjs:469:10400
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:39216
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:49854
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:50223
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:43731 {
+May 15 08:48:57    '$fault': 'client',
+May 15 08:48:57    '$retryable': undefined,
+May 15 08:48:57    '$metadata': {
+May 15 08:48:57      httpStatusCode: 404,
+May 15 08:48:57      requestId: 'ce27860f-eef6-23519323',
+May 15 08:48:57      extendedRequestId: undefined,
+May 15 08:48:57      cfId: undefined,
+May 15 08:48:57      attempts: 1,
+May 15 08:48:57      totalRetryDelay: 0
+May 15 08:48:57    },
+May 15 08:48:57    Code: 'NoSuchBucket',
+May 15 08:48:57    Resource: 'installiq.installiq/uploads/1778834937452-420598000.png',
+May 15 08:48:57    RequestId: 'not available'
+May 15 08:48:57  }
+May 15 08:48:57  Error uploading project images: NoSuchBucket: The specified bucket does not exist
+May 15 08:48:57      at xC.handleError (/workspace/dist/index.cjs:467:17609)
+May 15 08:48:57      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+May 15 08:48:57      at async xC.deserializeResponse (/workspace/dist/index.cjs:448:19141)
+May 15 08:48:57      at async /workspace/dist/index.cjs:445:5819
+May 15 08:48:57      at async /workspace/dist/index.cjs:468:2779
+May 15 08:48:57      at async /workspace/dist/index.cjs:469:10400
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:39216
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:49854
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:50223
+May 15 08:48:57      at async /workspace/dist/index.cjs:467:43731 {
+May 15 08:48:57    '$fault': 'client',
+May 15 08:48:57    '$retryable': undefined,
+May 15 08:48:57    '$metadata': {
+May 15 08:48:57      httpStatusCode: 404,
+May 15 08:48:57      requestId: 'ce27860f-eef6-23519323',
+May 15 08:48:57      extendedRequestId: undefined,
+May 15 08:48:57      cfId: undefined,
+May 15 08:48:57      attempts: 1,
+May 15 08:48:57      totalRetryDelay: 0
+May 15 08:48:57    },
+May 15 08:48:57    Code: 'NoSuchBucket',
+May 15 08:48:57    Resource: 'installiq.installiq/uploads/1778834937452-420598000.png',
+May 15 08:48:57    RequestId: 'not available'
+May 15 08:48:57  }
+May 15 08:48:57  8:48:57 AM [express] POST /api/projects/189/images 500 in 294ms
+May 15 08:49:08  8:49:08 AM [express] GET /api/reschedule-requests 304 in 24ms
